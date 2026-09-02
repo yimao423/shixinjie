@@ -1,0 +1,557 @@
+/* ============================================================
+   留言选择器弹窗 (Quote Picker)
+   ============================================================ */
+
+.quote-picker-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  z-index: 1600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-picker-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  width: 90vw;
+  max-width: 360px;
+  max-height: 70vh;
+  box-shadow: var(--shadow-lg);
+  animation: scale-in 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-picker-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.quote-picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.quote-picker-item {
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  padding: 14px 12px;
+  background: rgba(var(--primary-rgb, 255,50,88), 0.05);
+  border: 1px solid rgba(var(--primary-rgb, 255,50,88), 0.08);
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.quote-picker-item:hover,
+.quote-picker-item:active {
+  background: rgba(var(--primary-rgb, 255,50,88), 0.12);
+  border-color: rgba(var(--primary-rgb, 255,50,88), 0.2);
+}
+
+.quote-picker-item:active {
+  transform: scale(0.98);
+}
+
+.quote-picker-text {
+  font-size: 14px;
+  color: var(--text-dark);
+  line-height: 1.6;
+  display: block;
+}
+
+.quote-picker-random {
+  margin-top: 4px;
+  border-style: dashed;
+  border-color: rgba(var(--primary-rgb, 255,50,88), 0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--primary, #ff3258);
+  font-weight: 500;
+}
+
+.quote-picker-random i {
+  font-size: 14px;
+}
+
+/* ============================================================
+   挪动分组弹窗
+   ============================================================ */
+.move-group-picker-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  z-index: 1700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.move-group-picker-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  width: 90vw;
+  max-width: 320px;
+  max-height: 60vh;
+  box-shadow: var(--shadow-lg);
+  animation: scale-in 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.move-group-picker-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.move-group-picker-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.move-group-picker-item {
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  padding: 14px 12px;
+  background: rgba(var(--primary-rgb, 255,50,88), 0.05);
+  border: 1px solid rgba(var(--primary-rgb, 255,50,88), 0.08);
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.move-group-picker-item:hover,
+.move-group-picker-item:active {
+  background: rgba(var(--primary-rgb, 255,50,88), 0.12);
+  border-color: rgba(var(--primary-rgb, 255,50,88), 0.2);
+}
+
+.move-group-picker-item:active {
+  transform: scale(0.98);
+}
+
+.move-group-picker-icon {
+  font-size: 14px;
+  color: var(--primary, #ff3258);
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.move-group-picker-name {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* ============================================================
+   自定义玻璃拟态弹窗（添加字卡 / 添加分组）
+   ============================================================ */
+.card-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  z-index: 1700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-modal-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 20px 18px 16px;
+  width: 90vw;
+  max-width: 360px;
+  max-height: 85vh;
+  box-shadow: var(--shadow-lg);
+  animation: scale-in 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.card-modal-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 14px;
+  flex-shrink: 0;
+}
+
+.card-modal-row {
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.card-modal-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+.card-modal-static {
+  display: block;
+  font-size: 14px;
+  color: var(--text-medium);
+  padding: 8px 12px;
+  background: rgba(var(--primary-rgb, 184,220,240), 0.08);
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.card-modal-textarea,
+.card-modal-field {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-input);
+  border: var(--glass-border);
+  border-radius: 5px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text-dark);
+  outline: none;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.card-modal-textarea:focus,
+.card-modal-field:focus {
+  border-color: var(--primary, #B8DCF0);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb, 184,220,240), 0.15);
+}
+.card-modal-hint {
+  font-size: 0.75rem;
+  color: var(--text-light, #8890A0);
+  margin: 2px 0 10px;
+  text-align: left;
+}
+/* 字卡拍一拍：对方/我方 两区域展示 */
+.pat-parts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.pat-part {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(var(--primary-rgb, 184,220,240), 0.10);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+.pat-part-tag {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.pat-tag-other { background: #E890AC; }
+.pat-tag-self { background: #70A8E8; }
+.pat-part-text {
+  font-size: 0.85rem;
+  color: var(--text-dark, #3A4050);
+  word-break: break-all;
+}
+
+.card-modal-select {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-input);
+  border: var(--glass-border);
+  border-radius: 5px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text-dark);
+  outline: none;
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238890A0' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* 回车键分条 开关行 */
+.card-modal-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.card-modal-toggle-label {
+  font-size: 13px;
+  color: var(--text-medium);
+  font-weight: 500;
+}
+
+.card-modal-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 26px;
+  flex-shrink: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card-modal-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.card-modal-switch-slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--primary-rgb, 184,220,240), 0.25);
+  border-radius: 26px;
+  transition: background 0.25s;
+}
+
+.card-modal-switch-slider::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  transition: transform 0.25s;
+}
+
+.card-modal-switch input:checked + .card-modal-switch-slider {
+  background: var(--primary, #B8DCF0);
+}
+
+.card-modal-switch input:checked + .card-modal-switch-slider::after {
+  transform: translateX(18px);
+}
+
+.card-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  flex-shrink: 0;
+}
+
+.card-modal-btn {
+  flex: 1;
+  padding: 11px 0;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, opacity 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card-modal-btn:active {
+  opacity: 0.8;
+}
+
+.card-modal-btn-cancel {
+  background: var(--bg-input);
+  color: var(--text-medium);
+}
+
+.card-modal-btn-confirm {
+  background: var(--primary, #B8DCF0);
+  color: var(--text-on-primary, #fff);
+}
+
+/* ============================================================
+   表单弹窗 (Form Modal) - 替代浏览器原生 prompt
+   ============================================================ */
+
+.form-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  z-index: 1800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.form-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.form-modal-panel {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 22px 18px 16px;
+  width: 85vw;
+  max-width: 340px;
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  margin: auto;
+  box-shadow: var(--shadow-lg);
+  animation: scale-in 0.2s ease;
+}
+
+.form-modal-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.form-modal-field {
+  margin-bottom: 12px;
+}
+
+.form-modal-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+
+.form-modal-input {
+  width: 100%;
+  padding: 9px 14px;
+  background: var(--bg-input);
+  border: var(--glass-border);
+  border-radius: 5px;
+  font-size: 14px;
+  color: var(--text-dark);
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.form-modal-input:focus {
+  border-color: var(--primary);
+}
+
+.form-modal-input::placeholder {
+  color: var(--text-lighter);
+}
+
+.form-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.form-modal-cancel,
+.form-modal-confirm {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s, opacity 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.form-modal-cancel {
+  background: var(--bg-input);
+  color: var(--text-medium);
+}
+
+.form-modal-confirm {
+  background: var(--primary);
+  color: var(--text-on-primary);
+}
+
+.form-modal-confirm:active,
+.form-modal-cancel:active {
+  opacity: 0.8;
+}
+
+/* ============================================================
+   应用滑动区
+   ============================================================ */
+.app-swipe-wrapper {
+  margin-top: auto;
+  padding: 12px 0 16px;
+  position: relative;
+  overflow: hidden;
+  touch-action: pan-x;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.app-swipe-track {
+  display: flex;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.app-swipe-page {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 8px;
+  padding: 0 16px;
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+
+
