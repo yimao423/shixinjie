@@ -1,0 +1,1246 @@
+/* ==== theme.css ==== */
+/* ===== 拾心界 - 主题系统 CSS 变量 ===== */
+
+/* ================================================================
+   浅蓝色主题（默认）
+   ================================================================ */
+:root,
+[data-theme="default"] {
+  --primary: #B8DCF0;
+  --primary-rgb: 184,220,240;
+  --primary-light: #D8EEF8;
+  --panel-light: #F4F8FB;
+  --primary-dark: #98C0D8;
+  --primary-soft: #A6CAE4;
+  --primary-bg: #F0F6FA;
+
+  --accent: #D0C8E8;
+  --accent-rgb: 208,200,232;
+  --accent-light: #E8E0F5;
+  --accent-dark: #B0A8C8;
+
+  --bg-main: #F0F4F8;
+  --bg-card: rgba(255,255,255,0.55);
+  --bg-card-hover: rgba(255,255,255,0.75);
+  --bg-input: rgba(255,255,255,0.60);
+  --bg-overlay: rgba(225,220,230,0.80);
+  --bg-gradient: linear-gradient(160deg, #D8EEF8, #F0F6FA 55%, #E8F4FB);
+
+  --text-dark: #3A4050;
+  --text-medium: #606878;
+  --text-light: #8890A0;
+  --text-lighter: #B0B5C0;
+  --text-on-primary: #FFFFFF;
+
+  --border-light: rgba(255,255,255,0.65);
+  --border-medium: rgba(190,195,210,0.45);
+  --shadow-sm: 0 2px 8px rgba(160,170,190,0.06);
+  --shadow-md: 0 4px 16px rgba(160,170,190,0.08);
+  --shadow-lg: 0 8px 32px rgba(160,170,190,0.10), 0 2px 8px rgba(160,170,190,0.05);
+  --shadow-glow: 0 0 20px rgba(184,220,240,0.20);
+
+  --glass-bg: rgba(255,255,255,0.50);
+  --glass-border: 1px solid rgba(255,255,255,0.60);
+  --glass-blur: blur(10px);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+
+  --magic-rgb: 184,220,240;
+  --magic-color: #B8DCF0;
+  --magic-glow: rgba(184,220,240,0.30);
+
+  --nav-bg: rgba(255,255,255,0.70);
+  --nav-active: #B8DCF0;
+  --nav-inactive: #B0B5C0;
+  --nav-icon: #90A0B8;
+  --nav-icon-active-bg: rgba(184,220,240,0.55);
+  --nav-label-color: #8890A0;
+  --nav-label-active: #B8DCF0;
+  --nav-shadow-rgb: 160,170,190;
+
+  --bubble-self: #B8DCF0;
+  --bubble-self-text: #FFFFFF;
+  --bubble-other: rgba(245,245,248,1);
+  --bubble-other-text: #3A4050;
+
+  --statusbar-bg: rgba(255,255,255,0.55);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* 聊天气泡专属配色：仅默认浅蓝主题使用截图精确色（我方饱和蓝底白字白边、对方极浅蓝灰白底深字浅蓝边）
+   其他主题各自定义同名字变量，未定义时 pages-chat.css 回退到 --primary-dark/--primary-light 等 */
+[data-theme="default"] {
+  --chat-bubble-self-bg: #87C2ED;
+  --chat-bubble-self-text: #FFFFFF;
+  --chat-bubble-self-border: #FFFFFF;
+  --chat-bubble-other-bg: #F0F8FF;
+  --chat-bubble-other-text: #1B3B5C;
+  --chat-bubble-other-border: #B3D4F0;
+}
+
+/* ================================================================
+   浅粉色主题
+   ================================================================ */
+[data-theme="light-pink"] {
+  --primary: #F0C0D0;
+  --primary-rgb: 240,192,208;
+  --primary-light: #F8E0E8;
+  --panel-light: #F4F8FB;
+  --primary-dark: #D8A0B0;
+  --primary-soft: #E8B8CA;
+  --primary-bg: #FBF2F4;
+
+  --accent: #E8D0D8;
+  --accent-rgb: 232,208,216;
+  --accent-light: #F5E8EC;
+  --accent-dark: #C8B0B8;
+
+  --bg-main: #F8F0F2;
+  --bg-gradient: linear-gradient(160deg, #F8E0E8, #FBF2F4 55%, #F8E8EE);
+  --bg-card: rgba(255,255,255,0.55);
+  --bg-card-hover: rgba(255,255,255,0.75);
+  --bg-input: rgba(255,255,255,0.60);
+  --bg-overlay: rgba(235,225,228,0.80);
+
+  --text-dark: #402A30;
+  --text-medium: #685058;
+  --text-light: #907880;
+  --text-lighter: #B8A0A8;
+  --text-on-primary: #FFFFFF;
+
+  --border-light: rgba(255,255,255,0.65);
+  --border-medium: rgba(220,205,210,0.45);
+  --shadow-sm: 0 2px 8px rgba(200,170,180,0.06);
+  --shadow-md: 0 4px 16px rgba(200,170,180,0.08);
+  --shadow-lg: 0 8px 32px rgba(200,170,180,0.10), 0 2px 8px rgba(200,170,180,0.05);
+  --shadow-glow: 0 0 20px rgba(240,192,208,0.20);
+
+  --glass-bg: rgba(255,255,255,0.50);
+  --glass-border: 1px solid rgba(255,255,255,0.60);
+  --glass-blur: blur(10px);
+
+  --magic-rgb: 240,192,208;
+  --magic-color: #F0C0D0;
+  --magic-glow: rgba(240,192,208,0.30);
+
+  --nav-bg: rgba(255,255,255,0.70);
+  --nav-active: #F0C0D0;
+  --nav-inactive: #B8A0A8;
+  --nav-icon: #C098A8;
+  --nav-icon-active-bg: rgba(240,192,208,0.55);
+  --nav-label-color: #907880;
+  --nav-label-active: #F0C0D0;
+  --nav-shadow-rgb: 200,170,180;
+
+  --bubble-self: #F0C0D0;
+  --bubble-self-text: #FFFFFF;
+  --bubble-other: rgba(248,245,245,1);
+  --bubble-other-text: #402A30;
+
+  /* 聊天气泡：随本主题主色自适应（发送=深一档主色白字、接收=浅色底深字浅描边） */
+  /* 聊天气泡：明度对齐默认浅蓝（发送≈0.68、接收≈0.97），保留本主题色相 */
+  --chat-bubble-self-bg: #F2C3D1;
+  --chat-bubble-self-text: var(--text-dark);
+  --chat-bubble-self-border: #FFFFFF;
+  --chat-bubble-other-bg: #FCF3F6;
+  --chat-bubble-other-text: var(--text-dark);
+  --chat-bubble-other-border: var(--primary);
+
+  --statusbar-bg: rgba(255,255,255,0.55);
+}
+
+/* ================================================================
+   浅紫色主题
+   ================================================================ */
+[data-theme="light-purple"] {
+  --primary: #D8C0E8;
+  --primary-rgb: 216,192,232;
+  --primary-light: #EDE0F5;
+  --panel-light: #F4F8FB;
+  --primary-dark: #B8A0C8;
+  --primary-soft: #CCB4DE;
+  --primary-bg: #F6F0FA;
+
+  --accent: #E0D0F0;
+  --accent-rgb: 224,208,240;
+  --accent-light: #F0E8F8;
+  --accent-dark: #C0B0D0;
+
+  --bg-main: #F4F0F8;
+  --bg-gradient: linear-gradient(160deg, #EDE0F5, #F6F0FA 55%, #F0E8F8);
+  --bg-card: rgba(255,255,255,0.55);
+  --bg-card-hover: rgba(255,255,255,0.75);
+  --bg-input: rgba(255,255,255,0.60);
+  --bg-overlay: rgba(230,225,235,0.80);
+
+  --text-dark: #383048;
+  --text-medium: #605870;
+  --text-light: #888098;
+  --text-lighter: #B0A8B8;
+  --text-on-primary: #FFFFFF;
+
+  --border-light: rgba(255,255,255,0.65);
+  --border-medium: rgba(210,205,220,0.45);
+  --shadow-sm: 0 2px 8px rgba(180,170,200,0.06);
+  --shadow-md: 0 4px 16px rgba(180,170,200,0.08);
+  --shadow-lg: 0 8px 32px rgba(180,170,200,0.10), 0 2px 8px rgba(180,170,200,0.05);
+  --shadow-glow: 0 0 20px rgba(216,192,232,0.20);
+
+  --glass-bg: rgba(255,255,255,0.50);
+  --glass-border: 1px solid rgba(255,255,255,0.60);
+  --glass-blur: blur(10px);
+
+  --magic-rgb: 216,192,232;
+  --magic-color: #D8C0E8;
+  --magic-glow: rgba(216,192,232,0.30);
+
+  --nav-bg: rgba(255,255,255,0.70);
+  --nav-active: #D8C0E8;
+  --nav-inactive: #B0A8B8;
+  --nav-icon: #A898B8;
+  --nav-icon-active-bg: rgba(216,192,232,0.55);
+  --nav-label-color: #888098;
+  --nav-label-active: #D8C0E8;
+  --nav-shadow-rgb: 180,170,200;
+
+  --bubble-self: #D8C0E8;
+  --bubble-self-text: #FFFFFF;
+  --bubble-other: rgba(248,245,250,1);
+  --bubble-other-text: #383048;
+
+  /* 聊天气泡：随本主题主色自适应（发送=深一档主色白字、接收=浅色底深字浅描边） */
+  /* 聊天气泡：明度对齐默认浅蓝（发送≈0.68、接收≈0.97），保留本主题色相 */
+  --chat-bubble-self-bg: #CBB4DA;
+  --chat-bubble-self-text: var(--text-dark);
+  --chat-bubble-self-border: #FFFFFF;
+  --chat-bubble-other-bg: #F8F4FB;
+  --chat-bubble-other-text: var(--text-dark);
+  --chat-bubble-other-border: var(--primary);
+
+  --statusbar-bg: rgba(255,255,255,0.55);
+}
+
+/* ================================================================
+   浅红色主题
+   ================================================================ */
+[data-theme="light-red"] {
+  --primary: #F0B0B8;
+  --primary-rgb: 240,176,184;
+  --primary-light: #F8D8DC;
+  --panel-light: #F4F8FB;
+  --primary-dark: #D89098;
+  --primary-soft: #E6A8B0;
+  --primary-bg: #FBF2F2;
+
+  --accent: #F0C8D0;
+  --accent-rgb: 240,200,208;
+  --accent-light: #F8E0E4;
+  --accent-dark: #D0A8B0;
+
+  --bg-main: #FBF2F2;
+  --bg-gradient: linear-gradient(160deg, #F8D8DC, #FBF2F2 55%, #F8E0E2);
+  --bg-card: rgba(255,255,255,0.55);
+  --bg-card-hover: rgba(255,255,255,0.75);
+  --bg-input: rgba(255,255,255,0.60);
+  --bg-overlay: rgba(235,225,225,0.80);
+
+  --text-dark: #402828;
+  --text-medium: #685050;
+  --text-light: #907878;
+  --text-lighter: #B8A0A0;
+  --text-on-primary: #FFFFFF;
+
+  --border-light: rgba(255,255,255,0.65);
+  --border-medium: rgba(220,205,205,0.45);
+  --shadow-sm: 0 2px 8px rgba(200,160,160,0.06);
+  --shadow-md: 0 4px 16px rgba(200,160,160,0.08);
+  --shadow-lg: 0 8px 32px rgba(200,160,160,0.10), 0 2px 8px rgba(200,160,160,0.05);
+  --shadow-glow: 0 0 20px rgba(240,176,184,0.20);
+
+  --glass-bg: rgba(255,255,255,0.50);
+  --glass-border: 1px solid rgba(255,255,255,0.60);
+  --glass-blur: blur(10px);
+
+  --magic-rgb: 240,176,184;
+  --magic-color: #F0B0B8;
+  --magic-glow: rgba(240,176,184,0.30);
+
+  --nav-bg: rgba(255,255,255,0.70);
+  --nav-active: #F0B0B8;
+  --nav-inactive: #B8A0A0;
+  --nav-icon: #C09898;
+  --nav-icon-active-bg: rgba(240,176,184,0.55);
+  --nav-label-color: #907878;
+  --nav-label-active: #F0B0B8;
+  --nav-shadow-rgb: 200,160,160;
+
+  --bubble-self: #F0B0B8;
+  --bubble-self-text: #FFFFFF;
+  --bubble-other: rgba(248,245,245,1);
+  --bubble-other-text: #402828;
+
+  /* 聊天气泡：随本主题主色自适应（发送=深一档主色白字、接收=浅色底深字浅描边） */
+  /* 聊天气泡：明度对齐默认浅蓝（发送≈0.68、接收≈0.97），保留本主题色相 */
+  --chat-bubble-self-bg: #E6A8B0;
+  --chat-bubble-self-text: var(--text-dark);
+  --chat-bubble-self-border: #FFFFFF;
+  --chat-bubble-other-bg: #FDF2F3;
+  --chat-bubble-other-text: var(--text-dark);
+  --chat-bubble-other-border: var(--primary);
+
+  --statusbar-bg: rgba(255,255,255,0.55);
+}
+
+/* ================================================================
+   浅橙色主题
+   ================================================================ */
+[data-theme="light-orange"] {
+  --primary: #F5C898;
+  --primary-rgb: 245,200,152;
+  --primary-light: #FBE0C0;
+  --panel-light: #F4F8FB;
+  --primary-dark: #D8A870;
+  --primary-soft: #EABC94;
+  --primary-bg: #FBF5EE;
+
+  --accent: #F5D8B0;
+  --accent-rgb: 245,216,176;
+  --accent-light: #FBE8D0;
+  --accent-dark: #D8B888;
+
+  --bg-main: #FBF5F0;
+  --bg-gradient: linear-gradient(160deg, #FBE0C0, #FBF5EE 55%, #FBE8D0);
+  --bg-card: rgba(255,255,255,0.55);
+  --bg-card-hover: rgba(255,255,255,0.75);
+  --bg-input: rgba(255,255,255,0.60);
+  --bg-overlay: rgba(240,230,218,0.80);
+
+  --text-dark: #403020;
+  --text-medium: #685848;
+  --text-light: #908070;
+  --text-lighter: #B8A898;
+  --text-on-primary: #FFFFFF;
+
+  --border-light: rgba(255,255,255,0.65);
+  --border-medium: rgba(225,215,200,0.45);
+  --shadow-sm: 0 2px 8px rgba(200,180,150,0.06);
+  --shadow-md: 0 4px 16px rgba(200,180,150,0.08);
+  --shadow-lg: 0 8px 32px rgba(200,180,150,0.10), 0 2px 8px rgba(200,180,150,0.05);
+  --shadow-glow: 0 0 20px rgba(245,200,152,0.20);
+
+  --glass-bg: rgba(255,255,255,0.50);
+  --glass-border: 1px solid rgba(255,255,255,0.60);
+  --glass-blur: blur(10px);
+
+  --magic-rgb: 245,200,152;
+  --magic-color: #F5C898;
+  --magic-glow: rgba(245,200,152,0.30);
+
+  --nav-bg: rgba(255,255,255,0.70);
+  --nav-active: #F5C898;
+  --nav-inactive: #B8A898;
+  --nav-icon: #B89880;
+  --nav-icon-active-bg: rgba(245,200,152,0.55);
+  --nav-label-color: #908070;
+  --nav-label-active: #F5C898;
+  --nav-shadow-rgb: 200,180,150;
+
+  --bubble-self: #F5C898;
+  --bubble-self-text: #FFFFFF;
+  --bubble-other: rgba(250,248,242,1);
+  --bubble-other-text: #403020;
+
+  /* 聊天气泡：随本主题主色自适应（发送=深一档主色白字、接收=浅色底深字浅描边） */
+  /* 聊天气泡：明度对齐默认浅蓝（发送≈0.68、接收≈0.97），保留本主题色相 */
+  --chat-bubble-self-bg: #F9D0A4;
+  --chat-bubble-self-text: var(--text-dark);
+  --chat-bubble-self-border: #FFFFFF;
+  --chat-bubble-other-bg: #FEF8F1;
+  --chat-bubble-other-text: var(--text-dark);
+  --chat-bubble-other-border: var(--primary);
+
+  --statusbar-bg: rgba(255,255,255,0.55);
+}
+
+/* ================================================================
+   浅黄色主题
+   ================================================================ */
+[data-theme="light-yellow"] {
+  --primary: #F5E0A0;
+  --primary-rgb: 245,224,160;
+  --primary-light: #FBF0C8;
+  --panel-light: #F4F8FB;
+  --primary-dark: #D8C080;
+  --primary-soft: #EAD694;
+  --primary-bg: #FBF8F0;
+
+  --accent: #F5E8B8;
+  --accent-rgb: 245,232,184;
+  --accent-light: #FBF2D8;
+  --accent-dark: #D8C898;
+
+  --bg-main: #FBF8F0;
+  --bg-gradient: linear-gradient(160deg, #FBF0C8, #FBF8F0 55%, #FBF4D8);
+  --bg-card: rgba(255,255,255,0.55);
+  --bg-card-hover: rgba(255,255,255,0.75);
+  --bg-input: rgba(255,255,255,0.60);
+  --bg-overlay: rgba(242,238,222,0.80);
+
+  --text-dark: #403A18;
+  --text-medium: #686240;
+  --text-light: #908A68;
+  --text-lighter: #B8B090;
+  --text-on-primary: #FFFFFF;
+
+  --border-light: rgba(255,255,255,0.65);
+  --border-medium: rgba(228,222,200,0.45);
+  --shadow-sm: 0 2px 8px rgba(200,190,150,0.06);
+  --shadow-md: 0 4px 16px rgba(200,190,150,0.08);
+  --shadow-lg: 0 8px 32px rgba(200,190,150,0.10), 0 2px 8px rgba(200,190,150,0.05);
+  --shadow-glow: 0 0 20px rgba(245,224,160,0.20);
+
+  --glass-bg: rgba(255,255,255,0.50);
+  --glass-border: 1px solid rgba(255,255,255,0.60);
+  --glass-blur: blur(10px);
+
+  --magic-rgb: 245,224,160;
+  --magic-color: #F5E0A0;
+  --magic-glow: rgba(245,224,160,0.30);
+
+  --nav-bg: rgba(255,255,255,0.70);
+  --nav-active: #F5E0A0;
+  --nav-inactive: #B8B090;
+  --nav-icon: #B8A880;
+  --nav-icon-active-bg: rgba(245,224,160,0.55);
+  --nav-label-color: #908A68;
+  --nav-label-active: #F5E0A0;
+  --nav-shadow-rgb: 200,190,150;
+
+  --bubble-self: #F5E0A0;
+  --bubble-self-text: #FFFFFF;
+  --bubble-other: rgba(252,250,242,1);
+  --bubble-other-text: #403A18;
+
+  /* 聊天气泡：随本主题主色自适应（发送=深一档主色白字、接收=浅色底深字浅描边） */
+  /* 聊天气泡：明度对齐默认浅蓝（发送≈0.68、接收≈0.97），保留本主题色相 */
+  --chat-bubble-self-bg: #F5E3AC;
+  --chat-bubble-self-text: var(--text-dark);
+  --chat-bubble-self-border: #FFFFFF;
+  --chat-bubble-other-bg: #FEFAF1;
+  --chat-bubble-other-text: var(--text-dark);
+  --chat-bubble-other-border: var(--primary);
+
+  --statusbar-bg: rgba(255,255,255,0.55);
+}
+
+/* ================================================================
+   浅绿色主题
+   ================================================================ */
+[data-theme="light-green"] {
+  --primary: #B0D8C0;
+  --primary-rgb: 176,216,192;
+  --primary-light: #D8ECD8;
+  --panel-light: #F4F8FB;
+  --primary-dark: #90B8A0;
+  --primary-soft: #A6CAB4;
+  --primary-bg: #F0F8F2;
+
+  --accent: #C8E0D0;
+  --accent-rgb: 200,224,208;
+  --accent-light: #E0F0E4;
+  --accent-dark: #A8C0B0;
+
+  --bg-main: #F2F8F4;
+  --bg-gradient: linear-gradient(160deg, #D8ECD8, #F0F8F2 55%, #E0F0E4);
+  --bg-card: rgba(255,255,255,0.55);
+  --bg-card-hover: rgba(255,255,255,0.75);
+  --bg-input: rgba(255,255,255,0.60);
+  --bg-overlay: rgba(225,235,228,0.80);
+
+  --text-dark: #283830;
+  --text-medium: #506058;
+  --text-light: #788880;
+  --text-lighter: #A0B0A8;
+  --text-on-primary: #FFFFFF;
+
+  --border-light: rgba(255,255,255,0.65);
+  --border-medium: rgba(205,218,210,0.45);
+  --shadow-sm: 0 2px 8px rgba(160,190,170,0.06);
+  --shadow-md: 0 4px 16px rgba(160,190,170,0.08);
+  --shadow-lg: 0 8px 32px rgba(160,190,170,0.10), 0 2px 8px rgba(160,190,170,0.05);
+  --shadow-glow: 0 0 20px rgba(176,216,192,0.20);
+
+  --glass-bg: rgba(255,255,255,0.50);
+  --glass-border: 1px solid rgba(255,255,255,0.60);
+  --glass-blur: blur(10px);
+
+  --magic-rgb: 176,216,192;
+  --magic-color: #B0D8C0;
+  --magic-glow: rgba(176,216,192,0.30);
+
+  --nav-bg: rgba(255,255,255,0.70);
+  --nav-active: #B0D8C0;
+  --nav-inactive: #A0B0A8;
+  --nav-icon: #90A898;
+  --nav-icon-active-bg: rgba(176,216,192,0.55);
+  --nav-label-color: #788880;
+  --nav-label-active: #B0D8C0;
+  --nav-shadow-rgb: 160,190,170;
+
+  --bubble-self: #B0D8C0;
+  --bubble-self-text: #FFFFFF;
+  --bubble-other: rgba(245,248,245,1);
+  --bubble-other-text: #283830;
+
+  /* 聊天气泡：随本主题主色自适应（发送=深一档主色白字、接收=浅色底深字浅描边） */
+  /* 聊天气泡：明度对齐默认浅蓝（发送≈0.68、接收≈0.97），保留本主题色相 */
+  --chat-bubble-self-bg: #BFE0CB;
+  --chat-bubble-self-text: var(--text-dark);
+  --chat-bubble-self-border: #FFFFFF;
+  --chat-bubble-other-bg: #F5FAF7;
+  --chat-bubble-other-text: var(--text-dark);
+  --chat-bubble-other-border: var(--primary);
+
+  --statusbar-bg: rgba(255,255,255,0.55);
+}
+
+/* ================================================================
+   白色主题
+   ================================================================ */
+[data-theme="white"] {
+  /* 真·白色主题（黑白高对比）：背景纯白系、按钮/图标/高亮为黑色 */
+  --primary: #1A1A1A;
+  --primary-rgb: 26,26,26;
+  --primary-light: #444444;
+  --panel-light: #FAFAFA;
+  --primary-dark: #000000;
+  --primary-soft: #333333;
+  --primary-bg: #F9F9F9;
+
+  --accent: #2A2A2A;
+  --accent-rgb: 42,42,42;
+  --accent-light: #555555;
+  --accent-dark: #000000;
+
+  --bg-main: #FFFFFF;
+  --bg-gradient: linear-gradient(160deg, #FFFFFF, #FFFFFF 70%, #FFFFFF);
+  --bg-card: rgba(255,255,255,0.95);
+  --bg-card-hover: rgba(255,255,255,1.0);
+  --bg-input: rgba(255,255,255,0.98);
+  --bg-overlay: rgba(255,255,255,0.98);
+
+  --text-dark: #111111;
+  --text-medium: #3A3A3A;
+  --text-light: #6A6A6A;
+  --text-lighter: #AAAAAA;
+  --text-on-primary: #FFFFFF;
+
+  --border-light: rgba(0,0,0,0.08);
+  --border-medium: rgba(0,0,0,0.12);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.07);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.09);
+  --shadow-glow: 0 0 20px rgba(0,0,0,0.06);
+
+  --glass-bg: rgba(255,255,255,0.95);
+  --glass-border: 1px solid rgba(0,0,0,0.08);
+  --glass-blur: blur(10px);
+
+  --magic-rgb: 26,26,26;
+  --magic-color: #1A1A1A;
+  --magic-glow: rgba(0,0,0,0.10);
+
+  --nav-bg: rgba(255,255,255,0.96);
+  --nav-active: #1A1A1A;
+  --nav-inactive: #999999;
+  --nav-icon: #1A1A1A;
+  --nav-icon-active-bg: rgba(26,26,26,0.12);
+  --nav-label-color: #666666;
+  --nav-label-active: #1A1A1A;
+  --nav-shadow-rgb: 120,120,120;
+
+  /* 气泡：对方=白底深字，我方=黑底白字（黑白分明） */
+  --bubble-self: #1A1A1A;
+  --bubble-self-text: #FFFFFF;
+  --bubble-other: rgba(255,255,255,1);
+  --bubble-other-text: #111111;
+
+  /* 聊天气泡：随本主题主色自适应（发送=深一档主色白字、接收=浅色底深字浅描边） */
+  --chat-bubble-self-bg: #1A1A1A;
+  --chat-bubble-self-text: #FFFFFF;
+  --chat-bubble-self-border: #000000;
+  --chat-bubble-other-bg: #FFFFFF;
+  --chat-bubble-other-text: #111111;
+  --chat-bubble-other-border: #DEDEDE;
+
+  --statusbar-bg: rgba(255,255,255,0.96);
+}
+
+/* ================================================================
+   黑色主题
+   ================================================================ */
+[data-theme="black"] {
+  --primary: #5A5A6A;
+  --primary-rgb: 90,90,106;
+  --primary-light: #7A7A8A;
+  --panel-light: #282832;
+  --primary-dark: #404050;
+  --primary-soft: #6E6E80;
+  --primary-bg: #282832;
+
+  --accent: #707080;
+  --accent-rgb: 112,112,128;
+  --accent-light: #9090A0;
+  --accent-dark: #505060;
+
+  --bg-main: #2A2A32;
+  --bg-gradient: linear-gradient(160deg, #3A3A46, #282832 55%, #33333E);
+  --bg-card: rgba(40,40,50,0.80);
+  --bg-card-hover: rgba(50,50,60,0.88);
+  --bg-input: rgba(40,40,50,0.70);
+  --bg-overlay: rgba(24,24,32,0.88);
+
+  --text-dark: #E0E0E8;
+  --text-medium: #A0A0B0;
+  --text-light: #787888;
+  --text-lighter: #585868;
+  --text-on-primary: #E0E0E8;
+
+  --border-light: rgba(60,60,75,0.45);
+  --border-medium: rgba(50,50,65,0.55);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.30);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.40);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.50);
+  --shadow-glow: 0 0 20px rgba(90,90,106,0.12);
+
+  --glass-bg: rgba(40,40,50,0.80);
+  --glass-border: 1px solid rgba(60,60,75,0.35);
+  --glass-blur: blur(10px);
+
+  --magic-rgb: 90,90,106;
+  --magic-color: #5A5A6A;
+  --magic-glow: rgba(90,90,106,0.22);
+
+  --nav-bg: rgba(36,36,44,0.88);
+  --nav-active: #A0A0B8;
+  --nav-inactive: #585868;
+  --nav-icon: #9090A8;
+  --nav-icon-active-bg: rgba(90,90,106,0.55);
+  --nav-label-color: #787888;
+  --nav-label-active: #A0A0B8;
+  --nav-shadow-rgb: 40,40,50;
+
+  --bubble-self: #5A5A6A;
+  --bubble-self-text: #E0E0E8;
+  --bubble-other: rgba(45,45,55,1);
+  --bubble-other-text: #E0E0E8;
+
+  /* 聊天气泡：随本主题主色自适应（发送=深一档主色浅字、接收=浅色底浅字） */
+  /* 聊天气泡：明度对齐默认浅蓝（发送≈0.68、接收≈0.97），保留灰紫色相；浅字改深/白保证可读 */
+  --chat-bubble-self-bg: #B6B7C2;
+  --chat-bubble-self-text: #FFFFFF;
+  --chat-bubble-self-border: #FFFFFF;
+  --chat-bubble-other-bg: #F7F7F8;
+  --chat-bubble-other-text: #2A2A2A;
+  --chat-bubble-other-border: var(--primary);
+
+  --statusbar-bg: rgba(36,36,44,0.75);
+}
+
+/* ================================================================
+   UI 沉浸改造：顶栏/卡片/输入框背景与页面背景同色
+   （覆盖上方各主题的半透明白玻璃背景，实现无白底卡片沉浸效果）
+   ================================================================ */
+:root,
+[data-theme="default"],
+[data-theme="light-pink"],
+[data-theme="light-purple"],
+[data-theme="light-red"],
+[data-theme="light-orange"],
+[data-theme="light-yellow"],
+[data-theme="light-green"],
+[data-theme="white"],
+[data-theme="black"] {
+  --bg-card: transparent;
+  --bg-card-hover: rgba(255,255,255,0.08);
+  --bg-input: transparent;
+  --glass-bg: transparent;
+}
+
+
+
+
+/* ================================================================
+   沉浸收尾：顶栏统一沉浸 + 字卡/发现/设置卡片去描边、淡色
+   ================================================================ */
+/* 顶栏（聊天列表/字卡/发现/设置等子页）：与单人聊天界面一致，沉浸式、无色差。
+   说明：.top-nav/.page-header-center 为 sticky 吸顶，整页滚动时内容会从顶栏底下穿过；
+   若用透明背景，穿过的文字会透出与顶栏标题重合。故改为同源渐变 + background-attachment:fixed，
+   渐变相对视口固定渲染，与 .phone-frame 背景在像素级重合（视觉等效透明、无色差），
+   同时以实底遮挡穿过的滚动内容，实现“沉浸 + 不重合”。
+   .chat-list-header 为普通流内头部（非吸顶），保持透明即可。 */
+.top-nav,
+.page-header-center {
+  background: var(--bg-gradient, var(--bg-main, #f5f5f7)) !important;
+  background-attachment: fixed !important;
+  -webkit-background-attachment: fixed !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+}
+.chat-list-header {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+}
+
+/* ================================================================
+   字卡/发现/设置功能卡片：浅色系偏白底（浅色主题）；深色主题保持深色卡片
+   ================================================================ */
+:root,
+[data-theme="default"],
+[data-theme="light-pink"],
+[data-theme="light-purple"],
+[data-theme="light-red"],
+[data-theme="light-orange"],
+[data-theme="light-yellow"],
+[data-theme="light-green"],
+[data-theme="white"] {
+  --card-soft-bg: linear-gradient(rgba(255,255,255,0.50), rgba(255,255,255,0.50)), rgba(var(--primary-rgb), 0.14);
+  --card-soft-border: none;
+}
+[data-theme="black"] {
+  --card-soft-bg: rgba(42,42,52,0.50);
+  --card-soft-border: none;
+}
+
+/* 字卡/发现/设置功能卡片：统一偏白浅底（无描边），增加层次、减少视觉疲劳 */
+.discover-list,
+.settings-list,
+.word-card,
+.emoji-item,
+.emoji-category-tab,
+.daily-record,
+.daily-record .record-header,
+.whereabout-report,
+.custom-theme-box,
+.search-group-bar,
+.search-card-item,
+.card-list-item,
+.favorite-item,
+.favorites-group-count,
+.filter-tag,
+.whereabouts-hint,
+.sound-option,
+.splash-meaning {
+  border: var(--card-soft-border) !important;
+  background: var(--card-soft-bg) !important;
+}
+
+/* 选中/激活态：保留主题色高亮，不被上方偏白底覆盖 */
+.word-card-selected,
+.emoji-item.card-list-selected,
+.card-list-item.card-list-selected {
+  background: rgba(var(--primary-rgb), 0.18) !important;
+  border-color: var(--primary) !important;
+}
+.emoji-category-tab.active,
+.filter-tag.active {
+  background: var(--primary) !important;
+  border-color: var(--primary) !important;
+  color: #fff !important;
+}
+.sound-option.active {
+  background: rgba(var(--primary-rgb), 0.15) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+
+
+/* 聊天表情/加号面板沉浸：背景透明透出页面背景，与输入栏连接顺畅 */
+.sticker-panel,
+.plus-panel {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-top: none !important;
+}
+
+.sticker-panel-tabs {
+  border-bottom: none !important;
+}
+
+
+/* ===== 低功耗降级（性能优化第一批）：仅当 html.energy-saver 时生效，默认不触发，UI 不变 ===== */
+html.energy-saver .glass-card,
+html.energy-saver .glass-section,
+html.energy-saver .glass-input,
+html.energy-saver .glass-btn {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: rgba(255,255,255,0.86);
+}
+
+/* ===== 无障碍减弱动态（性能优化第二批 P1-3）：系统开启"减弱动态效果"时全局关闭动画 ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ================================================================
+   全局卡片统一收口（任务：所有页面卡片 50% 半透明白 + 无描边，仅阴影分层）
+   说明：
+   - 页面级卡片/容器：统一 --card-soft-bg（50% 半透明白 + 14% 主色）、无描边；
+   - 弹窗/浮层面板：保持实底可读（不改为 50%），仅去除描边；
+   - 按钮/输入框/标签/开关/头像/气泡等控件元素不在本次范围。
+   ================================================================ */
+:root,
+[data-theme="default"],
+[data-theme="light-pink"],
+[data-theme="light-purple"],
+[data-theme="light-red"],
+[data-theme="light-orange"],
+[data-theme="light-yellow"],
+[data-theme="light-green"],
+[data-theme="white"] {
+  --card-soft-bg: linear-gradient(rgba(255,255,255,0.50), rgba(255,255,255,0.50)), rgba(var(--primary-rgb), 0.14);
+}
+[data-theme="black"] {
+  --card-soft-bg: rgba(42,42,52,0.50);
+}
+
+/* —— 页面级卡片/容器：50% 半透明白底、无描边 —— */
+.glass-card,
+.glass-section,
+.bs-section,
+.bs-card,
+.chat-stats-section,
+.period-record-card .period-record-panel,
+.period-overview-card,
+.period-cal-card,
+.period-reminder-bubble,
+.quote-item,
+.anniv-modal-item,
+.mailbox-empty,
+.letter-note,
+.letter-editor-note,
+.letter-announce-option,
+.reply-target-note,
+.letter-settings-card,
+.detail-letter,
+.detail-reply-block,
+.mailbox-tabs,
+.mailbox-write-card,
+.letter-card-chip,
+.moment-card,
+.moments-publish-section,
+.moments-publish-bar,
+.moments-visitors-list,
+.chat-quote-bar,
+.rp-detail-info,
+.rp-detail-claims,
+.rp-list-item,
+.shop-product,
+.group-announcement-inner {
+  background: var(--card-soft-bg) !important;
+  border: none !important;
+}
+
+/* —— 弹窗/浮层面板：保持实底可读，仅去描边 —— */
+.modal-panel,
+.confirm-dialog,
+.form-modal-panel,
+.status-picker-panel,
+.group-create-panel,
+.group-setting-panel,
+.group-announce-panel,
+.emoji-picker-panel,
+.chat-stats-panel,
+.chat-menu-panel,
+.decision-panel,
+.voice-send-panel,
+.black-panel,
+.call-picker-panel,
+.call-history-panel,
+.card-modal-panel,
+.chat-bg-panel,
+.doodle-panel,
+.fx-panel,
+.global-search-panel,
+.move-group-picker-panel,
+.quote-picker-panel,
+.redpacket-claim-panel,
+.redpacket-panel,
+.rp-list-panel,
+.chat-list-plus-menu,
+.msg-action-menu,
+.msg-banner,
+.period-record-panel,
+.period-reminder-panel,
+.moments-panel,
+.moments-sheet,
+.moments-friends-list {
+  border: none !important;
+}
+
+/* 浮层补充背景：moments 系面板不在弹窗实底列表，当前透明，补 0.85 实底保证可读 */
+.moments-panel,
+.moments-sheet,
+.moments-friends-list {
+  background: rgba(255,255,255,0.85) !important;
+}
+
+/* ================================================================
+   白色主题按键：黑白简约 —— 纯黑底、白字白 icon、去毛玻璃
+   ================================================================ */
+[data-theme="white"] .glass-btn {
+  background: #000000 !important;
+  border: 1px solid #000000 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+[data-theme="white"] .glass-btn svg,
+[data-theme="white"] .glass-btn i {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+[data-theme="white"] .glass-btn:hover,
+[data-theme="white"] .glass-btn:active,
+[data-theme="white"] .glass-btn:focus {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+[data-theme="white"] .glass-btn:hover svg,
+[data-theme="white"] .glass-btn:active svg,
+[data-theme="white"] .glass-btn:hover i,
+[data-theme="white"] .glass-btn:active i {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+[data-theme="white"] .glass-btn.primary,
+[data-theme="white"] .glass-btn.primary:hover,
+[data-theme="white"] .glass-btn.primary:active {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+[data-theme="white"] .glass-btn.danger,
+[data-theme="white"] .glass-btn.danger:hover,
+[data-theme="white"] .glass-btn.danger:active {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+/* 弹窗确认按钮：白主题下取消/确认/危险统一纯黑底白字 */
+[data-theme="white"] .confirm-dialog .btn-cancel,
+[data-theme="white"] .confirm-dialog .btn-confirm,
+[data-theme="white"] .confirm-dialog .btn-danger {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+[data-theme="white"] .confirm-dialog .btn-cancel:hover,
+[data-theme="white"] .confirm-dialog .btn-confirm:hover,
+[data-theme="white"] .confirm-dialog .btn-danger:hover,
+[data-theme="white"] .confirm-dialog .btn-cancel:active,
+[data-theme="white"] .confirm-dialog .btn-confirm:active,
+[data-theme="white"] .confirm-dialog .btn-danger:active {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+}
+/* 字卡工具栏按键：白主题下纯黑底、icon 纯白（全状态） */
+[data-theme="white"] .toolbar-btn,
+[data-theme="white"] .toolbar-btn:hover,
+[data-theme="white"] .toolbar-btn:active,
+[data-theme="white"] .toolbar-btn:focus {
+  background: #000000 !important;
+  border: 1px solid #000000 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+[data-theme="white"] .toolbar-btn i {
+  color: #FFFFFF !important;
+}
+
+/* ================================================================
+   白色主题图标：字卡/发现页 = 黑底白标志；设置页 icon = 纯黑
+   ================================================================ */
+[data-theme="white"] .discover-icon {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+[data-theme="white"] .discover-icon i {
+  color: #FFFFFF !important;
+}
+/* 首页双排应用图标：白主题下同字卡图标风格（黑底白标），保留按压缩放特效 */
+[data-theme="white"] .home-feature-icon {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+}
+[data-theme="white"] .home-feature-icon i {
+  color: #FFFFFF !important;
+}
+/* 按压特效保留（scale 动画继承原规则），仅保持黑底不被浅色高亮覆盖 */
+[data-theme="white"] .home-feature-item:active .home-feature-icon {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  box-shadow: none !important;
+}
+/* 底部导航四个按键：白主题下同字卡图标风格（黑底白标），激活/未激活图标均纯白 */
+[data-theme="white"] .nav-icon-circle {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+[data-theme="white"] .nav-icon-circle i {
+  color: #FFFFFF !important;
+}
+/* 选中态：保持黑底白标，用白色描边 + 图标发光区分选中 */
+[data-theme="white"] .nav-item.active .nav-icon-circle {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.25) !important;
+}
+[data-theme="white"] .nav-item.active .nav-icon-circle i {
+  color: #FFFFFF !important;
+}
+/* 按压特效保留（scale 动画继承），背景保持纯黑 */
+[data-theme="white"] .nav-item:active .nav-icon-circle {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+}
+[data-theme="white"] .settings-item .s-icon {
+  color: #000000 !important;
+}
+/* ============ 白主题：首页装饰纯黑化 ============ */
+/* 四个相框的胶布装饰：改为纯黑（含已上传照片状态） */
+[data-theme="white"] .journal-frame-tape,
+[data-theme="white"] .journal-frame-slot.has-photo .journal-frame-tape {
+  background: #000000 !important;
+  box-shadow: none !important;
+}
+/* 已链接气泡：底纯黑、字与爱心符号纯白 */
+[data-theme="white"] .heartbeat-label,
+[data-theme="white"] .heartbeat-label.connected,
+[data-theme="white"] .heartbeat-label.disconnected {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+}
+/* 相框下方表情圆形：底纯黑、表情符号纯白（含选择器内用法） */
+[data-theme="white"] #journal-mood-emoji.cust-emoji,
+[data-theme="white"] .journal-mood-display .cust-emoji {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+}
+[data-theme="white"] .journal-mood-display .cust-emoji .cust-emoji-face circle {
+  fill: currentColor !important;
+}
+[data-theme="white"] .journal-mood-display .cust-emoji .cust-emoji-face path {
+  stroke: currentColor !important;
+}
+/* ============ 白主题：加号菜单栏按键黑底白icon ============ */
+[data-theme="white"] .plus-menu-item i,
+[data-theme="white"] .plus-menu-item i.plus-menu-svg {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #000000 !important;
+}
+/* 激活态（小黑屋开启/屏幕常亮）也保持黑底白icon */
+[data-theme="white"] .plus-menu-item.active i.plus-menu-svg,
+[data-theme="white"] #plus-menu-wakelock.active i {
+  background: #000000 !important;
+  color: #FFFFFF !important;
+}
+/* ============ 白主题：居中气泡通知 柔和浅灰底黑字 100% 不透明 ============ */
+/* 各类居中通知气泡：撤回 / 通话警告 / 黑屋 / 惩罚 / 拍一拍 / 群公告 */
+[data-theme="white"] .message-recall,
+[data-theme="white"] .message-call.call-warn,
+[data-theme="white"] .message-black-notice,
+[data-theme="white"] .message-punish,
+[data-theme="white"] .message-pat,
+[data-theme="white"] .group-announcement-inner {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.10) !important;
+  color: #111111 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+/* 通知气泡内部加粗目标 / 标签文字统一黑色 */
+[data-theme="white"] .message-black-notice .black-notice-target,
+[data-theme="white"] .message-punish .punish-target,
+[data-theme="white"] .message-pat .pat-icon {
+  color: #111111 !important;
+}
+/* 通知气泡内图标 SVG 统一纯黑 */
+[data-theme="white"] .message-black-notice .black-notice-heart svg,
+[data-theme="white"] .message-punish .punish-icon svg,
+[data-theme="white"] .message-pat .pat-icon svg {
+  fill: #111111 !important;
+}
+/* 群公告内部：标题/正文/时间 全黑 */
+[data-theme="white"] .group-announcement-label,
+[data-theme="white"] .group-announcement-text,
+[data-theme="white"] .group-announcement-meta {
+  color: #111111 !important;
+}
+/* 气泡下方标签：已撤回 / 黑屋冷宫 柔和浅灰底黑字 100% 不透明（心流情绪标签保持原色） */
+[data-theme="white"] .msg-recalled-tag,
+[data-theme="white"] .msg-black-room-tag {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.10) !important;
+  color: #111111 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+/* 被 TA 悄悄收藏标签：白主题下保持柔和暖粉底、深粉字，与浅色页面协调 */
+[data-theme="white"] .msg-fav-tag {
+  background: rgba(255, 168, 200, 0.16) !important;
+  border-color: rgba(224, 122, 158, 0.32) !important;
+  color: #B85F85 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+/* ============ 白主题：默认气泡双方加轻阴影（blur5 / 偏移4）避免白底看不见 ============ */
+[data-theme="white"] .message-row.self .message-bubble:not(.voice-bubble):not(.gift-bubble):not(.redpacket-bubble):not(.bub-applied),
+[data-theme="white"] .message-row.other .message-bubble:not(.voice-bubble):not(.gift-bubble):not(.redpacket-bubble):not(.bub-applied) {
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.16) !important;
+}
+/* 气泡小三角尾巴跟随阴影方向（self 右 / other 左），保持与气泡边缘贴合 */
+[data-theme="white"] .message-row.self .message-bubble:not(.voice-bubble):not(.gift-bubble):not(.redpacket-bubble):not(.bub-applied)::after {
+  filter: drop-shadow(4px 2px 2px rgba(0, 0, 0, 0.16)) !important;
+}
+[data-theme="white"] .message-row.other .message-bubble:not(.voice-bubble):not(.gift-bubble):not(.redpacket-bubble):not(.bub-applied)::after {
+  filter: drop-shadow(-4px 2px 2px rgba(0, 0, 0, 0.16)) !important;
+}
+/* ============ 白主题：引用条 同族中性灰调（对方浅灰+黑字 / 我方深灰+白字），清晰且不突兀 ============ */
+[data-theme="white"] .message-row.other .msg-quote-ref {
+  background: rgba(0, 0, 0, 0.07) !important;
+  border-left-color: #111111 !important;
+  color: #111111 !important;
+  opacity: 1 !important;
+}
+[data-theme="white"] .message-row.self .msg-quote-ref {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-left-color: #FFFFFF !important;
+  color: #FFFFFF !important;
+  opacity: 1 !important;
+}
+/* ============ 白主题：商城/菜谱/心流 左侧菜单栏选中项 黑白化（去蓝色底与浅蓝投影） ============ */
+[data-theme="white"] .recipe-sb-item.active {
+  background: #111111 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22) !important;
+}
+[data-theme="white"] .recipe-sb-item.active i,
+[data-theme="white"] .recipe-sb-item.active span {
+  color: #FFFFFF !important;
+}
+/* ============ 白主题：心流情绪标签 中性浅灰底黑字（去浅蓝边框/蓝底投影，不突兀） ============ */
+[data-theme="white"] .chat-mood-intent {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111111 !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+/* ============ 白主题：互动游戏入口标签（经典三消/交换三消等）黑底白字去彩色 ============ */
+[data-theme="white"] .game-badge {
+  background: #111111 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+}
+
+/* ============ 沉浸顶栏：月经/商城/菜谱/三维科普/心流/书架/游戏 去描边透明沉浸（对齐聊天/账号界面） ============ */
+/* 这些页面顶栏为流内 relative（内容区内部滚动，顶栏不参与滚动），直接透明透出页面渐变即可，与聊天房顶栏一致 */
+#page-period .period-header,
+#page-shop .page-header,
+#page-shop-cart .page-header,
+#page-recipe .page-header,
+#page-love-diary .page-header,
+#page-love-test .page-header,
+#page-bookshelf .page-header,
+#page-mini-games .page-header,
+#page-game-sheep .page-header,
+#page-game-goose .page-header,
+#page-game-llk .page-header,
+#page-game-2048 .page-header,
+#page-game-memory .page-header {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* ============ 滑条（字体大小/音量）：轨道-已填充-滑块 全部跟随主题变量 ============ */
+/* 在 range 元素上预置填充段/空轨道变量，theme.css 若被同特异性规则后置覆盖时由 !important 兜底保护。
+   注意：theme.css 在 index.html 中先于 pages-settings.css 加载，因此此处轨道/滑块/填充统一加
+   !important 强制压过 pages-settings.css 中同特异性规则，确保滑条配色与页面主色一致。 */
+.font-size-slider input[type="range"],
+.chat-slider-row input[type="range"] {
+  /* 已填充段 = 当前主题主色；空轨道 = 主题化半透明底 */
+  --slider-fill: var(--primary);
+  --slider-track-empty: rgba(255, 255, 255, 0.20);
+}
+/* Webkit 轨道：空轨使用主题化半透明色（暗色主题下由下方 data-theme 覆盖） */
+.font-size-slider input[type="range"]::-webkit-slider-runnable-track,
+.chat-slider-row input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--slider-track-empty, rgba(255, 255, 255, 0.20)) !important;
+}
+/* Webkit 滑块：跟随当前主题主色 */
+.font-size-slider input[type="range"]::-webkit-slider-thumb,
+.chat-slider-row input[type="range"]::-webkit-slider-thumb {
+  background: var(--primary) !important;
+}
+/* Firefox 轨道 / 已填充 / 滑块 */
+.font-size-slider input[type="range"]::-moz-range-track,
+.chat-slider-row input[type="range"]::-moz-range-track {
+  background: var(--slider-track-empty, rgba(255, 255, 255, 0.22)) !important;
+}
+.font-size-slider input[type="range"]::-moz-range-progress,
+.chat-slider-row input[type="range"]::-moz-range-progress {
+  background: var(--primary) !important;
+}
+.font-size-slider input[type="range"]::-moz-range-thumb,
+.chat-slider-row input[type="range"]::-moz-range-thumb {
+  background: var(--primary) !important;
+}
+/* 暗色主题：空轨道用半透明白，暗底上更清晰 */
+[data-theme="black"] .font-size-slider input[type="range"],
+[data-theme="black"] .chat-slider-row input[type="range"] {
+  --slider-track-empty: rgba(255, 255, 255, 0.22);
+}
+/* 黑白主题：空轨道用半透明黑，白底上清晰可见；滑块自动取 --primary（黑） */
+[data-theme="white"] .font-size-slider input[type="range"],
+[data-theme="white"] .chat-slider-row input[type="range"] {
+  --slider-track-empty: rgba(0, 0, 0, 0.14);
+}
