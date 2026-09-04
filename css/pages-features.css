@@ -1,0 +1,1460 @@
+/* ============================================================
+   功能区通用：页头、FAB、空状态
+   ============================================================ */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  min-height: 44px;
+  background: var(--glass-solid, rgba(255,255,255,0.4));
+  border-bottom: 1px solid var(--border-medium);
+}
+/* 顶栏返回键统一：无背景框、无圆底的普通黑色左箭头（与字卡顶栏 .top-nav .back-btn 一致） */
+.page-header .back-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-dark);
+  font-size: 1rem;
+  padding: 0;
+  flex-shrink: 0;
+  transition: background 0.2s;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+.page-header .back-btn:hover {
+  background: rgba(0,0,0,0.05);
+}
+/* 顶栏标题居中（字卡 / 发现 / 设置等）：提高特异性，避免被上方 .page-header 的 space-between 覆盖 */
+.page-header.page-header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 48px;
+  padding: 0 12px;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background: var(--glass-solid, var(--glass-bg));
+  border-bottom: none;
+}
+.page-header.page-header-center h2 { margin: 0; text-align: center; }
+.page-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.header-action {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.header-action:active {
+  transform: scale(0.9);
+}
+.header-hint {
+  font-size: 0.75rem;
+  color: var(--text-lighter);
+}
+.fab-bottom {
+  position: absolute;
+  bottom: 24px;
+  right: 20px;
+}
+.fab-btn {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.4);
+  cursor: pointer;
+}
+
+/* ============================================================
+   2. 月经记录
+   ============================================================ */
+.header-action-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  color: var(--primary-dark);
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.header-action-btn:hover { color: var(--accent-dark); transform: rotate(30deg); }
+
+/* 页头：三列栅格，返回按钮固定左侧、标题水平居中 */
+.period-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  background: var(--glass-solid, rgba(255,255,255,0.4));
+  border-bottom: 1px solid var(--border-medium);
+}
+.period-header .back-btn {
+  grid-column: 1;
+  justify-self: start;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  background: none;
+  transition: background 0.2s;
+}
+.period-header .page-title {
+  grid-column: 2;
+  justify-self: center;
+  text-align: center;
+  white-space: nowrap;
+}
+.period-header .back-btn:hover { background: rgba(0,0,0,0.05); }
+
+/* 日历下方记录卡片：点击日期出现 / 进行中经期常驻显示 */
+.period-record-card { padding: 14px 16px 0; }
+.period-record-card .period-record-panel {
+  max-width: none;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: 20px;
+  padding: 18px 16px;
+  box-shadow: var(--shadow-md);
+  animation: none;
+}
+/* 卡片内嵌确认（结束经期 / 取消月经标注） */
+.period-confirm-box { text-align: center; padding: 4px 0 2px; }
+.period-confirm-text { font-size: 0.9rem; color: var(--text-dark); margin-bottom: 14px; line-height: 1.55; }
+.period-confirm-actions { display: flex; gap: 10px; }
+.period-confirm-actions button {
+  flex: 1;
+  padding: 11px 0;
+  border: none;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.period-confirm-back-btn { background: rgba(var(--nav-shadow-rgb), 0.12); color: var(--text-medium); }
+.period-confirm-danger-btn { background: rgba(230, 80, 96, 0.10); color: #D84858; }
+.period-confirm-ok-btn {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+  color: var(--text-on-primary);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.35);
+}
+.period-confirm-ok-btn:active, .period-confirm-danger-btn:active, .period-confirm-back-btn:active { transform: scale(0.97); }
+
+/* 统计卡片：经期与周期 */
+.period-overview { padding: 14px 16px 0; }
+.period-overview-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: var(--shadow-md);
+}
+.period-overview-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.period-overview-title { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); }
+.period-overview-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.period-overview-row:last-of-type { border-bottom: none; }
+.period-overview-row-label { font-size: 0.8rem; color: var(--text-medium); }
+.period-overview-row-value { font-size: 1.05rem; font-weight: 700; color: var(--text-dark); }
+.period-overview-row-value small { font-size: 0.7rem; font-weight: 400; color: var(--text-light); }
+.period-overview-hint { margin-top: 8px; font-size: 0.68rem; color: var(--text-lighter); }
+
+/* 日历卡片（参照聊天统计日历：方形色块 · 无描边 · 今天小圆点） */
+.period-calendar { padding: 14px 16px 0; }
+.period-cal-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: var(--shadow-md);
+}
+.period-cal-card .calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0 12px;
+}
+.period-cal-card .calendar-month { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+.period-cal-card .calendar-nav { display: flex; gap: 10px; }
+.period-cal-card .calendar-nav button {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-input);
+  color: var(--text-medium);
+  cursor: pointer;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.period-cal-card .calendar-nav button:hover { background: rgba(var(--primary-rgb), 0.18); color: var(--primary-dark); }
+.period-cal-card .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px 3px;
+  text-align: center;
+}
+.period-cal-card .calendar-day-header {
+  font-size: 0.68rem;
+  color: var(--text-lighter);
+  padding: 6px 0;
+}
+.period-cal-card .calendar-day {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  font-size: 0.78rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.18s;
+  color: var(--text-dark);
+  border: 1.5px solid transparent;
+}
+.period-cal-card .calendar-day:hover { background: rgba(var(--primary-rgb), 0.16); }
+.period-cal-card .calendar-day.other-month { color: var(--text-lighter); opacity: 0.45; pointer-events: none; }
+/* 今天：主题色细边框描边圈出当天（不加底色填充），日期加粗 */
+.period-cal-card .calendar-day.today {
+  font-weight: 700;
+  color: var(--text-dark);
+  background: transparent;
+  border-color: var(--primary);
+}
+/* 月经期：固定色 #F8D4DC（不随外观主题变化），日期固定深色加粗（暗夜主题下避免浅底浅字） */
+.period-cal-card .calendar-day.period-day {
+  background: #F8D4DC;
+  color: #4A2E38;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(248, 212, 220, 0.40);
+}
+/* 预测经期：固定色 #F9E3EA + 斜线竖纹 */
+.period-cal-card .calendar-day.period-predict {
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 2px, transparent 2px, transparent 6px),
+    #F9E3EA;
+  color: #6E4A52;
+  font-weight: 500;
+}
+/* 排卵期：固定色 #DCE8F7（不随外观主题变化） */
+.period-cal-card .calendar-day.ovulation-window {
+  background: #DCE8F7;
+  color: #3A5A7A;
+}
+/* 排卵日：固定色 #CDE3F4 + 日期下方小符号标注 */
+.period-cal-card .calendar-day.ovulation-day {
+  background: #CDE3F4;
+  color: #2E4A66;
+  font-weight: 700;
+}
+.period-cal-card .calendar-day.ovulation-day::after {
+  content: '\2605';
+  font-size: 0.55rem;
+  line-height: 1;
+  color: #3E5E80;
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* 经期日小水滴徽标（表示该日已记录经期） */
+.period-cal-card .calendar-day .period-drop-badge {
+  display: flex;
+  gap: 1px;
+  align-items: center;
+  justify-content: center;
+}
+.period-cal-card .calendar-day .period-drop-badge i { font-size: 0.42rem; color: #B8647C; }
+/* 经期日疼痛强度小闪电徽标（表示该日痛经程度，按天独立显示） */
+.period-cal-card .calendar-day .period-pain-badge {
+  display: flex;
+  gap: 1px;
+  align-items: center;
+  justify-content: center;
+}
+.period-cal-card .calendar-day .period-pain-badge i { font-size: 0.4rem; color: #A3507A; }
+/* 今天与其他标记叠加时：统一保留深色描边圈出当天（暗夜主题下主题色过暗，固定深色保证可见） */
+.period-cal-card .calendar-day.period-day.today,
+.period-cal-card .calendar-day.ovulation-day.today { border-color: #B06078; }
+
+/* 图例 */
+.period-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 12px 16px 0;
+  font-size: 0.72rem;
+  color: var(--text-medium);
+}
+.period-legend-title { font-weight: 600; color: var(--text-dark); }
+.period-legend-items { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+.period-legend-item { display: flex; align-items: center; gap: 5px; }
+.period-legend-dot { width: 12px; height: 12px; border-radius: 4px; display: inline-block; position: relative; }
+.period-legend-dot.dot-period { background: #F8D4DC; }
+.period-legend-dot.dot-predict {
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.5) 0px, rgba(255,255,255,0.5) 2px, transparent 2px, transparent 6px),
+    #F9E3EA;
+}
+.period-legend-dot.dot-ovulation-day { background: #CDE3F4; }
+.period-legend-dot.dot-ovulation-day::after {
+  content: '\2605';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  color: #6E93C4;
+}
+.period-legend-dot.dot-ovulation-window { background: #DCE8F7; }
+/* 今天：主题色细边框描边，不加底色 */
+.period-legend-dot.dot-today {
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  border-radius: 4px;
+}
+
+
+
+/* 记录弹窗 */
+.period-record-panel {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+  animation: periodPanelIn 0.24s ease;
+  border: 1px solid var(--border-light);
+}
+@keyframes periodPanelIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.period-record-title { font-size: 1.05rem; font-weight: 700; color: var(--text-dark); text-align: center; margin-bottom: 2px; }
+.period-record-date { font-size: 0.78rem; color: var(--text-light); text-align: center; margin-bottom: 12px; }
+/* 今天是否来月经开关 */
+.period-mark-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(var(--primary-rgb), 0.10);
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+}
+.period-mark-label { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+.period-switch {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  border-radius: 13px;
+  background: var(--text-lighter);
+  transition: background 0.2s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.period-switch.active { background: var(--primary); }
+.period-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: left 0.2s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.period-switch.active::after { left: 21px; }
+/* 表单行 */
+.period-form-label { font-size: 0.78rem; font-weight: 600; color: var(--text-dark); margin: 12px 0 6px; }
+.period-form-sub { font-weight: 400; color: var(--text-lighter); }
+/* 经期量：水滴 */
+.period-drop-row { display: flex; gap: 10px; align-items: center; justify-content: center; }
+.period-drop-opt {
+  flex: 1;
+  max-width: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0;
+  border-radius: 14px;
+  border: 1.5px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.period-drop-opt .period-drop-icon { display: flex; gap: 2px; }
+.period-drop-opt .period-drop-icon i { font-size: 0.9rem; color: var(--text-lighter); transition: color 0.2s; }
+.period-drop-opt .period-drop-text { font-size: 0.7rem; color: var(--text-light); }
+.period-drop-opt.active { border-color: var(--primary); background: rgba(var(--primary-rgb), 0.14); }
+.period-drop-opt.active .period-drop-icon i { color: var(--primary-dark); }
+.period-drop-opt.active .period-drop-text { color: var(--primary-dark); font-weight: 600; }
+/* 疼痛强度：闪电 */
+.period-pain-row { display: flex; gap: 10px; align-items: center; justify-content: center; }
+.period-pain-opt {
+  flex: 1;
+  max-width: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0;
+  border-radius: 14px;
+  border: 1.5px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.period-pain-opt .period-pain-icon { display: flex; gap: 2px; }
+.period-pain-opt .period-pain-icon i { font-size: 0.9rem; color: var(--text-lighter); transition: color 0.2s; }
+.period-pain-opt .period-pain-text { font-size: 0.7rem; color: var(--text-light); }
+.period-pain-opt.active { border-color: var(--accent); background: rgba(var(--accent-rgb), 0.14); }
+.period-pain-opt.active .period-pain-icon i { color: var(--accent-dark); }
+.period-pain-opt.active .period-pain-text { color: var(--accent-dark); font-weight: 600; }
+/* 感受输入 */
+.period-form-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-medium);
+  background: var(--bg-input);
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.period-form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15); }
+.period-form-input::placeholder { color: var(--text-lighter); }
+/* 本日单独标记提示 */
+.period-daily-tip {
+  margin-top: 10px;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  text-align: center;
+}
+/* 清除本日单独标记 */
+.period-clear-daily-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 9px 0;
+  border: none;
+  border-radius: 12px;
+  background: rgba(230, 80, 96, 0.10);
+  color: #D84858;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.period-clear-daily-btn:hover { background: rgba(230, 80, 96, 0.18); }
+/* 结束经期 */
+.period-end-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 11px 0;
+  border: none;
+  border-radius: 14px;
+  background: rgba(var(--primary-rgb), 0.14);
+  color: var(--primary-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.period-end-btn:hover { background: rgba(var(--primary-rgb), 0.24); }
+.period-cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 11px 0;
+  border: none;
+  border-radius: 14px;
+  background: rgba(230, 80, 96, 0.10);
+  color: #D84858;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.period-cancel-btn:hover { background: rgba(230, 80, 96, 0.20); }
+.period-record-actions { display: flex; gap: 10px; margin-top: 14px; }
+.period-record-actions button {
+  flex: 1;
+  padding: 11px 0;
+  border: none;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.period-btn-cancel { background: rgba(var(--nav-shadow-rgb), 0.12); color: var(--text-medium); }
+.period-btn-save {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+  color: var(--text-on-primary);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.35);
+}
+.period-btn-save:active { transform: scale(0.97); }
+
+/* 月经记录页背景：跟随网站主题渐变（与全站外观主题一致，不再是纯白底） */
+#page-period {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  -webkit-background-attachment: fixed;
+  min-height: 100dvh;
+}
+
+/* 经期前三天提醒弹窗（对方角色发来） */
+.period-reminder-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: periodPanelIn 0.25s ease;
+}
+.period-reminder-panel {
+  width: 100%;
+  max-width: 340px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--border-light);
+}
+.period-reminder-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.period-reminder-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.period-reminder-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.period-reminder-name { font-size: 0.85rem; font-weight: 700; color: var(--text-dark); }
+.period-reminder-time { font-size: 0.68rem; color: var(--text-lighter); margin-top: 2px; }
+.period-reminder-bubble {
+  position: relative;
+  background: var(--bg-card);
+  border: var(--glass-border);
+  border-radius: 4px 16px 16px 16px;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+.period-reminder-bubble::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -6px;
+  border: 6px solid transparent;
+  border-top-color: var(--bg-card);
+  border-right-color: var(--bg-card);
+}
+.period-reminder-day-tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  background: rgba(var(--primary-rgb), 0.16);
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+.period-reminder-day-tag i { margin-right: 3px; }
+.period-reminder-actions { display: flex; gap: 10px; margin-top: 16px; }
+.period-reminder-actions button {
+  flex: 1;
+  padding: 11px 0;
+  border: none;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* 月经记录页：平板 / PC 自适应 */
+@media (min-width: 768px) {
+  .period-cal-card,
+  .period-record-card .period-record-panel,
+  .period-overview-card,
+  .period-legend { max-width: 720px; margin: 0 auto; }
+  .period-legend { justify-content: center; }
+}
+
+/* ============================================================
+   3. 树洞
+   ============================================================ */
+.treehole-posts {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+.treehole-card {
+  padding: 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+}
+.treehole-card-text {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+.treehole-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.treehole-time {
+  font-size: 0.7rem;
+  color: var(--text-lighter);
+}
+.treehole-like-btn {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.treehole-input-bar {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border-medium);
+  background: rgba(255,255,255,0.4);
+}
+.treehole-input-bar input {
+  flex: 1;
+  padding: 8px 14px;
+  border: 1px solid var(--border-medium);
+  border-radius: 5px;
+  background: var(--bg-input);
+  font-size: 0.88rem;
+  outline: none;
+}
+
+/* ============================================================
+   4. 音乐
+   ============================================================ */
+.music-player-area {
+  padding: 24px 20px 16px;
+  text-align: center;
+}
+.music-cover-big {
+  width: 160px; height: 160px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  box-shadow: var(--shadow-lg);
+}
+.music-info-center { margin-bottom: 16px; }
+.music-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.music-artist {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+.music-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-medium);
+  border-radius: 2px;
+  margin: 12px 0;
+}
+.music-progress-fill {
+  width: 30%;
+  height: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+}
+.music-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+.music-controls button {
+  background: none;
+  border: none;
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+.music-btn-play {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--primary) !important;
+  color: #fff !important;
+  font-size: 1.2rem !important;
+}
+.music-playlist .music-list-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.music-list-item.active {
+  background: rgba(var(--primary-rgb), 0.1);
+}
+.music-list-cover { font-size: 1.5rem; }
+.music-list-info { flex: 1; }
+.music-list-title { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); display: block; }
+.music-list-artist { font-size: 0.72rem; color: var(--text-light); }
+.music-list-dur { font-size: 0.75rem; color: var(--text-lighter); }
+
+/* ============================================================
+   5. 小说
+   ============================================================ */
+.novel-shelf {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+.novel-cover-item {
+  text-align: center;
+  cursor: pointer;
+}
+.novel-cover-img {
+  width: 100%;
+  aspect-ratio: 0.7;
+  background: linear-gradient(135deg, var(--accent-light), var(--primary-light));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+.novel-cover-title {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.novel-cover-author {
+  font-size: 0.68rem;
+  color: var(--text-light);
+}
+.novel-reader-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+}
+.novel-reader-chapter {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+.novel-reader-content {
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--text-dark);
+}
+.novel-reader-nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 12px 20px 16px;
+  border-top: 1px solid var(--border-medium);
+}
+
+/* ============================================================
+   6. 记事本
+   ============================================================ */
+.notepad-list { flex: 1; overflow-y: auto; padding: 12px 16px; }
+.notepad-item {
+  padding: 14px;
+  border-radius: var(--radius-md);
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.notepad-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.notepad-item-preview {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+.notepad-item-time {
+  font-size: 0.68rem;
+  color: var(--text-lighter);
+  margin-top: 6px;
+}
+.notepad-editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  overflow-y: auto;
+}
+.note-title-input {
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text-dark);
+  padding: 8px 0;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border-medium);
+}
+.note-content-editor {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  outline: none;
+  min-height: 200px;
+}
+.notepad-editor-toolbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border-medium);
+}
+
+/* ============================================================
+   格言管理（字卡页）
+   ============================================================ */
+.quotes-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 16px;
+}
+.quote-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+.quote-item-text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+.quote-item-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.quote-item-actions button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: var(--glass-btn-bg);
+  color: var(--text-medium);
+  cursor: pointer;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.quote-item-actions button:hover {
+  background: rgba(var(--primary-rgb), 0.15);
+  color: var(--primary);
+}
+.quote-item-actions button.danger:hover {
+  background: rgba(232, 136, 136, 0.15);
+  color: #E88888;
+}
+.quote-add-area {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-medium);
+}
+.quote-add-area input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 5px;
+  border: var(--glass-border);
+  background: var(--glass-bg);
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  outline: none;
+}
+.quote-add-area input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.15);
+}
+.quote-add-area button {
+  padding: 10px 18px;
+  border-radius: var(--radius-lg);
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   7. 商城
+   ============================================================ */
+.shop-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+.shop-product {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+.shop-product-icon {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.shop-product-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+.shop-product-desc {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  margin: 2px 0 8px;
+}
+.shop-product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.shop-product-price {
+  color: #EF4444;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+.shop-cart-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.shop-cart-btn.in-cart { background: #22C55E; }
+.shop-cart-badge {
+  position: absolute;
+  top: -2px; right: -2px;
+  background: #EF4444;
+  color: #fff;
+  font-size: 0.6rem;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shop-cart-list { flex: 1; overflow-y: auto; padding: 12px; }
+.shop-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-medium);
+}
+.cart-item-icon { font-size: 1.35rem; }
+.cart-item-info { flex: 1; }
+.cart-item-price { font-size: 0.75rem; color: var(--text-light); }
+.shop-cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border-medium);
+  background: rgba(255,255,255,0.4);
+}
+.cart-total-label { font-size: 0.95rem; color: var(--text-dark); }
+
+.s-arrow { color: var(--text-lighter); font-size: 0.8rem; }
+.glass-btn.primary {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px 32px;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.glass-btn.danger { color: #EF4444; }
+.text-btn {
+  background: none; border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 4px;
+}
+
+/* ============================================================
+   7.1 商城增强：分类 / 购买 / 记录 / 礼物弹窗
+   ============================================================ */
+.shop-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* 分类 tab */
+.shop-cat-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px 4px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  flex-shrink: 0;
+}
+.shop-cat-tabs::-webkit-scrollbar { display: none; }
+.shop-cat-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full, 999px);
+  background: rgba(255,255,255,0.6);
+  border: 1px solid var(--border-medium);
+  color: var(--text-light);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
+}
+.shop-cat-tab.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* 商城弹窗遮罩 */
+.shop-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .25s;
+  padding: 16px;
+}
+.shop-overlay.show { opacity: 1; }
+.shop-modal {
+  width: 100%;
+  max-width: 360px;
+  max-height: 82vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 16px;
+  position: relative;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+  transform: translateY(12px) scale(0.98);
+  transition: transform .25s;
+}
+.shop-overlay.show .shop-modal { transform: translateY(0) scale(1); }
+.shop-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.06);
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+/* 购买方式弹窗 */
+.shop-buy-product {
+  text-align: center;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--border-medium);
+  margin-bottom: 14px;
+}
+.shop-buy-icon { font-size: 2.6rem; }
+.shop-buy-name { font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-top: 6px; }
+.shop-buy-desc { font-size: 0.75rem; color: var(--text-light); margin-top: 2px; }
+.shop-buy-price { font-size: 1.1rem; font-weight: 700; color: #EF4444; margin-top: 6px; }
+.shop-buy-title { font-size: 0.85rem; color: var(--text-light); margin-bottom: 10px; text-align: center; }
+.shop-buy-options { display: flex; flex-direction: column; gap: 10px; }
+.shop-buy-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.03);
+  border: 1px solid var(--border-medium);
+  cursor: pointer;
+  transition: all .2s;
+}
+.shop-buy-option:active { transform: scale(0.98); background: rgba(0,0,0,0.06); }
+.shop-buy-opt-icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.shop-buy-opt-info { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.shop-buy-opt-name { font-size: 0.9rem; font-weight: 600; color: var(--text-dark); }
+.shop-buy-opt-sub { font-size: 0.7rem; color: var(--text-light); margin-top: 2px; }
+.shop-buy-opt-arrow { color: var(--text-lighter); font-size: 0.8rem; }
+.shop-buy-cancel {
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px;
+  border: none;
+  border-radius: var(--radius-full, 999px);
+  background: rgba(0,0,0,0.05);
+  color: var(--text-light);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* 购买记录弹窗 */
+.shop-record-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.shop-record-title { font-size: 1rem; font-weight: 700; color: var(--text-dark); }
+.shop-record-clear {
+  border: none;
+  background: none;
+  color: var(--text-light);
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 4px 6px;
+}
+.shop-record-list { max-height: 50vh; overflow-y: auto; }
+.shop-record-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--border-medium);
+}
+.shop-record-icon { font-size: 1.5rem; flex-shrink: 0; }
+.shop-record-info { flex: 1; min-width: 0; }
+.shop-record-name { font-size: 0.88rem; font-weight: 600; color: var(--text-dark); }
+.shop-record-sub { display: flex; align-items: center; gap: 6px; margin-top: 3px; flex-wrap: wrap; }
+.shop-record-tag { font-size: 0.65rem; padding: 2px 8px; border-radius: 999px; color: #fff; }
+.shop-record-tag.tag-blue { background: #3B82F6; }
+.shop-record-tag.tag-green { background: #22C55E; }
+.shop-record-tag.tag-pink { background: #EC4899; }
+.shop-record-time { font-size: 0.68rem; color: var(--text-lighter); }
+.shop-record-price { font-size: 0.9rem; font-weight: 700; color: #EF4444; }
+
+/* 移动端自适应 */
+@media (max-width: 480px) {
+  .shop-cat-tab { padding: 5px 10px; font-size: 0.72rem; }
+  .shop-modal { max-width: 92vw; padding: 16px 14px; }
+  .shop-buy-icon { font-size: 2.2rem; }
+  .shop-record-list { max-height: 46vh; }
+}
+
+/* ============================================================
+   7.4 商城菜单栏模式（左侧竖向分类 + 右侧商品）
+   ============================================================ */
+/* 覆盖全局 .page 的整页滚动：flex 纵向布局，顶栏固定，仅内容区内部滚动 */
+#page-shop.page.active {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+#page-shop .page-header {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+}
+/* 商城 / 购物车顶栏：标题绝对居中（三列 grid：左返回、中标题、右操作） */
+#page-shop .page-header,
+#page-shop-cart .page-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+#page-shop .page-header .page-title,
+#page-shop-cart .page-header .page-title {
+  justify-self: center;
+  text-align: center;
+  white-space: nowrap;
+}
+#page-shop .shop-header-actions { justify-self: end; }
+#page-shop-cart .page-header > span:last-child { justify-self: end; }
+/* 购物车页：整页纵向布局，结算栏固定在内容区底部并让出底栏高度 */
+#page-shop-cart { padding-bottom: 0; }
+#page-shop-cart.active {
+  display: flex;
+  flex-direction: column;
+}
+#page-shop-cart .shop-cart-list {
+  flex: 1;
+  min-height: 0;
+}
+#page-shop-cart .shop-cart-footer {
+  flex-shrink: 0;
+  padding-bottom: calc(88px + var(--safe-bottom, 0px));
+}
+/* 商城侧边栏分类图标：主题色系（与网站UI一致，不使用 emoji） */
+#shop-shell .recipe-sb-item i {
+  color: var(--primary, #4C9AFF);
+  font-size: 1rem;
+}
+#shop-shell .recipe-sb-item.active i { color: #fff; }
+.shop-list-title i {
+  color: var(--primary, #4C9AFF);
+  margin-right: 4px;
+}
+/* #shop-shell 接管滚动（复用菜谱 recipe-shell 结构） */
+#shop-shell.recipe-shell {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  padding: 12px 12px 0;
+}
+#shop-shell .recipe-main {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: calc(84px + var(--safe-bottom, 0px));
+}
+/* 商品网格在菜谱式内容区内布局（覆盖原 flex:1 / overflow 规则） */
+#shop-shell .shop-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 4px 2px 8px;
+  overflow: visible;
+  flex: none;
+}
+/* 列表头：分类名 + 数量 */
+.shop-list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px 10px;
+}
+.shop-list-title { font-size: 1rem; font-weight: 700; color: var(--text-dark, #3A4050); }
+.shop-list-count { font-size: 0.75rem; color: var(--text-light, #9aa3b0); }
+/* 侧边栏底部：添加商品入口 */
+.shop-sb-add .recipe-sb-item {
+  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.5));
+  border: 1px dashed var(--primary, #4C9AFF);
+  color: var(--primary, #4C9AFF);
+}
+.shop-sb-add .recipe-sb-item i { color: var(--primary, #4C9AFF); }
+/* 自定义商品定位基准 */
+.shop-product { position: relative; }
+.shop-custom-badge {
+  position: absolute;
+  top: 6px; left: 6px;
+  background: var(--primary, #4C9AFF);
+  color: #fff;
+  font-size: 0.6rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  z-index: 2;
+  pointer-events: none;
+}
+.shop-product-remove {
+  position: absolute;
+  top: 2px; right: 2px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(244, 63, 94, 0.92);
+  color: #fff;
+  font-size: 0.7rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+}
+/* 添加商品模态（复用 rc-modal 玻璃拟态，弹层低于 confirm(1500) 高于底栏(200)） */
+#shop-add-overlay { z-index: 1200; }
+#shop-add-overlay .glass-modal-panel {
+  max-width: 460px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  box-shadow: 0 20px 60px rgba(20, 25, 35, 0.25);
+  border-radius: 20px;
+  overflow: hidden;
+}
+#shop-add-overlay .rc-chip i { margin-right: 4px; color: var(--primary, #4C9AFF); }
+#shop-add-overlay .rc-chip.active i { color: #fff; }
+
+
+/* 7.5 备份导出/导入进度遮罩 */
+.backup-progress-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 24, 34, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.backup-progress-card {
+  min-width: 220px;
+  padding: 26px 30px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 12px 40px rgba(20, 24, 34, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.backup-progress-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid rgba(76, 154, 255, 0.25);
+  border-top-color: #4C9AFF;
+  animation: backup-spin 0.9s linear infinite;
+}
+@keyframes backup-spin {
+  to { transform: rotate(360deg); }
+}
+.backup-progress-text {
+  font-size: 0.85rem;
+  color: #3A4050;
+  text-align: center;
+  line-height: 1.5;
+}
