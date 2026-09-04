@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content, user-scalable=no">
+  <meta name="theme-color" content="#4FA8E8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>拾心界</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6.4.0 本地子集（solid + regular，全站无 brands 使用；避免外部全量 all.min.css 解析） -->
+  <link rel="stylesheet" href="css/vendor/fa-solid.min.css?v=20260901m">
+  <link rel="stylesheet" href="css/vendor/fa-regular.min.css">
+
+  <!-- 项目样式（已内联） -->
+
+<link rel="stylesheet" href="css/theme.css?v=20260903b">
+<link rel="stylesheet" href="css/base.css?v=20260831a">
+<link rel="stylesheet" href="css/splash.css?v=20260829f">
+<link rel="stylesheet" href="css/layout.css?v=20260829f">
+<link rel="stylesheet" href="css/pages-home.css?v=20260829f">
+<link rel="stylesheet" href="css/pages-chat.css?v=20260902a">
+<link rel="stylesheet" href="css/pages-wordcard.css?v=20260902a">
+<link rel="stylesheet" href="css/pages-discover.css?v=20260829f">
+<link rel="stylesheet" href="css/pages-settings.css?v=20260829f">
+<link rel="stylesheet" href="css/pages-misc.css?v=20260829f">
+<link rel="stylesheet" href="css/pages-modals.css?v=20260904a">
+<link rel="stylesheet" href="css/pages-features.css?v=20260829f">
+<link rel="stylesheet" href="css/pages-love.css?v=20260901e">
+<link rel="stylesheet" href="css/pages-bookshelf.css?v=20260902a">
+<link rel="stylesheet" href="css/pages-games.css?v=20260901e">
+  <link rel="stylesheet" href="css/pages-mailbox.css?v=20260829f">
+<link rel="stylesheet" href="css/pages-moments.css?v=20260829f">
+<link rel="stylesheet" href="css/pages-chatroom.css?v=20260904a">
+<link rel="stylesheet" href="css/pages-redpacket.css?v=20260829f">
+<link rel="stylesheet" href="css/bubble-maker.css?v=20260829f">
+<link rel="stylesheet" href="css/pages-listen.css?v=20260902e">
+<link rel="stylesheet" href="css/pages-account.css?v=20260902c">
+
+</head>
+<body>
+
+<!-- ==================== 欢迎页 ==================== -->
+<div id="splash-screen">
+  <!-- 背景装饰（随主题变量联动，淡色不抢主体） -->
+  <div class="splash-decor" aria-hidden="true">
+    <span class="splash-decor-heart dh-1"><svg viewBox="0 0 64 64"><path d="M32 51 C19.5 40.5 13 33 13 24.8 C13 18.8 17.8 15.4 22.3 15.4 C26 15.4 29.2 17.6 32 21.6 C34.8 17.6 38 15.4 41.7 15.4 C46.2 15.4 51 18.8 51 24.8 C51 33 44.5 40.5 32 51Z"/></svg></span>
+    <span class="splash-decor-heart dh-2"><svg viewBox="0 0 64 64"><path d="M32 51 C19.5 40.5 13 33 13 24.8 C13 18.8 17.8 15.4 22.3 15.4 C26 15.4 29.2 17.6 32 21.6 C34.8 17.6 38 15.4 41.7 15.4 C46.2 15.4 51 18.8 51 24.8 C51 33 44.5 40.5 32 51Z"/></svg></span>
+    <span class="splash-decor-diamond dd-1"></span>
+    <span class="splash-decor-diamond dd-2"></span>
+    <span class="splash-decor-glow dg-1"></span>
+    <span class="splash-decor-glow dg-2"></span>
+  </div>
+  <!-- 文字内容 -->
+  <div class="splash-content">
+    <div class="splash-heart-wrap">
+      <svg class="splash-heart" viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="splashHeartGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%"/>
+            <stop offset="55%"/>
+            <stop offset="100%"/>
+          </linearGradient>
+        </defs>
+        <path d="M32 51 C19.5 40.5 13 33 13 24.8 C13 18.8 17.8 15.4 22.3 15.4 C26 15.4 29.2 17.6 32 21.6 C34.8 17.6 38 15.4 41.7 15.4 C46.2 15.4 51 18.8 51 24.8 C51 33 44.5 40.5 32 51Z" fill="url(#splashHeartGrad)"/>
+      </svg>
+    </div>
+    <div class="splash-label">HEARTFLOW LINK</div>
+    <div class="splash-divider">
+      <div class="splash-divider-line"></div>
+      <div class="splash-divider-diamond"></div>
+      <div class="splash-divider-line"></div>
+    </div>
+    <div class="splash-title">拾心界</div>
+    <div class="splash-subtitle">思念若有了频率 便能跨越维度</div>
+    <div class="splash-meanings">
+      <div class="splash-meaning"><span>心流</span><span class="splash-meaning-icon">✦</span><span>链接</span></div>
+    </div>
+    <div class="splash-spectrum" aria-hidden="true">
+      <svg class="splash-spectrum-wave" viewBox="0 0 200 30" preserveAspectRatio="none">
+        <path d="M2,18 L20,18 L22,15 L24,18 L26,17 L28,7 L30,18 L32,26 L34,18 L58,18 L60,18 L78,18 L80,15 L82,18 L84,17 L86,7 L88,18 L90,26 L92,18 L116,18 L118,18 L136,18 L138,15 L140,18 L142,17 L144,7 L146,18 L148,26 L150,18 L198,18"/>
+      </svg>
+    </div>
+    <div class="splash-progress-wrap">
+      <div class="splash-progress-bar">
+        <div class="splash-progress-fill" id="splash-progress"></div>
+        <div class="splash-progress-dot" id="splash-progress-dot"></div>
+      </div>
+    </div>
+    <div class="splash-footer">进入心流空间</div>
+  </div>
+</div>
+
+<!-- ==================== 应用主体 ==================== -->
+<div id="app" class="phone-frame">
+
+  <!-- ===== 首页（仿手机桌面） ===== -->
+  <div id="page-home" class="page">
+
+    <!-- 格言语录 -->
+    <div class="home-quote" id="home-quote"></div>
+
+    <!-- 日期 -->
+    <div class="home-greeting-row">
+      <div class="home-date" id="home-date"></div>
+    </div>
+
+    <!-- 双时区显示 + 连接状态 -->
+    <div class="dual-time-bar">
+      <div class="time-card" id="partner-time-card">
+        <div class="time-card-label"><i class="fas fa-heart"></i> 梦角时间</div>
+        <div class="time-card-value" id="partner-time">12:00</div>
+        <div class="time-card-hint">点击调整</div>
+      </div>
+      <div class="time-card" id="my-time-card">
+        <div class="time-card-label"><i class="fas fa-clock"></i> 我的时间</div>
+        <div class="time-card-value" id="my-time">--:--</div>
+        <div class="time-card-hint">系统时间</div>
+      </div>
+    </div>
+
+    <!-- 梦角时间调整弹窗 -->
+    <div class="dream-time-overlay" id="dream-time-overlay">
+      <div class="dream-time-dialog">
+        <div class="dream-time-title">调整梦角时间</div>
+        <div class="dream-time-pickers">
+          <select id="dream-hour-picker"></select>
+          <select id="dream-minute-picker"></select>
+        </div>
+        <div class="dream-time-actions">
+          <button class="dream-time-btn cancel" id="dream-time-cancel">取消</button>
+          <button class="dream-time-btn ok" id="dream-time-ok">确定</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ECG 心跳波形（静态闪烁） -->
+    <div class="heartbeat-bar" id="heartbeat-bar">
+      <div class="heartbeat-ecg-wrap">
+        <svg class="heartbeat-ecg" viewBox="0 0 600 40" preserveAspectRatio="none">
+          <defs>
+            <path id="mini-heart" class="ecg-mini-heart" d="M0,5.5 C-4.5,1.8 -5.5,-1.8 -4.5,-3.6 C-3.6,-5 -1.8,-5.5 0,-3.6 C1.8,-5.5 3.6,-5 4.5,-3.6 C5.5,-1.8 4.5,1.8 0,5.5 Z" />
+          </defs>
+          <!-- 双周期无缝滚动 -->
+          <g class="ecg-scroll">
+            <!-- ===== 周期 1（0~600） ===== -->
+            <g>
+              <polyline class="ecg-line" points="0,20 4,17 8,17 12,20 20,20 23,22 26,5 29,20 32,23 35,20 46,20 52,14 58,14 64,20 82,20 86,17 90,17 94,20 104,20 107,23 110,6 113,20 116,22 119,20 132,20 139,15 146,15 153,20 174,20 177,16 180,16 183,20 190,20 193,21 196,3 199,20 202,24 205,20 216,20 221,13 226,13 231,20 250,20 276,20" />
+              <path class="ecg-heart-side" d="M93,36 C79.2,24 70.6,18 70.6,11.3 C70.6,5.1 76.7,2 81.8,2 C85.8,2 89.1,3.9 93,7.8 C96.9,3.9 100.2,2 104.2,2 C109.3,2 115.4,5.1 115.4,11.3 C115.4,18 106.8,24 93,36Z" />
+              <path class="ecg-heart-fill" d="M293,36 C279.2,24 270.6,18 270.6,11.3 C270.6,5.1 276.7,2 281.8,2 C285.8,2 289.1,3.9 293,7.8 C296.9,3.9 300.2,2 304.2,2 C309.3,2 315.4,5.1 315.4,11.3 C315.4,18 306.8,24 293,36Z" />
+              <path class="ecg-heart-side" d="M493,36 C479.2,24 470.6,18 470.6,11.3 C470.6,5.1 476.7,2 481.8,2 C485.8,2 489.1,3.9 493,7.8 C496.9,3.9 500.2,2 504.2,2 C509.3,2 515.4,5.1 515.4,11.3 C515.4,18 506.8,24 493,36Z" />
+              <polyline class="ecg-line" points="312,20 322,20 325,16 328,16 331,20 338,20 341,21 344,3 347,20 350,24 353,20 364,20 369,13 374,13 379,20 398,20 402,17 406,17 410,20 418,20 421,22 424,5 427,20 430,23 433,20 444,20 450,14 456,14 462,20 480,20 484,17 488,17 492,20 502,20 505,23 508,6 511,20 514,22 517,20 530,20 537,15 544,15 551,20 572,20 600,20" />
+            </g>
+            <!-- ===== 周期 2（-600~0），平移 -600 → 无缝循环 ===== -->
+            <g transform="translate(-600,0)">
+              <polyline class="ecg-line" points="0,20 4,17 8,17 12,20 20,20 23,22 26,5 29,20 32,23 35,20 46,20 52,14 58,14 64,20 82,20 86,17 90,17 94,20 104,20 107,23 110,6 113,20 116,22 119,20 132,20 139,15 146,15 153,20 174,20 177,16 180,16 183,20 190,20 193,21 196,3 199,20 202,24 205,20 216,20 221,13 226,13 231,20 250,20 276,20" />
+              <path class="ecg-heart-side" d="M93,36 C79.2,24 70.6,18 70.6,11.3 C70.6,5.1 76.7,2 81.8,2 C85.8,2 89.1,3.9 93,7.8 C96.9,3.9 100.2,2 104.2,2 C109.3,2 115.4,5.1 115.4,11.3 C115.4,18 106.8,24 93,36Z" />
+              <path class="ecg-heart-fill" d="M293,36 C279.2,24 270.6,18 270.6,11.3 C270.6,5.1 276.7,2 281.8,2 C285.8,2 289.1,3.9 293,7.8 C296.9,3.9 300.2,2 304.2,2 C309.3,2 315.4,5.1 315.4,11.3 C315.4,18 306.8,24 293,36Z" />
+              <path class="ecg-heart-side" d="M493,36 C479.2,24 470.6,18 470.6,11.3 C470.6,5.1 476.7,2 481.8,2 C485.8,2 489.1,3.9 493,7.8 C496.9,3.9 500.2,2 504.2,2 C509.3,2 515.4,5.1 515.4,11.3 C515.4,18 506.8,24 493,36Z" />
+              <polyline class="ecg-line" points="312,20 322,20 325,16 328,16 331,20 338,20 341,21 344,3 347,20 350,24 353,20 364,20 369,13 374,13 379,20 398,20 402,17 406,17 410,20 418,20 421,22 424,5 427,20 430,23 433,20 444,20 450,14 456,14 462,20 480,20 484,17 488,17 492,20 502,20 505,23 508,6 511,20 514,22 517,20 530,20 537,15 544,15 551,20 572,20 600,20" />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="heartbeat-label" id="heartbeat-label">连接中</div>
+    </div>
+
+    <!-- 手帐区域：多相框不规则排列 | 下方表情+留言 -->
+    <div class="journal-row">
+      <!-- 上方：相框集群横向 + SVG 波浪连接线 -->
+      <div class="journal-photo-cluster">
+        <svg class="journal-deco-lines" viewBox="0 0 250 64" preserveAspectRatio="none">
+          <!-- 主波浪实线 -->
+          <path d="M0,30 C62,44 125,16 188,30 C218,36 240,30 250,30"
+            fill="none" stroke="var(--primary)" stroke-width="1.3" stroke-linecap="round" opacity="0.55"/>
+          <!-- 虚线点缀：下方偏移 -->
+          <path d="M0,36 C62,50 125,22 188,36 C218,42 240,36 250,36"
+            fill="none" stroke="var(--primary)" stroke-width="0.8" stroke-dasharray="5 6" stroke-linecap="round" opacity="0.30"/>
+        </svg>
+        <!-- 相框 1：偏上，逆时针倾斜 -->
+        <div class="journal-frame-slot slot-1" id="frame-slot-1" onclick="JournalCard.triggerUpload(0)">
+          <div class="journal-frame-body"><div class="journal-frame-empty"><i class="fas fa-image"></i></div></div>
+          <div class="journal-frame-tape"></div>
+        </div>
+        <!-- 相框 2：偏高，顺时针倾斜 -->
+        <div class="journal-frame-slot slot-2" id="frame-slot-2" onclick="JournalCard.triggerUpload(1)">
+          <div class="journal-frame-body"><div class="journal-frame-empty"><i class="fas fa-image"></i></div></div>
+          <div class="journal-frame-tape"></div>
+        </div>
+        <!-- 相框 3：最低，正放 -->
+        <div class="journal-frame-slot slot-3" id="frame-slot-3" onclick="JournalCard.triggerUpload(2)">
+          <div class="journal-frame-body"><div class="journal-frame-empty"><i class="fas fa-image"></i></div></div>
+          <div class="journal-frame-tape"></div>
+        </div>
+        <!-- 相框 4：中间高度，微斜 -->
+        <div class="journal-frame-slot slot-4" id="frame-slot-4" onclick="JournalCard.triggerUpload(3)">
+          <div class="journal-frame-body"><div class="journal-frame-empty"><i class="fas fa-image"></i></div></div>
+          <div class="journal-frame-tape"></div>
+        </div>
+      </div>
+
+      <!-- 下方横排：表情 + 留言 -->
+      <div class="journal-mood-row">
+        <div class="journal-mood-display" id="journal-mood-display" onclick="JournalCard.pickEmoji()">
+          <div class="cust-emoji cust-emoji-smile" id="journal-mood-emoji">
+            <svg viewBox="0 0 24 24" class="cust-emoji-face"><circle cx="7.5" cy="9" r="1.6"/><circle cx="16.5" cy="9" r="1.6"/><path d="M7.5 15 Q12 19 16.5 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="journal-quote-area">
+          <div class="journal-quote" id="journal-quote">对方还没留下语录哦</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 心情表情选择器弹层 -->
+    <div class="emoji-picker-overlay" id="emoji-picker-overlay" onclick="JournalCard.closeEmojiPicker()">
+      <div class="emoji-picker-panel" onclick="event.stopPropagation()">
+        <div class="emoji-picker-title">选择心情</div>
+        <div class="emoji-picker-grid" id="emoji-picker-grid"></div>
+      </div>
+    </div>
+
+    <!-- 首页应用网格（手机桌面式 4x2：聊天/月经记录/商城购物/家庭菜谱 + 恋爱日记/心流状态/互动游戏/小说书架） -->
+    <div class="app-swipe-wrapper home-widgets-wrap" id="app-swipe-wrapper">
+      <div class="home-core-row">
+        <div class="home-widgets-grid home-feature-grid" id="home-widgets-grid">
+
+          <div class="home-feature-item" onclick="Navigation.switchTab('chat-list')">
+            <div class="home-feature-icon"><i class="fas fa-comment-dots"></i></div>
+            <span class="home-feature-label">日常聊天</span>
+          </div>
+          <div class="home-feature-item" onclick="Navigation.navigateTo('period')">
+            <div class="home-feature-icon"><i class="fas fa-calendar-check"></i></div>
+            <span class="home-feature-label">月经记录</span>
+          </div>
+          <div class="home-feature-item" onclick="Navigation.navigateTo('shop')">
+            <div class="home-feature-icon"><i class="fas fa-store"></i></div>
+            <span class="home-feature-label">商城购物</span>
+          </div>
+          <div class="home-feature-item" onclick="Navigation.navigateTo('recipe')">
+            <div class="home-feature-icon"><i class="fas fa-book-open"></i></div>
+            <span class="home-feature-label">家庭菜谱</span>
+          </div>
+
+          <div class="home-feature-item" onclick="Navigation.navigateTo('love-diary')">
+            <div class="home-feature-icon"><i class="fas fa-compass"></i></div>
+            <span class="home-feature-label">三维科普</span>
+          </div>
+          <div class="home-feature-item" onclick="Navigation.navigateTo('love-test')">
+            <div class="home-feature-icon"><i class="fas fa-heart"></i></div>
+            <span class="home-feature-label">心流状态</span>
+          </div>
+          <div class="home-feature-item" onclick="Navigation.navigateTo('mini-games')">
+            <div class="home-feature-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+            <span class="home-feature-label">互动游戏</span>
+          </div>
+          <div class="home-feature-item" onclick="Navigation.navigateTo('bookshelf')">
+            <div class="home-feature-icon"><i class="fas fa-book"></i></div>
+            <span class="home-feature-label">小说书架</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 纪念日管理弹窗 -->
+    <div class="anniv-modal-overlay" id="anniv-modal-overlay" onclick="AnniversaryWidget.closeManager()">
+      <div class="anniv-modal-panel" onclick="event.stopPropagation()">
+        <div class="anniv-modal-head">
+          <span class="anniv-modal-title"><i class="fas fa-heart"></i> 纪念日管理</span>
+          <button class="anniv-modal-add" onclick="AnniversaryWidget.openForm()"><i class="fas fa-plus"></i> 添加</button>
+        </div>
+        <div class="anniv-modal-list" id="anniv-modal-list"></div>
+      </div>
+    </div>
+
+    <!-- 纪念日编辑弹窗 -->
+    <div class="anniv-form-overlay" id="anniv-form-overlay" onclick="AnniversaryWidget.closeForm()">
+      <div class="anniv-form-panel" onclick="event.stopPropagation()">
+        <div class="anniv-form-title" id="anniv-form-title">添加纪念日</div>
+        <div class="anniv-form-field">
+          <label>名称</label>
+          <input type="text" id="anniv-form-name" placeholder="如：在一起纪念日" maxlength="20">
+        </div>
+        <div class="anniv-form-field">
+          <label>日期</label>
+          <input type="date" id="anniv-form-date">
+        </div>
+        <div class="anniv-form-actions">
+          <button class="anniv-form-btn cancel" onclick="AnniversaryWidget.closeForm()">取消</button>
+          <button class="anniv-form-btn ok" onclick="AnniversaryWidget.saveForm()">保存</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== 聊天列表页 ===== -->
+  <div id="page-chat-list" class="page">
+    <div class="page-header chat-list-header">
+      <div class="chat-header-left">
+        <h2 class="chat-header-title">聊天</h2>
+      </div>
+      <div class="chat-header-actions">
+        <div class="chat-header-btn" id="chat-list-search-btn" onclick="toggleGlobalSearch()" title="搜索"><i class="fas fa-search"></i></div>
+        <div class="chat-header-btn" id="chat-list-plus-btn" onclick="toggleChatListPlusMenu()" title="更多"><i class="fas fa-plus"></i></div>
+      </div>
+    </div>
+    <!-- 全局搜索面板 -->
+    <div class="global-search-panel" id="global-search-panel" style="display:none">
+      <div class="global-search-input-wrap">
+        <i class="fas fa-search global-search-icon"></i>
+        <input type="text" id="global-search-input" placeholder="搜索所有聊天记录" oninput="doGlobalSearch()">
+        <span class="global-search-close" onclick="closeGlobalSearch()"><i class="fas fa-times"></i></span>
+      </div>
+      <div class="global-search-results" id="global-search-results"></div>
+    </div>
+    <!-- 加号菜单 -->
+    <div class="chat-list-plus-menu" id="chat-list-plus-menu" style="display:none">
+      <div class="chat-list-plus-item" onclick="hideChatListPlusMenu();showCreateGroupPanel()"><i class="fas fa-users"></i><span>发起群聊</span></div>
+      <div class="chat-list-plus-item" onclick="hideChatListPlusMenu();goAddPartner()"><i class="fas fa-user-plus"></i><span>添加角色</span></div>
+    </div>
+    <div class="chat-list" id="chat-list-container"></div>
+    <!-- 创建群聊弹层 -->
+    <div class="group-create-overlay" id="group-create-overlay" style="display:none" onclick="if(event.target===this)hideCreateGroupPanel()">
+      <div class="group-create-panel">
+        <div class="group-create-title">发起群聊</div>
+        <div class="group-create-sub">设置群聊信息（群名/头像可选）</div>
+        <div class="group-create-info">
+          <div class="group-create-avatar" id="group-create-avatar-preview" onclick="document.getElementById('group-create-avatar-file').click()">群</div>
+          <input type="file" id="group-create-avatar-file" accept="image/*" style="display:none" onchange="handleGroupCreateAvatar(this)">
+          <input type="text" class="group-create-name-input" id="group-create-name-input" placeholder="输入群聊名称（不填自动生成）" maxlength="20">
+        </div>
+        <div class="group-create-shape-row">
+          <span class="group-create-shape-label">头像形状</span>
+          <div class="group-shape-options" id="group-create-shape-options">
+            <div class="group-shape-opt active" data-shape="circle" onclick="setGroupCreateShape('circle')"><span class="shape-dot circle"></span>圆形</div>
+            <div class="group-shape-opt" data-shape="square" onclick="setGroupCreateShape('square')"><span class="shape-dot square"></span>方形</div>
+          </div>
+        </div>
+        <div class="group-create-list" id="group-create-list"></div>
+        <div class="group-create-actions">
+          <button class="glass-btn" onclick="hideCreateGroupPanel()">取消</button>
+          <button class="glass-btn" onclick="confirmCreateGroup()">创建</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 聊天室页（全屏） ===== -->
+  <div id="page-chat-room" class="page page-fullscreen" data-chat-id="">
+    <div class="chat-room-topbar">
+      <div class="chat-room-back" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="chat-room-title-wrap">
+        <div class="chat-room-title" id="chat-room-title">聊天</div>
+        <div class="chat-room-status" id="chat-room-status"></div>
+      </div>
+      <div class="chat-room-action"><i class="fas fa-ellipsis-h"></i></div>
+    </div>
+    <div class="chat-messages" id="chat-messages" onclick="onChatMessagesClick(event)"></div>
+    <div class="chat-input-zone">
+      <div class="chat-quote-bar" id="chat-quote-bar" style="display:none">
+        <i class="fas fa-quote-right"></i>
+        <span class="chat-quote-text" id="chat-quote-text"></span>
+        <span class="chat-quote-close" onclick="cancelQuoteReply()"><i class="fas fa-xmark"></i></span>
+      </div>
+      <div class="chat-typing-bubble" id="chat-typing-bubble">
+        <span class="typing-dots"><i></i><i></i><i></i></span>
+        <span class="typing-text" id="chat-typing-text">对方正在输入…</span>
+      </div>
+      <div class="chat-input-bar">
+        <button class="input-btn input-btn-voice" id="chat-voice-btn" onclick="toggleVoiceMode()" title="语音"><i class="fas fa-microphone"></i></button>
+        <button class="voice-hold-btn" id="chat-voice-hold" style="display:none" onclick="onVoiceHoldClick()">点击 说话</button>
+        <textarea id="chat-input" rows="1" onfocus="onChatInputFocus()" oninput="onChatInputChange()" onkeydown="onChatInputKey(event)"></textarea>
+        <button class="input-btn input-btn-emoji" id="chat-emoji-btn" onclick="toggleStickerPanel()"><i class="far fa-smile"></i></button>
+        <button class="input-btn input-btn-plus" id="chat-plus-btn" onclick="togglePlusMenu()"><i class="fas fa-plus-circle"></i></button>
+        <button class="send-btn" id="chat-send-btn" onclick="sendMessage()" onmousedown="event.preventDefault()" style="display:none"><i class="fas fa-paper-plane"></i></button>
+      </div>
+      <div class="chat-panel-area" id="chat-panel-area">
+        <!-- 表情包面板 -->
+        <div class="sticker-panel" id="sticker-panel">
+          <div class="sticker-panel-tabs" id="sticker-panel-tabs"></div>
+          <div class="sticker-panel-grid" id="sticker-panel-grid"></div>
+        </div>
+        <!-- 加号功能面板 -->
+        <div class="plus-panel" id="plus-panel">
+          <div class="plus-menu-grid" id="plus-menu-grid">
+            <div class="plus-menu-page">
+              <div class="plus-menu-item" onclick="chatPickImage()"><i class="fas fa-image"></i><span>图片</span></div>
+              <div class="plus-menu-item" onclick="showRedPacketPanel()"><i class="fas fa-gift"></i><span>红包</span></div>
+              <div class="plus-menu-item" onclick="openCallPicker()"><i class="fas fa-phone"></i><span>通话</span></div>
+              <div class="plus-menu-item" onclick="openPatPanel('self')"><i class="fas fa-hand-point-up"></i><span>拍一拍</span></div>
+              <div class="plus-menu-item" onclick="openDecisionPanel()"><i class="fas fa-scale-balanced"></i><span>帮我抉择</span></div>
+              <div class="plus-menu-item" onclick="continueSendMessage()"><i class="fas fa-comment-dots"></i><span>继续发送</span></div>
+              <div class="plus-menu-item" id="plus-menu-black-room" onclick="openBlackRoomPanel()"><i class="plus-menu-svg"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" width="26" height="26"><rect x="7.2" y="6.8" width="17.6" height="3.4" rx="1.7" fill="currentColor"/><path d="M10.8 6.8 C10.8 2.6 21.2 2.6 21.2 6.8 Z" fill="currentColor"/><circle cx="16" cy="14.4" r="7" fill="currentColor"/><path d="M9.8 21.4 Q16 18.4 22.2 21.4 L23.2 28.2 C23.4 29.3 22.5 30.2 21.4 30.2 H10.6 C9.5 30.2 8.6 29.3 8.8 28.2 Z" fill="currentColor"/></svg></i><span>小黑屋</span></div>
+              <div class="plus-menu-item" id="plus-menu-punish" onclick="openPunishPanel()"><i class="fas fa-bullhorn"></i><span>惩罚</span></div>
+            </div>
+            <div class="plus-menu-page">
+              <div class="plus-menu-item" id="plus-menu-effects" onclick="openEffectsPanel()"><i class="fas fa-star"></i><span>特效</span></div>
+              <div class="plus-menu-item" onclick="openDoodlePanel()"><i class="fas fa-palette"></i><span>涂鸦</span></div>
+              <div class="plus-menu-item" id="plus-menu-emoji-sticker" onclick="openEmojiStickerPanel()"><i class="fas fa-face-smile"></i><span>贴表情</span></div>
+              <div class="plus-menu-item" id="plus-menu-wakelock" onclick="toggleScreenAlwaysOn()"><i class="fas fa-sun"></i><span>屏幕常亮</span></div>
+              <div class="plus-menu-item" id="plus-menu-music" onclick="openListenTogetherPanel()"><i class="fas fa-headphones"></i><span>一起听歌</span></div>
+              <div class="plus-menu-item" id="plus-menu-account" onclick="openAccountPanel()"><i class="fas fa-coins"></i><span>记账</span></div>
+            </div>
+          </div>
+          <div class="plus-menu-dots" id="plus-menu-dots">
+            <span class="plus-menu-dot active"></span>
+            <span class="plus-menu-dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 隐藏的文件选取 input -->
+    <input type="file" id="chat-image-input" accept="image/*" style="display:none" onchange="chatHandleImage(this)">
+    <input type="file" id="chat-camera-input" accept="image/*" capture="environment" style="display:none" onchange="chatHandleImage(this)">
+    <input type="file" id="chat-file-input" style="display:none" onchange="chatHandleFile(this)">
+
+    <!-- 涂鸦画板 -->
+    <div class="doodle-overlay" id="doodle-overlay" style="display:none" onclick="if(event.target===this)closeDoodlePanel()">
+      <div class="doodle-panel">
+        <div class="doodle-head">
+          <div class="doodle-head-title"><i class="fas fa-pen-nib" style="margin-right:6px"></i>涂鸦</div>
+          <div class="doodle-head-actions">
+            <button class="doodle-head-btn" onclick="doodleUndo()"><i class="fas fa-undo"></i> 撤销</button>
+            <button class="doodle-head-btn" onclick="doodleClear()"><i class="fas fa-eraser"></i> 清空</button>
+            <button class="doodle-head-btn doodle-send" onclick="doodleSend()"><i class="fas fa-paper-plane"></i> 发送</button>
+            <button class="doodle-head-btn doodle-head-close" onclick="closeDoodlePanel()" title="关闭"><i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        <div class="doodle-canvas-wrap">
+          <canvas class="doodle-canvas" id="doodle-canvas"></canvas>
+          <div class="doodle-canvas-empty" id="doodle-canvas-empty">在此涂鸦</div>
+        </div>
+        <div class="doodle-tools">
+          <div class="doodle-tool-row" id="doodle-toolbar">
+            <button class="doodle-tool-btn active" id="doodle-tool-brush" onclick="doodleSetTool('brush')"><i class="fas fa-paint-brush"></i> 画笔</button>
+            <button class="doodle-tool-btn" id="doodle-tool-text" onclick="doodleSetTool('text')"><i class="fas fa-font"></i> 文字</button>
+            <button class="doodle-tool-btn" id="doodle-tool-eraser" onclick="doodleSetTool('eraser')"><i class="fas fa-eraser"></i> 橡皮</button>
+            <span class="doodle-toolbar-sep"></span>
+            <div class="doodle-color-swatches" id="doodle-colors"></div>
+            <span class="doodle-toolbar-sep"></span>
+            <div class="doodle-bg-swatches" id="doodle-bgs"></div>
+            <span class="doodle-toolbar-sep"></span>
+            <input type="color" class="doodle-color-input" id="doodle-color-picker" value="#E05A7A" oninput="doodleSetColor(this.value)" title="自定义颜色">
+            <span class="doodle-toolbar-sep"></span>
+            <span class="doodle-size-label">笔刷 <span id="doodle-size-val">6</span>px</span>
+            <input type="range" class="doodle-size-slider" id="doodle-size" min="1" max="40" value="6" oninput="doodleSetSize(this.value)">
+          </div>
+          <div class="doodle-tool-row" id="doodle-text-row" style="display:none">
+            <input type="text" class="doodle-text-input" id="doodle-text-input" placeholder="输入英文 / 汉字，点击画布放置" maxlength="30">
+            <button class="doodle-tool-btn" onclick="doodlePlaceText()">放置</button>
+          </div>
+        </div>
+        <div class="doodle-hint" id="doodle-hint">选择画笔 / 文字工具，调整颜色与笔刷大小，在画板上自由绘制；绘制完成后点击「发送」，涂鸦将和表情包一样直接发出。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 一起听歌（网易云歌单 + 与角色一起听） ===== -->
+  <div class="lt-overlay" id="listen-together-overlay" style="display:none" onclick="if(event.target===this)closeListenTogetherPanel()">
+    <div class="lt-panel">
+      <!-- ① 歌单界面：服务状态 + 歌单/搜索 + 列表，底部迷你播放条 -->
+      <div class="lt-view" id="lt-view-playlist">
+        <div class="lt-head">
+          <button class="lt-head-back" id="lt-head-back-pl" onclick="ltBackToPlaylists()" title="返回歌单列表" style="display:none"><i class="fas fa-chevron-left"></i></button>
+          <div class="lt-head-title"><i class="fas fa-headphones" style="margin-right:6px"></i>一起听歌</div>
+          <button class="lt-head-close" onclick="closeListenTogetherPanel()" title="关闭"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="lt-service-bar" id="lt-service-bar">
+          <i class="fas fa-circle-info"></i><span id="lt-service-text">正在检测音乐服务…</span>
+          <span class="lt-service-actions" id="lt-service-actions"></span>
+        </div>
+        <div class="lt-tabs">
+          <div class="lt-tab active" id="lt-tab-pl" onclick="ltSwitchTab('pl')">我的歌单</div>
+          <div class="lt-tab" id="lt-tab-search" onclick="ltSwitchTab('search')">搜索</div>
+        </div>
+        <div class="lt-import-row" id="lt-import-row">
+          <input type="text" id="lt-playlist-input" class="lt-input" placeholder="粘贴网易云歌单链接 / ID，如 music.163.com/playlist?id=3778678" onkeydown="if(event.key==='Enter')ltImportPlaylist()">
+          <button class="lt-btn lt-btn-primary" id="lt-import-btn" onclick="ltImportPlaylist()">导入</button>
+          <label class="lt-vip-skip" title="勾选后导入时自动跳过 VIP / 付费歌曲"><input type="checkbox" id="lt-skip-vip" checked>跳过VIP</label>
+        </div>
+        <!-- 直连播放行（本地音乐服务不可达时显示，GitHub 部署无需服务即可播放） -->
+        <div class="lt-direct-row" id="lt-direct-row" style="display:none">
+          <input type="text" id="lt-direct-input" class="lt-input" placeholder="直连播放：粘贴 网易云歌曲链接 / 歌曲ID / 音频地址(.mp3)，无需本地服务即可播放" onkeydown="if(event.key==='Enter')ltPlayDirect()">
+          <button class="lt-btn lt-btn-primary" onclick="ltPlayDirect()">播放</button>
+        </div>
+        <div class="lt-search-row" id="lt-search-row" style="display:none">
+          <input type="text" id="lt-search-input" class="lt-input" placeholder="搜索网易云歌曲" onkeydown="if(event.key==='Enter')ltSearch()">
+          <button class="lt-btn lt-btn-primary" onclick="ltSearch()">搜</button>
+        </div>
+        <div class="lt-list-wrap">
+          <div class="lt-list" id="lt-playlist-list"></div>
+          <div class="lt-list" id="lt-search-list" style="display:none"></div>
+          <div class="lt-empty" id="lt-empty">歌单为空，输入上方链接导入网易云歌单</div>
+        </div>
+        <!-- 底部迷你播放条（吸底独立，点击展开播放界面） -->
+        <div class="lt-minibar" id="lt-minibar" style="display:none" onclick="ltGoPlayer()">
+          <div class="lt-mini-cover" id="lt-mini-cover"><i class="fas fa-music"></i></div>
+          <div class="lt-mini-info">
+            <div class="lt-mini-title" id="lt-mini-title">未知歌曲</div>
+            <div class="lt-mini-artist" id="lt-mini-artist">未知歌手</div>
+          </div>
+          <span class="lt-mini-play" id="lt-mini-play"><i class="fas fa-play"></i></span>
+          <i class="fas fa-chevron-up lt-mini-up"></i>
+        </div>
+      </div>
+
+      <!-- ② 播放界面：大封面 + 控制 + 一起听（与歌单界面分离） -->
+      <div class="lt-view" id="lt-view-player" style="display:none">
+        <div class="lt-head">
+          <button class="lt-head-back" onclick="ltGoPlaylist()" title="返回歌单"><i class="fas fa-chevron-left"></i></button>
+          <div class="lt-head-title"><i class="fas fa-headphones" style="margin-right:6px"></i>正在播放</div>
+          <button class="lt-head-close" onclick="closeListenTogetherPanel()" title="关闭"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="lt-player">
+          <div class="lt-player-cover" id="lt-cover"><i class="fas fa-music"></i></div>
+          <div class="lt-player-title" id="lt-song-title">未在播放</div>
+          <div class="lt-player-artist" id="lt-song-artist"></div>
+          <div class="lt-progress">
+            <span class="lt-time" id="lt-cur-time">00:00</span>
+            <input type="range" class="lt-progress-bar" id="lt-progress" min="0" max="1000" value="0" oninput="ltSeek()">
+            <span class="lt-time" id="lt-dur-time">00:00</span>
+          </div>
+          <div class="lt-controls">
+            <button class="lt-ctl" onclick="ltPrev()"><i class="fas fa-backward-step"></i></button>
+            <div class="lt-vol-mini">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" class="lt-volume-bar" id="lt-volume" min="0" max="100" value="80" oninput="ltSetVolume()" title="音量">
+            </div>
+            <button class="lt-ctl lt-ctl-play" id="lt-play-btn" onclick="ltTogglePlay()"><i class="fas fa-play"></i></button>
+            <div class="lt-mode-mini">
+              <button class="active" id="lt-mode-seq" onclick="ltSetMode('sequential')" title="顺延播放（按顺序，播完即停）"><i class="fas fa-list-ul"></i></button>
+              <button id="lt-mode-loop" onclick="ltSetMode('loop')" title="循环播放（播完自动回第一首）"><i class="fas fa-rotate-left"></i></button>
+              <button id="lt-mode-shuffle" onclick="ltSetMode('shuffle')" title="随机播放"><i class="fas fa-random"></i></button>
+            </div>
+            <button class="lt-ctl" onclick="ltNext()"><i class="fas fa-forward-step"></i></button>
+          </div>
+          <div class="lt-together">
+            <label class="lt-together-switch">
+              <span>和 TA 一起听</span>
+              <input type="checkbox" id="lt-together-check" onchange="ltToggleTogether()">
+              <span class="lt-switch-slider"></span>
+            </label>
+            <div class="lt-together-tip">开启后，对方会跟着一起听，中途还会主动切歌、暂停或点评</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 一起记账（记一笔 / 流水 / 统计 + 对方角色点评） ===== -->
+  <div class="acc-overlay" id="account-overlay" style="display:none" onclick="if(event.target===this)closeAccountPanel()">
+    <div class="acc-panel">
+      <div class="acc-head">
+        <div class="acc-head-title"><i class="fas fa-coins" style="margin-right:6px"></i>一起记账</div>
+        <button class="acc-head-close" onclick="closeAccountPanel()" title="关闭"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="acc-tabs">
+        <button class="acc-tab active" id="acc-tab-add" onclick="accSwitchTab('add')"><i class="fas fa-pen" style="margin-right:4px"></i>记一笔</button>
+        <button class="acc-tab" id="acc-tab-list" onclick="accSwitchTab('list')"><i class="fas fa-list-ul" style="margin-right:4px"></i>流水</button>
+        <button class="acc-tab" id="acc-tab-stats" onclick="accSwitchTab('stats')"><i class="fas fa-chart-pie" style="margin-right:4px"></i>统计</button>
+      </div>
+      <div class="acc-body">
+        <!-- ① 记一笔 -->
+        <div class="acc-view active" id="acc-view-add">
+          <div class="acc-summary">
+            <div class="acc-sum-card">
+              <div class="acc-sum-label"><i class="fas fa-arrow-trend-up"></i>本月支出</div>
+              <div class="acc-sum-val" id="acc-sum-exp">0.00</div>
+              <del></del>
+            </div>
+            <div class="acc-sum-card acc-in">
+              <div class="acc-sum-label"><i class="fas fa-arrow-trend-down"></i>本月收入</div>
+              <div class="acc-sum-val" id="acc-sum-inc">0.00</div>
+              <del></del>
+            </div>
+          </div>
+          <div class="acc-type-toggle">
+            <button class="acc-type-btn active" id="acc-type-exp" onclick="accSwitchType('exp')">支出</button>
+            <button class="acc-type-btn" id="acc-type-inc" onclick="accSwitchType('inc')">收入</button>
+          </div>
+          <div class="acc-amount-row">
+            <span class="acc-rmb" id="acc-rmb-sign">支出</span>
+            <input type="number" id="acc-amount" placeholder="0.00" step="0.01" min="0" inputmode="decimal">
+          </div>
+          <div class="acc-field-label">选择分类</div>
+          <div class="acc-cat-grid" id="acc-cat-grid"></div>
+          <div class="acc-field-label">备注 / 日期</div>
+          <div class="acc-input-row">
+            <input type="text" id="acc-note" class="acc-input" placeholder="备注（选填）" maxlength="40">
+            <input type="date" id="acc-date" class="acc-input">
+          </div>
+          <button class="acc-save-btn" id="acc-save-btn" onclick="accSave()">记下这笔支出</button>
+          <div class="acc-pop-top" style="margin-top:14px"><i class="fas fa-message"></i>记完账单对方会来点评你，留意聊天消息哦～</div>
+        </div>
+        <!-- ② 流水 -->
+        <div class="acc-view" id="acc-view-list"></div>
+        <!-- ③ 统计 -->
+        <div class="acc-view" id="acc-view-stats"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 字卡入口页（发现风格列表） ===== -->
+  <div id="page-wordcard" class="page">
+    <div class="page-header page-header-center">
+      <h2>字卡</h2>
+    </div>
+    <div class="discover-list">
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-quote-lib')">
+        <div class="discover-icon"><i class="fas fa-heart"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">格言留言</div>
+          <div class="discover-desc">格言金句与每日留言一站管理</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-lib')">
+        <div class="discover-icon"><i class="fas fa-folder"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">字卡库</div>
+          <div class="discover-desc">主字卡与副字卡统一管理</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-face-lib')">
+        <div class="discover-icon"><i class="fas fa-face-smile"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">颜文字表情</div>
+          <div class="discover-desc">颜文字与 Emoji 一键复制</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-stickers')">
+        <div class="discover-icon"><i class="fas fa-images"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">表情包库</div>
+          <div class="discover-desc">你的专属表情包</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-pat')">
+        <div class="discover-icon"><i class="fas fa-hand-point-up"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">拍一拍</div>
+          <div class="discover-desc">分组管理恋爱向拍一拍，让对方拍拍你</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('whereabouts')">
+        <div class="discover-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">行踪</div>
+          <div class="discover-desc">设置地点与行动，例如"在图书馆，安静看书"</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 格言留言（聚合页：格言 + 留言库） ===== -->
+  <div id="page-wordcard-quote-lib" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">格言留言</div>
+    </div>
+    <div class="discover-list">
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-quotes')">
+        <div class="discover-icon"><i class="fas fa-quote-right"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">格言</div>
+          <div class="discover-desc">收藏与管理心爱的格言金句</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-daily-quotes')">
+        <div class="discover-icon"><i class="fas fa-heart"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">留言库</div>
+          <div class="discover-desc">收藏专属的每日甜言蜜语</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 字卡库（聚合页：主字卡 + 副字卡） ===== -->
+  <div id="page-wordcard-lib" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">字卡库</div>
+    </div>
+    <div class="discover-list">
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-main')">
+        <div class="discover-icon"><i class="fas fa-clone"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">主字卡</div>
+          <div class="discover-desc">诗词、名言、自创文字碎片</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-sub-main')">
+        <div class="discover-icon"><i class="fas fa-id-card"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">副字卡</div>
+          <div class="discover-desc">按对方角色分组，为每个角色安排专属字卡</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-voice')">
+        <div class="discover-icon"><i class="fas fa-headphones"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">语音字卡</div>
+          <div class="discover-desc">收藏与管理的语音片段，聊天中对方会随机混入语音</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 颜文字表情（聚合页：颜文字 + Emoji） ===== -->
+  <div id="page-wordcard-face-lib" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">颜文字表情</div>
+    </div>
+    <div class="discover-list">
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-kaomoji')">
+        <div class="discover-icon"><i class="fas fa-smile"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">颜文字</div>
+          <div class="discover-desc">可爱的颜文字合集</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('wordcard-emoji')">
+        <div class="discover-icon"><i class="fas fa-face-smile"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">Emoji</div>
+          <div class="discover-desc">表情符号大全，一键复制</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 拍一拍 ===== -->
+  <div id="page-wordcard-pat" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">拍一拍</div>
+    </div>
+    <div class="wordcard-toolbar" id="pat-toolbar">
+      <button class="toolbar-btn" onclick="addPatGroup()" title="添加分组"><i class="fas fa-plus-circle"></i><span>添加</span></button>
+      <button class="toolbar-btn" onclick="importPatsJSON()" title="导入拍一拍"><i class="fas fa-file-import"></i><span>导入</span></button>
+      <button class="toolbar-btn" onclick="exportPatsJSON()" title="导出拍一拍"><i class="fas fa-file-export"></i><span>导出</span></button>
+      <button class="toolbar-btn" onclick="deduplicatePats()" title="去重拍一拍"><i class="fas fa-filter"></i><span>去重</span></button>
+    </div>
+    <div id="pat-group-list" class="discover-list"></div>
+  </div>
+
+  <!-- ===== 拍一拍 - 分组内容 ===== -->
+  <div id="page-wordcard-pat-group" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title" id="pat-group-title">分组</div>
+    </div>
+    <div class="wordcard-toolbar" id="pat-group-toolbar">
+      <button class="toolbar-btn" onclick="addPatToGroup()"><i class="fas fa-plus-circle"></i><span>添加拍一拍</span></button>
+    </div>
+    <div id="pat-grid-group" class="card-list-container"></div>
+  </div>
+
+  <!-- ===== 格言 ===== -->
+  <div id="page-wordcard-quotes" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">格言</div>
+    </div>
+    <div class="wordcard-toolbar" id="quotes-toolbar">
+      <button class="toolbar-btn" onclick="addQuote()" title="添加格言"><i class="fas fa-plus-circle"></i><span>添加</span></button>
+      <button class="toolbar-btn" onclick="importQuotesJSON()" title="导入格言"><i class="fas fa-file-import"></i><span>导入</span></button>
+      <button class="toolbar-btn" onclick="exportQuotesJSON()" title="导出格言"><i class="fas fa-file-export"></i><span>导出</span></button>
+      <button class="toolbar-btn" onclick="deduplicateQuotes()" title="去重格言"><i class="fas fa-filter"></i><span>去重</span></button>
+    </div>
+    <div class="quotes-list" id="quotes-list"></div>
+  </div>
+
+  <!-- ===== 主字卡 ===== -->
+  <div id="page-wordcard-main" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">主字卡</div>
+    </div>
+    <div class="wordcard-toolbar" id="wordcard-toolbar">
+      <div class="wordcard-search-wrap">
+        <i class="fas fa-search wordcard-search-icon"></i>
+        <input type="text" class="wordcard-search-input" id="wordcard-search-input" placeholder="搜索字卡..." oninput="searchWordCards()">
+        <button class="wordcard-search-clear" id="wordcard-search-clear" onclick="clearWordCardSearch()" style="display:none"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="wordcard-toolbar-actions">
+        <button class="toolbar-btn" onclick="addWordCardGroup()" title="添加分组"><i class="fas fa-folder-plus"></i></button>
+        <button class="toolbar-btn" onclick="importCardsJSON()" title="导入字卡"><i class="fas fa-file-import"></i></button>
+        <button class="toolbar-btn" onclick="exportCardsJSON()" title="导出字卡"><i class="fas fa-file-export"></i></button>
+        <button class="toolbar-btn" onclick="deduplicateAllCards()" title="全分组去重"><i class="fas fa-filter"></i></button>
+      </div>
+    </div>
+    <div id="wordcard-group-list" class="discover-list"></div>
+  </div>
+
+  <!-- ===== 主字卡 - 分组内容 ===== -->
+  <div id="page-wordcard-main-group" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title" id="wordcard-group-title">分组</div>
+    </div>
+    <div class="wordcard-toolbar" id="wordcard-group-toolbar">
+      <button class="toolbar-btn" onclick="addCardToGroup()"><i class="fas fa-plus-circle"></i><span>添加字卡</span></button>
+      <button class="toolbar-btn" onclick="selectWordCardsInGroup()"><i class="fas fa-check-square"></i><span>选中字卡</span></button>
+      <button class="toolbar-btn" onclick="selectAllInGroup()" id="btn-select-all" style="display:none"><i class="fas fa-check-double"></i><span>全选</span></button>
+      <button class="toolbar-btn" onclick="blockSelectedCards()" id="btn-block-cards" style="display:none"><i class="fas fa-ban"></i><span>屏蔽</span></button>
+      <button class="toolbar-btn" onclick="moveSelectedCardsInGroup()"><i class="fas fa-arrows-alt"></i><span>挪动分组</span></button>
+    </div>
+    <div id="card-grid-group" class="card-list-container"></div>
+  </div>
+
+  <!-- ===== 副字卡（角色专属字卡，按对方角色分组） ===== -->
+  <div id="page-wordcard-sub-main" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">副字卡</div>
+    </div>
+    <div class="wordcard-toolbar" id="wordcard-sub-toolbar">
+      <div class="wordcard-search-wrap">
+        <i class="fas fa-search wordcard-search-icon"></i>
+        <input type="text" class="wordcard-search-input" id="wordcard-sub-search-input" placeholder="搜索副字卡..." oninput="searchSubCards()">
+        <button class="wordcard-search-clear" id="wordcard-sub-search-clear" onclick="clearSubCardSearch()" style="display:none"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="wordcard-toolbar-actions">
+        <button class="toolbar-btn" onclick="addSubCardToRole()" title="为角色添加字卡"><i class="fas fa-user-plus"></i><span>添加</span></button>
+        <button class="toolbar-btn" onclick="importSubCardsPickRole()" title="导入副字卡"><i class="fas fa-file-import"></i><span>导入</span></button>
+        <button class="toolbar-btn" onclick="exportSubCardsJSON()" title="导出副字卡"><i class="fas fa-file-export"></i><span>导出</span></button>
+        <button class="toolbar-btn" onclick="deduplicateSubCards()" title="全角色去重"><i class="fas fa-filter"></i><span>去重</span></button>
+      </div>
+    </div>
+    <div id="wordcard-sub-list" class="discover-list"></div>
+  </div>
+
+  <!-- ===== 副字卡 - 角色字卡内容 ===== -->
+  <div id="page-wordcard-sub-group" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title" id="wordcard-sub-group-title">角色字卡</div>
+    </div>
+    <div class="wordcard-toolbar" id="wordcard-sub-group-toolbar">
+      <button class="toolbar-btn" onclick="addSubCardToGroup()"><i class="fas fa-plus-circle"></i><span>添加字卡</span></button>
+      <button class="toolbar-btn" onclick="importSubCardsToGroup()" title="导入到该角色"><i class="fas fa-file-import"></i><span>导入</span></button>
+      <button class="toolbar-btn" onclick="selectSubCardsInGroup()"><i class="fas fa-check-square"></i><span>选中字卡</span></button>
+      <button class="toolbar-btn" onclick="selectAllSubCardsInGroup()" id="sub-btn-select-all" style="display:none"><i class="fas fa-check-double"></i><span>全选</span></button>
+      <button class="toolbar-btn" onclick="blockSelectedSubCards()" id="sub-btn-block-cards" style="display:none"><i class="fas fa-ban"></i><span>屏蔽</span></button>
+      <button class="toolbar-btn" onclick="moveSelectedSubCardsInGroup()"><i class="fas fa-arrows-alt"></i><span>挪动角色</span></button>
+    </div>
+    <div id="card-grid-sub" class="card-list-container"></div>
+  </div>
+
+  <!-- ===== 语音字卡 ===== -->
+  <div id="page-wordcard-voice" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">语音字卡</div>
+    </div>
+    <div class="wordcard-toolbar" id="wordcard-voice-toolbar">
+      <div class="wordcard-search-wrap">
+        <i class="fas fa-search wordcard-search-icon"></i>
+        <input type="text" class="wordcard-search-input" id="wordcard-voice-search-input" placeholder="搜索语音字卡..." oninput="searchVoiceCards()">
+        <button class="wordcard-search-clear" id="wordcard-voice-search-clear" onclick="clearVoiceCardSearch()" style="display:none"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="wordcard-toolbar-actions">
+        <button class="toolbar-btn" onclick="addVoiceCardGroup()" title="添加分组"><i class="fas fa-folder-plus"></i></button>
+        <button class="toolbar-btn" onclick="importVoiceCards()" title="导入 mp3"><i class="fas fa-file-import"></i></button>
+        <button class="toolbar-btn" onclick="exportVoiceCards()" title="导出元数据"><i class="fas fa-file-export"></i></button>
+        <button class="toolbar-btn" onclick="deduplicateVoiceCards()" title="全分组去重"><i class="fas fa-filter"></i></button>
+      </div>
+    </div>
+    <div id="wordcard-voice-group-list" class="discover-list"></div>
+  </div>
+
+  <!-- ===== 语音字卡 - 分组内容 ===== -->
+  <div id="page-wordcard-voice-group" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title" id="wordcard-voice-group-title">分组</div>
+    </div>
+    <div class="wordcard-toolbar" id="wordcard-voice-group-toolbar">
+      <button class="toolbar-btn" onclick="addVoiceCardToGroup()"><i class="fas fa-plus-circle"></i><span>添加语音</span></button>
+      <button class="toolbar-btn" onclick="selectVoiceCardsInGroup()"><i class="fas fa-check-square"></i><span>选中语音</span></button>
+      <button class="toolbar-btn" onclick="selectAllVoiceCardsInGroup()" id="voice-btn-select-all" style="display:none"><i class="fas fa-check-double"></i><span>全选</span></button>
+      <button class="toolbar-btn" onclick="blockSelectedVoiceCards()" id="voice-btn-block-cards" style="display:none"><i class="fas fa-ban"></i><span>屏蔽</span></button>
+      <button class="toolbar-btn" onclick="moveSelectedVoiceCardsInGroup()"><i class="fas fa-arrows-alt"></i><span>挪动分组</span></button>
+    </div>
+    <div id="wordcard-voice-grid-group" class="card-list-container"></div>
+  </div>
+
+  <!-- ===== 颜文字 ===== -->
+  <div id="page-wordcard-kaomoji" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">颜文字</div>
+    </div>
+    <div class="wordcard-toolbar" id="kaomoji-toolbar">
+      <button class="toolbar-btn" onclick="addKaomoji()" title="添加颜文字"><i class="fas fa-plus-circle"></i><span>添加</span></button>
+      <button class="toolbar-btn" onclick="importKaomojiJSON()" title="导入颜文字"><i class="fas fa-file-import"></i><span>导入</span></button>
+      <button class="toolbar-btn" onclick="exportKaomojiJSON()" title="导出颜文字"><i class="fas fa-file-export"></i><span>导出</span></button>
+      <button class="toolbar-btn" onclick="deduplicateKaomojis()" title="去重颜文字"><i class="fas fa-filter"></i><span>去重</span></button>
+    </div>
+    <div id="kaomoji-group-list" class="discover-list"></div>
+  </div>
+
+  <!-- ===== 颜文字 - 分组内容 ===== -->
+  <div id="page-wordcard-kaomoji-group" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title" id="kaomoji-group-title">分组</div>
+    </div>
+    <div class="wordcard-toolbar" id="kaomoji-group-toolbar">
+      <button class="toolbar-btn" onclick="addKaomojiToGroup()"><i class="fas fa-plus-circle"></i><span>添加颜文字</span></button>
+    </div>
+    <div id="kaomoji-grid-group" class="card-list-container"></div>
+  </div>
+
+  <!-- ===== Emoji ===== -->
+  <div id="page-wordcard-emoji" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">Emoji</div>
+    </div>
+    <div class="wordcard-toolbar" id="emoji-toolbar">
+      <button class="toolbar-btn" onclick="addEmoji()" title="添加Emoji"><i class="fas fa-plus-circle"></i><span>添加</span></button>
+      <button class="toolbar-btn" onclick="importEmojiJSON()" title="导入Emoji"><i class="fas fa-file-import"></i><span>导入</span></button>
+      <button class="toolbar-btn" onclick="exportEmojiJSON()" title="导出Emoji"><i class="fas fa-file-export"></i><span>导出</span></button>
+      <button class="toolbar-btn" onclick="deduplicateEmojis()" title="去重Emoji"><i class="fas fa-filter"></i><span>去重</span></button>
+    </div>
+    <div id="emoji-group-list" class="discover-list"></div>
+  </div>
+
+  <!-- ===== Emoji - 分组内容 ===== -->
+  <div id="page-wordcard-emoji-group" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title" id="emoji-group-title">分组</div>
+    </div>
+    <div class="wordcard-toolbar" id="emoji-group-toolbar">
+      <button class="toolbar-btn" onclick="addEmojiToGroup()"><i class="fas fa-plus-circle"></i><span>添加Emoji</span></button>
+      <button class="toolbar-btn" onclick="selectEmojisInGroup()"><i class="fas fa-check-square"></i><span>选中</span></button>
+      <button class="toolbar-btn" onclick="deleteSelectedEmojis()" id="btn-delete-emojis" style="display:none"><i class="fas fa-trash-alt"></i><span>删除选中</span></button>
+    </div>
+    <div id="emoji-grid-group" class="emoji-grid"></div>
+  </div>
+
+  <!-- ===== 表情包库 ===== -->
+  <div id="page-wordcard-stickers" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">表情包库</div>
+      <div class="nav-actions"></div>
+    </div>
+    <div class="wordcard-toolbar">
+      <button class="toolbar-btn" onclick="addStickerGroup()"><i class="fas fa-plus-circle"></i><span>新增分组</span></button>
+      <button class="toolbar-btn" onclick="importStickersJSON()"><i class="fas fa-file-import"></i><span>导入</span></button>
+      <button class="toolbar-btn" onclick="exportAllStickersJSON()"><i class="fas fa-download"></i><span>导出</span></button>
+      <button class="toolbar-btn" onclick="deduplicateAllStickers()"><i class="fas fa-filter"></i><span>去重</span></button>
+    </div>
+    <div id="sticker-group-list" class="discover-list"></div>
+  </div>
+
+  <!-- ===== 表情包库 - 分组内容 ===== -->
+  <div id="page-wordcard-stickers-group" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title" id="sticker-group-title">分组</div>
+      <div class="nav-actions"></div>
+    </div>
+    <div class="wordcard-toolbar" id="wordcard-stickers-group-toolbar">
+      <span class="toolbar-count" id="sticker-selected-count" style="display:none">已选 <strong>0</strong> 项</span>
+      <button class="toolbar-btn" onclick="cancelStickerSelection()" id="btn-sticker-cancel" style="display:none"><i class="fas fa-times"></i><span>取消</span></button>
+      <button class="toolbar-btn" onclick="deleteSelectedStickers()" id="btn-sticker-delete" style="display:none"><i class="fas fa-trash-alt"></i><span>删除</span></button>
+      <button class="toolbar-btn" onclick="moveStickersToGroup()" id="btn-sticker-move" style="display:none"><i class="fas fa-arrows-alt"></i><span>移动</span></button>
+      <button class="toolbar-btn" onclick="toggleStickerBlock()" id="btn-sticker-block" style="display:none"><i class="fas fa-eye-slash"></i><span>屏蔽</span></button>
+      <button class="toolbar-btn" onclick="batchUploadStickers()" id="btn-sticker-upload"><i class="fas fa-upload"></i><span>批量上传</span></button>
+      <button class="toolbar-btn" onclick="importStickersByUrl()" id="btn-sticker-url-import"><i class="fas fa-link"></i><span>链接导入</span></button>
+    </div>
+    <div id="sticker-grid-group" class="sticker-grid"></div>
+  </div>
+
+  <!-- ===== 留言库 ===== -->
+  <div id="page-wordcard-daily-quotes" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">留言库</div>
+    </div>
+    <div class="wordcard-toolbar" id="daily-quotes-toolbar">
+      <button class="toolbar-btn" onclick="addDailyQuote()" title="添加留言"><i class="fas fa-plus-circle"></i><span>添加</span></button>
+      <button class="toolbar-btn" onclick="importDailyQuotesJSON()" title="导入留言"><i class="fas fa-file-import"></i><span>导入</span></button>
+      <button class="toolbar-btn" onclick="exportDailyQuotesJSON()" title="导出留言"><i class="fas fa-file-export"></i><span>导出</span></button>
+      <button class="toolbar-btn" onclick="deduplicateDailyQuotes()" title="去重留言"><i class="fas fa-filter"></i><span>去重</span></button>
+    </div>
+    <div class="quotes-list" id="daily-quotes-list"></div>
+  </div>
+
+  <!-- ===== 发现页 ===== -->
+  <div id="page-discover" class="page">
+    <div class="page-header page-header-center">
+      <h2>发现</h2>
+    </div>
+    <div class="discover-list">
+      <div class="discover-item" onclick="Navigation.navigateTo('favorites')">
+        <div class="discover-icon"><i class="fas fa-star"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">我的收藏</div>
+          <div class="discover-desc">收藏的消息都在这里</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="discover-item" onclick="Navigation.navigateTo('his-favorites')">
+        <div class="discover-icon"><i class="fas fa-heart"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">他的收藏</div>
+          <div class="discover-desc">TA 悄悄收藏的那些消息</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('moments')">
+        <div class="discover-icon"><i class="fas fa-images"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">朋友圈</div>
+          <div class="discover-desc">看看朋友们在做什么</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('mailbox')">
+        <div class="discover-icon"><i class="fas fa-envelope"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">时空信箱</div>
+          <div class="discover-desc">便签信件，双向通信，来信与回信</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="discover-item" onclick="Navigation.navigateTo('whereabout-reports')">
+        <div class="discover-icon"><i class="fas fa-location-dot"></i></div>
+        <div class="discover-info">
+          <div class="discover-title">行踪汇报</div>
+          <div class="discover-desc">TA 的足迹与汇报，一一定位你的心动</div>
+        </div>
+        <i class="fas fa-chevron-right discover-arrow"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 我的收藏 ===== -->
+  <div id="page-favorites" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">我的收藏</div>
+      <div class="nav-action" onclick="clearAllFavorites()"><i class="fas fa-trash-alt"></i></div>
+    </div>
+    <div class="favorites-list" id="favorites-list"></div>
+  </div>
+
+  <!-- ===== 他的收藏（对方角色自动收藏，第一层：按角色分组卡片） ===== -->
+  <div id="page-his-favorites" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">他的收藏</div>
+      <div class="nav-action" onclick="clearAllHisFavorites()" title="清空他的收藏"><i class="fas fa-trash-alt"></i></div>
+    </div>
+    <div class="favorites-list his-favorites-list" id="his-favorites-list"></div>
+  </div>
+
+  <!-- ===== 他的收藏 - 角色分组内容（第二层：角色详情，按内容分类） ===== -->
+  <div id="page-his-favorites-group" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title" id="his-favorites-group-title">收藏</div>
+    </div>
+    <div class="favorites-list his-favorites-list" id="his-favorites-group-list"></div>
+  </div>
+
+  <!-- ===== 朋友圈 ===== -->
+  <div id="page-moments" class="page"></div>
+
+  <!-- ===== 朋友圈发布（由 moments.js 动态渲染，避免静态占位双份渲染） ===== -->
+  <div id="page-moments-publish" class="page"></div>
+
+  <!-- ===== 朋友圈来访记录（由 moments.js 动态渲染） ===== -->
+  <div id="page-moments-visitors" class="page"></div>
+
+  <!-- ===== 时空信箱 ===== -->
+  <div id="page-mailbox" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">时空信箱</div>
+      <div class="nav-action" onclick="openWriteLetter()" title="写新信"><i class="fas fa-pen"></i></div>
+    </div>
+    <div class="mailbox-list" id="mailbox-list"></div>
+  </div>
+
+  <!-- ===== 信件详情 ===== -->
+  <div id="page-mailbox-detail" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">信件详情</div>
+    </div>
+    <div id="mailbox-detail-container"></div>
+  </div>
+
+  <!-- ===== 写新信 ===== -->
+  <div id="page-write-letter" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">写新信</div>
+    </div>
+    <div class="write-letter">
+      <div id="letter-editor-container"></div>
+    </div>
+  </div>
+
+  <!-- ===== 回信 ===== -->
+  <div id="page-mailbox-reply" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">回信</div>
+    </div>
+    <div class="write-letter">
+      <div id="reply-editor-container"></div>
+    </div>
+  </div>
+
+  <!-- ===== 回信设置 ===== -->
+  <div id="page-mailbox-settings" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">回信设置</div>
+    </div>
+    <div id="mailbox-settings-body"></div>
+  </div>
+
+  <!-- ===== 行踪设置 ===== -->
+  <div id="page-whereabout-settings" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">行踪设置</div>
+    </div>
+    <div id="whereabout-settings-body"></div>
+  </div>
+
+  <!-- ===== 日常记录 ===== -->
+  <div id="page-daily-record" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">日常记录</div>
+    </div>
+    <div class="daily-calendar" id="daily-calendar"></div>
+    <div id="daily-records-container"></div>
+  </div>
+
+  <!-- ===== 行踪（字卡入口，分组列表） ===== -->
+  <div id="page-whereabouts" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">行踪</div>
+    </div>
+    <div class="wordcard-toolbar" id="whereabout-toolbar">
+      <button class="toolbar-btn" onclick="addWhereaboutGroup()" title="添加分组"><i class="fas fa-folder-plus"></i><span>添加分组</span></button>
+    </div>
+    <div id="whereabouts-list" class="discover-list"></div>
+  </div>
+
+  <!-- ===== 行踪 - 分组内容 ===== -->
+  <div id="page-whereabout-group" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title" id="whereabout-group-title">分组</div>
+    </div>
+    <div class="wordcard-toolbar" id="whereabout-group-toolbar">
+      <button class="toolbar-btn" onclick="addWhereabout()"><i class="fas fa-plus-circle"></i><span>添加行踪</span></button>
+    </div>
+    <div id="whereabout-group-list" class="discover-list"></div>
+  </div>
+
+  <!-- ===== 行踪汇报（发现页入口） ===== -->
+  <div id="page-whereabout-reports" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">行踪汇报</div>
+      <div class="nav-action" onclick="reportWhereaboutByRole()" title="对方角色汇报行踪"><i class="fas fa-magic"></i></div>
+    </div>
+    <div class="whereabouts-hint">
+      <i class="fas fa-location-dot"></i>
+      <span>TA 的行踪汇报，按时间排列</span>
+    </div>
+    <div id="whereabout-reports-list"></div>
+  </div>
+
+  <!-- ===== 设置页 ===== -->
+  <div id="page-settings" class="page">
+    <div class="page-header page-header-center">
+      <h2>设置</h2>
+    </div>
+
+    <!-- 账号设置入口 -->
+    <div class="settings-list">
+      <div class="settings-item" onclick="Navigation.navigateTo('account-settings')">
+        <div class="s-icon"><i class="fas fa-user-circle"></i></div>
+        <div class="s-content"><div class="s-label">账号设置</div><div class="s-value">管理我方和对方的头像与昵称</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+    </div>
+
+    <div class="settings-divider"></div>
+
+    <!-- 设置菜单 -->
+    <div class="settings-list">
+      <div class="settings-item" onclick="Navigation.navigateTo('appearance')">
+        <div class="s-icon"><i class="fas fa-palette"></i></div>
+        <div class="s-content"><div class="s-label">外观设置</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="Navigation.navigateTo('bubble-shop')">
+        <div class="s-icon"><i class="fas fa-comment-dots"></i></div>
+        <div class="s-content"><div class="s-label">气泡商城</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="Navigation.navigateTo('chat-settings')">
+        <div class="s-icon"><i class="fas fa-comment-dots"></i></div>
+        <div class="s-content"><div class="s-label">聊天设置</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="Navigation.navigateTo('mailbox-settings')">
+        <div class="s-icon"><i class="fas fa-envelope-open-text"></i></div>
+        <div class="s-content"><div class="s-label">回信设置</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="Navigation.navigateTo('whereabout-settings')">
+        <div class="s-icon"><i class="fas fa-location-dot"></i></div>
+        <div class="s-content"><div class="s-label">行踪设置</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="Navigation.navigateTo('data-manage')">
+        <div class="s-icon"><i class="fas fa-database"></i></div>
+        <div class="s-content"><div class="s-label">数据管理</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+    </div>
+
+    <div class="settings-divider"></div>
+
+    <div class="settings-list">
+      <div class="settings-item" onclick="Navigation.navigateTo('about')">
+        <div class="s-icon"><i class="fas fa-info-circle"></i></div>
+        <div class="s-content"><div class="s-label">关于</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 账号设置 ===== -->
+  <div id="page-account-settings" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">账号设置</div>
+    </div>
+
+    <div class="section-title">我方</div>
+    <div class="settings-list">
+      <div class="settings-item" onclick="editMyAccount()">
+        <div id="my-account-avatar-icon" class="account-avatar-sm" style="background:#A8D8EA">我</div>
+        <div class="s-content">
+          <div class="s-label" id="my-account-label">我</div>
+          <div class="s-value">点击设置头像和昵称</div>
+        </div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+    </div>
+
+    <div class="section-title">对方</div>
+    <div class="settings-list" id="partner-account-list"></div>
+    <button class="glass-btn" onclick="addPartnerAccount()" style="margin:12px 16px;width:calc(100% - 32px);border-radius:var(--radius-lg)">
+      <i class="fas fa-plus"></i> 添加角色
+    </button>
+  </div>
+
+  <!-- ===== 外观设置 ===== -->
+  <div id="page-appearance" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">外观设置</div>
+    </div>
+
+    <div class="section-title">主题切换</div>
+    <div id="theme-selector-container" class="theme-grid"></div>
+
+    <div class="section-title">自定义主题</div>
+    <div class="custom-theme-box">
+      <div class="custom-theme-row">
+        <span class="custom-theme-label">主色调</span>
+        <input type="color" id="custom-theme-color" value="#B8DCF0" oninput="ThemeManager.previewCustom(this.value)">
+        <span class="custom-theme-hex" id="custom-theme-hex">#B8DCF0</span>
+      </div>
+      <div class="custom-theme-actions">
+        <button class="custom-theme-btn" onclick="ThemeManager.saveCustom()"><i class="fas fa-save"></i> 保存自定义主题</button>
+        <button class="custom-theme-btn custom-theme-reset" onclick="ThemeManager.resetCustom()">恢复默认</button>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:20px">全局图标自定义</div>
+    <div class="icon-zone-box">
+      <div class="icon-zone-tip">按区域单独设置按键图标颜色，避免自定义主题下同色系相互混淆；未设置的区域自动跟随当前主题主色。点击右侧色值可恢复「跟随主题」。</div>
+      <div class="icon-zone-row" data-zone="home">
+        <span class="icon-zone-dot"></span><span class="icon-zone-label">首页应用</span>
+        <input type="color" class="icon-zone-color" id="icon-zone-home" data-zone="home" value="#B8DCF0" oninput="IconZones.previewZone(this)">
+        <span class="icon-zone-hex" id="icon-zone-home-hex" onclick="IconZones.resetZoneFromHex(this)" title="点击恢复跟随主题">跟随主题</span>
+      </div>
+      <div class="icon-zone-row" data-zone="tabbar">
+        <span class="icon-zone-dot"></span><span class="icon-zone-label">底栏按键</span>
+        <input type="color" class="icon-zone-color" id="icon-zone-tabbar" data-zone="tabbar" value="#B8DCF0" oninput="IconZones.previewZone(this)">
+        <span class="icon-zone-hex" id="icon-zone-tabbar-hex" onclick="IconZones.resetZoneFromHex(this)" title="点击恢复跟随主题">跟随主题</span>
+      </div>
+      <div class="icon-zone-row" data-zone="wordcard">
+        <span class="icon-zone-dot"></span><span class="icon-zone-label">字卡列表</span>
+        <input type="color" class="icon-zone-color" id="icon-zone-wordcard" data-zone="wordcard" value="#B8DCF0" oninput="IconZones.previewZone(this)">
+        <span class="icon-zone-hex" id="icon-zone-wordcard-hex" onclick="IconZones.resetZoneFromHex(this)" title="点击恢复跟随主题">跟随主题</span>
+      </div>
+      <div class="icon-zone-row" data-zone="discover">
+        <span class="icon-zone-dot"></span><span class="icon-zone-label">发现列表</span>
+        <input type="color" class="icon-zone-color" id="icon-zone-discover" data-zone="discover" value="#B8DCF0" oninput="IconZones.previewZone(this)">
+        <span class="icon-zone-hex" id="icon-zone-discover-hex" onclick="IconZones.resetZoneFromHex(this)" title="点击恢复跟随主题">跟随主题</span>
+      </div>
+      <div class="icon-zone-row" data-zone="settings">
+        <span class="icon-zone-dot"></span><span class="icon-zone-label">设置界面</span>
+        <input type="color" class="icon-zone-color" id="icon-zone-settings" data-zone="settings" value="#B8DCF0" oninput="IconZones.previewZone(this)">
+        <span class="icon-zone-hex" id="icon-zone-settings-hex" onclick="IconZones.resetZoneFromHex(this)" title="点击恢复跟随主题">跟随主题</span>
+      </div>
+      <div class="icon-zone-row" data-zone="chatplus">
+        <span class="icon-zone-dot"></span><span class="icon-zone-label">聊天加号菜单</span>
+        <input type="color" class="icon-zone-color" id="icon-zone-chatplus" data-zone="chatplus" value="#B8DCF0" oninput="IconZones.previewZone(this)">
+        <span class="icon-zone-hex" id="icon-zone-chatplus-hex" onclick="IconZones.resetZoneFromHex(this)" title="点击恢复跟随主题">跟随主题</span>
+      </div>
+      <div class="icon-zone-actions">
+        <button class="icon-zone-save" onclick="IconZones.saveFromUI()"><i class="fas fa-save"></i> 保存图标颜色</button>
+        <button class="icon-zone-reset-all" onclick="IconZones.resetAll()">全部跟随主题</button>
+      </div>
+    </div>
+
+    <div class="section-title">字体大小</div>
+    <div class="font-size-slider">
+      <span style="font-size:0.75rem;color:var(--text-lighter)">A</span>
+      <input type="range" id="font-size-slider" min="12" max="24" step="1" oninput="changeFontSize(this.value)">
+      <span style="font-size:1.1rem;font-weight:700;color:var(--text-dark)">A</span>
+      <span class="size-label" id="font-size-value">16px</span>
+    </div>
+
+    <div class="section-title">字体设置</div>
+    <div class="global-font-box">
+      <div class="global-font-actions">
+        <input type="text" id="global-font-url" class="global-font-url-input" placeholder="粘贴字体链接（.ttf/.woff/.woff2 直链或 .css 样式链接）">
+        <button class="custom-theme-btn" onclick="FontManager.applyUrlInput()"><i class="fas fa-link"></i> 应用</button>
+      </div>
+      <div class="global-font-actions">
+        <button class="custom-theme-btn custom-theme-reset" onclick="FontManager.resetToSystem()"><i class="fas fa-undo"></i> 使用系统字体</button>
+      </div>
+      <div class="font-preview">字体效果预览：拾心界里的每一句话，都想说给你听。</div>
+    </div>
+  </div>
+
+  <!-- ===== 气泡商城 ===== -->
+  <div id="page-bubble-shop" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">气泡商城</div>
+    </div>
+    <div class="bs-wrap">
+      <div class="bs-section bs-css-top">
+        <div class="bs-section-head">
+          <span class="bs-section-title">粘贴 CSS 代码</span>
+        </div>
+        <div class="bs-css-import">
+          <textarea id="bs-css-code" placeholder="粘贴 CSS 代码（需含类名），如：&#10;.my-bubble { background: #ffe6f0; border-radius: 12px; }&#10;&#10;微信风格请粘贴同时包含 .message-sent 与 .message-received 的代码"></textarea>
+          <button class="bs-css-save" id="bs-css-save">保存 CSS 气泡</button>
+        </div>
+      </div>
+      <div class="bs-section">
+        <div class="bs-section-head">
+          <span class="bs-section-title">CSS 气泡</span>
+        </div>
+        <div class="bs-grid" id="bs-grid-css"></div>
+      </div>
+    </div>
+    <!-- 指派弹层 -->
+    <div class="bs-assign-overlay" id="bs-assign-overlay" style="display:none">
+      <div class="bs-assign-panel">
+        <div class="bs-assign-title">设置气泡 <span id="bs-assign-name"></span></div>
+        <div id="bs-assign-targets"></div>
+        <div class="bs-assign-actions">
+          <button class="bs-assign-btn" id="bs-assign-cancel">取消</button>
+          <button class="bs-assign-btn primary" id="bs-assign-save">保存指派</button>
+        </div>
+      </div>
+    </div>
+    <!-- 改名弹层 -->
+    <div class="bs-assign-overlay" id="bs-rename-overlay" style="display:none">
+      <div class="bs-assign-panel bs-rename-panel">
+        <div class="bs-assign-title">修改气泡名称</div>
+        <input type="text" id="bs-rename-input" placeholder="输入新的气泡名称" maxlength="30">
+        <div class="bs-assign-actions">
+          <button class="bs-assign-btn" id="bs-rename-cancel">取消</button>
+          <button class="bs-assign-btn primary" id="bs-rename-save">确认</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 聊天设置（入口页） ===== -->
+  <div id="page-chat-settings" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">聊天设置</div>
+    </div>
+    <div class="settings-list" style="margin-top:12px">
+      <div class="settings-item" onclick="Navigation.navigateTo('feature-settings')">
+        <div class="s-icon"><i class="fas fa-sliders-h"></i></div>
+        <div class="s-content"><div class="s-label">功能设置</div><div class="s-value">交互方式、时间戳显示</div></div>
+        <div class="s-arrow"><i class="fas fa-chevron-right"></i></div>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="Navigation.navigateTo('pace-settings')">
+        <div class="s-icon"><i class="fas fa-tachometer-alt"></i></div>
+        <div class="s-content"><div class="s-label">节奏设置</div><div class="s-value">回复速度、消息行为</div></div>
+        <div class="s-arrow"><i class="fas fa-chevron-right"></i></div>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="Navigation.navigateTo('sound-settings')">
+        <div class="s-icon"><i class="fas fa-volume-up"></i></div>
+        <div class="s-content"><div class="s-label">音效设置</div><div class="s-value">消息提示音、音效预览</div></div>
+        <div class="s-arrow"><i class="fas fa-chevron-right"></i></div>
+      </div>
+    </div>
+    <div class="section-title">后台</div>
+    <div class="settings-list">
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">后台保活</div><div class="s-value">循环播放静音音频，切后台也能继续接收信息</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-keep-alive" onchange="chatSettingToggle('backgroundKeepAlive', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">后台消息推送</div><div class="s-value">切后台后收到消息时通知栏弹窗提醒</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-bg-push" onchange="chatSettingToggle('backgroundPush', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 功能设置子页 ===== -->
+  <div id="page-feature-settings" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">功能设置</div>
+    </div>
+    <div class="section-title">交互设置</div>
+    <div class="settings-list">
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">已读显示</div><div class="s-value">对方发送后显示已读状态</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-read-receipt" onchange="chatSettingToggle('readReceipt', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="chat-settings-subtitle">已读显示模式</div>
+      <div class="settings-item selectable" onclick="chatSetReadMode('icon')">
+        <div class="s-content"><div class="s-label">图形显示</div><div class="s-value">未读 ✓ / 已读 ✓✓</div></div>
+        <div class="s-check" id="cs-read-mode-icon"></div>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item selectable" onclick="chatSetReadMode('text')">
+        <div class="s-content"><div class="s-label">文字显示</div><div class="s-value">未读 / 已读</div></div>
+        <div class="s-check" id="cs-read-mode-text"></div>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">已读不回</div><div class="s-value">已读消息后不自动回复</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-read-ignore" onchange="chatSettingToggle('readIgnore', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">正在输入</div><div class="s-value">对方发送前显示输入状态气泡</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-typing-indicator" onchange="chatSettingToggle('typingIndicator', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">正在输入提示文案</div><div class="s-value">自定义气泡中显示的文字</div></div>
+      </div>
+      <div class="chat-settings-input-row">
+        <input type="text" id="cs-typing-text" maxlength="30" placeholder="对方正在输入…" onchange="chatSetTypingText(this.value)">
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">正在输入符号</div><div class="s-value">气泡动画中的简笔画符号，可自定义</div></div>
+      </div>
+      <div class="sound-option-row" id="cs-typing-symbol-options">
+        <div class="sound-option" data-sym="❤︎" onclick="chatSetTypingSymbol('❤︎', this)">❤︎</div>
+        <div class="sound-option" data-sym="★" onclick="chatSetTypingSymbol('★', this)">★</div>
+        <div class="sound-option" data-sym="●" onclick="chatSetTypingSymbol('●', this)">●</div>
+        <div class="sound-option" data-sym="◆" onclick="chatSetTypingSymbol('◆', this)">◆</div>
+        <div class="sound-option" data-sym="♣" onclick="chatSetTypingSymbol('♣', this)">♣</div>
+      </div>
+      <div class="chat-settings-input-row">
+        <input type="text" id="cs-typing-symbol-input" maxlength="4" placeholder="自定义符号（如 ✿）" onchange="chatSetTypingSymbol(this.value, null, true)">
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">拍一拍符号（我方发送）</div><div class="s-value">我发出的拍一拍气泡符号</div></div>
+      </div>
+      <div class="sound-option-row" id="cs-pat-self-symbol-options">
+        <div class="sound-option" data-sym="♥︎" onclick="chatSetPatSymbol('self','♥︎',this)">♥︎</div>
+        <div class="sound-option" data-sym="❤︎" onclick="chatSetPatSymbol('self','❤︎',this)">❤︎</div>
+        <div class="sound-option" data-sym="★" onclick="chatSetPatSymbol('self','★',this)">★</div>
+        <div class="sound-option" data-sym="●" onclick="chatSetPatSymbol('self','●',this)">●</div>
+        <div class="sound-option" data-sym="◆" onclick="chatSetPatSymbol('self','◆',this)">◆</div>
+      </div>
+      <div class="chat-settings-input-row">
+        <input type="text" id="cs-pat-self-symbol-input" maxlength="4" placeholder="自定义符号（如 ✿）" onchange="chatSetPatSymbol('self', this.value, null, true)">
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">拍一拍符号（对方发送）</div><div class="s-value">对方发出的拍一拍气泡符号</div></div>
+      </div>
+      <div class="sound-option-row" id="cs-pat-other-symbol-options">
+        <div class="sound-option" data-sym="♥︎" onclick="chatSetPatSymbol('other','♥︎',this)">♥︎</div>
+        <div class="sound-option" data-sym="❤︎" onclick="chatSetPatSymbol('other','❤︎',this)">❤︎</div>
+        <div class="sound-option" data-sym="★" onclick="chatSetPatSymbol('other','★',this)">★</div>
+        <div class="sound-option" data-sym="●" onclick="chatSetPatSymbol('other','●',this)">●</div>
+        <div class="sound-option" data-sym="◆" onclick="chatSetPatSymbol('other','◆',this)">◆</div>
+      </div>
+      <div class="chat-settings-input-row">
+        <input type="text" id="cs-pat-other-symbol-input" maxlength="4" placeholder="自定义符号（如 ✿）" onchange="chatSetPatSymbol('other', this.value, null, true)">
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">回车键发送消息</div><div class="s-value">按回车键直接发送消息</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-enter-send" onchange="chatSettingToggle('enterToSend', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">显示撤回内容</div><div class="s-value">对方撤回消息时保留内容并标注已撤回</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-show-recall-content" onchange="chatSettingToggle('showRecallContent', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="section-title">时间戳设置</div>
+    <div class="settings-list" id="cs-timestamp-list">
+      <div class="settings-item selectable" onclick="chatSetTimestamp('none')">
+        <div class="s-content"><div class="s-label">不显示</div></div>
+        <div class="s-check" id="cs-ts-none"></div>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item selectable" onclick="chatSetTimestamp('time')">
+        <div class="s-content"><div class="s-label">仅显示时间</div><div class="s-value">如 14:30</div></div>
+        <div class="s-check" id="cs-ts-time"></div>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item selectable" onclick="chatSetTimestamp('datetime')">
+        <div class="s-content"><div class="s-label">显示日期+时间</div><div class="s-value">如 8月7日 14:30</div></div>
+        <div class="s-check" id="cs-ts-datetime"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 节奏设置子页 ===== -->
+  <div id="page-pace-settings" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">节奏设置</div>
+    </div>
+    <div class="section-title">回复速度</div>
+    <div class="settings-list">
+      <div class="pace-input-row">
+        <div class="s-content">
+          <div class="s-label">最短等待时长</div>
+          <div class="s-value">对方回复前的最短等待时间</div>
+        </div>
+        <div class="pace-input-wrap">
+          <input type="number" id="cs-reply-min-delay-num" min="1" max="9999" inputmode="numeric" placeholder="30" onchange="chatSetReplyDelay('min')">
+          <select id="cs-reply-min-delay-unit" class="pace-unit-select" onchange="chatSetReplyDelay('min')">
+            <option value="1">秒</option>
+            <option value="60">分钟</option>
+            <option value="3600">小时</option>
+          </select>
+        </div>
+      </div>
+      <div class="pace-input-row" style="border-top:1px solid rgba(0,0,0,0.06)">
+        <div class="s-content">
+          <div class="s-label">最长等待时长</div>
+          <div class="s-value">对方回复前的最长等待时间</div>
+        </div>
+        <div class="pace-input-wrap">
+          <input type="number" id="cs-reply-max-delay-num" min="1" max="9999" inputmode="numeric" placeholder="180" onchange="chatSetReplyDelay('max')">
+          <select id="cs-reply-max-delay-unit" class="pace-unit-select" onchange="chatSetReplyDelay('max')">
+            <option value="1">秒</option>
+            <option value="60">分钟</option>
+            <option value="3600">小时</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">消息行为</div>
+    <div class="settings-list">
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">主动发送消息</div><div class="s-value">对方可主动发起新消息</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-proactive-send" onchange="chatSettingToggle('proactiveSend', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="pace-input-row" id="cs-proactive-interval-row" style="border-top:1px solid rgba(0,0,0,0.06)">
+        <div class="s-content">
+          <div class="s-label">主动发送间隔</div>
+          <div class="s-value">对方主动发起新消息的间隔时间</div>
+        </div>
+        <div class="pace-input-wrap">
+          <input type="number" id="cs-proactive-interval-num" min="1" max="9999" inputmode="numeric" placeholder="10" onchange="chatSetProactiveInterval()">
+          <select id="cs-proactive-interval-unit" class="pace-unit-select" onchange="chatSetProactiveInterval()">
+            <option value="1">秒</option>
+            <option value="60" selected>分钟</option>
+            <option value="3600">小时</option>
+          </select>
+        </div>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">拼字卡发送</div><div class="s-value">从字卡库索引多条字卡拼接回复</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-spell-card" onchange="chatSettingToggle('spellCardSend', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">表情混入消息回复</div><div class="s-value">和字卡那边绑定</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-emoji-mixing" onchange="chatSettingToggle('emojiMixing', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">颜文字混入消息回复</div><div class="s-value">和字卡那边绑定</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-kaomoji-mixing" onchange="chatSettingToggle('kaomojiMixing', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">表情包混入消息回复</div><div class="s-value">自动回复时随机发送表情包图片</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-sticker-mixing" onchange="chatSettingToggle('stickerMixing', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">红包混入</div><div class="s-value">对方自动回复时随机发送红包</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-redpacket-mixing" onchange="chatSettingToggle('redPacketMixing', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">拍一拍混入</div><div class="s-value">对方自动回复时随机发送拍一拍</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-pat-mixing" onchange="chatSettingToggle('PatMixEnabled', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">语音字卡混入</div><div class="s-value">对方自动回复时随机发送语音字卡音频</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-voice-mixing" onchange="chatSettingToggle('voiceMixing', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">允许对方主动拨打</div><div class="s-value">开启后对方会随机主动拨打视频或语音通话</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-simulate-call" onchange="chatSettingToggle('simulateCall', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 音效设置子页 ===== -->
+  <div id="page-sound-settings" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">音效设置</div>
+    </div>
+    <div class="section-title">全局控制</div>
+    <div class="settings-list">
+      <div class="settings-item">
+        <div class="s-content"><div class="s-label">音效开关</div><div class="s-value">全局静音控制</div></div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="cs-sound-enabled" onchange="chatSettingToggle('soundEnabled', this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="list-divider"></div>
+      <div class="chat-slider-row">
+        <div class="s-content">
+          <div class="s-label">音量大小</div>
+        </div>
+        <input type="range" id="cs-sound-volume" min="0" max="100" step="5" oninput="chatSetSoundVolume(this.value)">
+        <span class="chat-slider-value" id="cs-sound-volume-val">80%</span>
+      </div>
+    </div>
+
+    <div class="section-title">接收消息音效</div>
+    <div class="sound-option-row" id="cs-receive-sound-options">
+      <div class="sound-option active" data-sound="msg" onclick="chatSetSound('receive', 'msg')">默认音效<button class="sound-preview-btn" onclick="event.stopPropagation();previewSound('msg')"><i class="fas fa-play"></i></button></div>
+      <div class="sound-option" data-sound="default" onclick="chatSetSound('receive', 'default')">标准<button class="sound-preview-btn" onclick="event.stopPropagation();previewSound('default')"><i class="fas fa-play"></i></button></div>
+      <div class="sound-option" data-sound="crisp" onclick="chatSetSound('receive', 'crisp')">清脆<button class="sound-preview-btn" onclick="event.stopPropagation();previewSound('crisp')"><i class="fas fa-play"></i></button></div>
+      <div class="sound-option" data-sound="soft" onclick="chatSetSound('receive', 'soft')">柔和<button class="sound-preview-btn" onclick="event.stopPropagation();previewSound('soft')"><i class="fas fa-play"></i></button></div>
+    </div>
+    <div class="chat-upload-row">
+      <label class="chat-upload-btn" for="cs-receive-sound-file">
+        <i class="fas fa-upload"></i> 上传自定义音效
+      </label>
+      <input type="file" id="cs-receive-sound-file" accept="audio/mpeg" style="display:none" onchange="chatUploadSound('receive', this)">
+      <span class="chat-upload-file-name" id="cs-receive-upload-name"></span>
+      <span class="chat-upload-actions" id="cs-receive-upload-actions" style="display:none">
+        <button class="chat-upload-preview" onclick="previewSound(Storage.getReceiveSound())" title="预览音效"><i class="fas fa-play"></i></button>
+        <button class="chat-upload-delete" onclick="chatDeleteSound('receive')" title="删除自定义音效"><i class="fas fa-trash-alt"></i></button>
+      </span>
+    </div>
+
+    <div class="section-title">发送消息音效</div>
+    <div class="sound-option-row" id="cs-send-sound-options">
+      <div class="sound-option active" data-sound="msg" onclick="chatSetSound('send', 'msg')">默认音效<button class="sound-preview-btn" onclick="event.stopPropagation();previewSound('msg')"><i class="fas fa-play"></i></button></div>
+      <div class="sound-option" data-sound="default" onclick="chatSetSound('send', 'default')">标准<button class="sound-preview-btn" onclick="event.stopPropagation();previewSound('default')"><i class="fas fa-play"></i></button></div>
+      <div class="sound-option" data-sound="crisp" onclick="chatSetSound('send', 'crisp')">清脆<button class="sound-preview-btn" onclick="event.stopPropagation();previewSound('crisp')"><i class="fas fa-play"></i></button></div>
+      <div class="sound-option" data-sound="soft" onclick="chatSetSound('send', 'soft')">柔和<button class="sound-preview-btn" onclick="event.stopPropagation();previewSound('soft')"><i class="fas fa-play"></i></button></div>
+    </div>
+    <div class="chat-upload-row">
+      <label class="chat-upload-btn" for="cs-send-sound-file">
+        <i class="fas fa-upload"></i> 上传自定义音效
+      </label>
+      <input type="file" id="cs-send-sound-file" accept="audio/mpeg" style="display:none" onchange="chatUploadSound('send', this)">
+      <span class="chat-upload-file-name" id="cs-send-upload-name"></span>
+      <span class="chat-upload-actions" id="cs-send-upload-actions" style="display:none">
+        <button class="chat-upload-preview" onclick="previewSound(Storage.getSendSound())" title="预览音效"><i class="fas fa-play"></i></button>
+        <button class="chat-upload-delete" onclick="chatDeleteSound('send')" title="删除自定义音效"><i class="fas fa-trash-alt"></i></button>
+      </span>
+    </div>
+
+  </div>
+
+  <!-- ===== 数据管理 ===== -->
+  <div id="page-data-manage" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">数据管理</div>
+    </div>
+
+    <!-- 存储用量 -->
+    <div class="section-title" style="margin-top:16px">存储用量</div>
+    <div class="settings-list data-stats-card">
+      <div class="data-stats-grid">
+        <div class="data-stat-block">
+          <div class="data-stat-icon" style="color:var(--primary)"><i class="fas fa-comments"></i></div>
+          <div class="data-stat-val" id="data-stat-msgs">—</div>
+          <div class="data-stat-key">聊天记录</div>
+        </div>
+        <div class="data-stat-block">
+          <div class="data-stat-icon" style="color:#9C6FD4"><i class="fas fa-id-card"></i></div>
+          <div class="data-stat-val" id="data-stat-cards">—</div>
+          <div class="data-stat-key">字卡</div>
+        </div>
+        <div class="data-stat-block">
+          <div class="data-stat-icon" style="color:#3BC8A4"><i class="fas fa-sliders-h"></i></div>
+          <div class="data-stat-val" id="data-stat-settings">—</div>
+          <div class="data-stat-key">设置项</div>
+        </div>
+      </div>
+      <div class="data-storage-total" id="data-storage-total">计算中…</div>
+      <div class="data-progress-track"><div class="data-progress-fill" id="data-storage-bar" style="width:0%"></div></div>
+    </div>
+
+    <!-- 备份与恢复 -->
+    <div class="section-title">备份与恢复</div>
+    <div class="settings-list">
+      <div class="settings-item" onclick="exportChats()">
+        <div class="s-icon"><i class="fas fa-download"></i></div>
+        <div class="s-content"><div class="s-label">导出聊天记录</div><div class="s-value">保存为 JSON 文件</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="importChats()">
+        <div class="s-icon"><i class="fas fa-file-import"></i></div>
+        <div class="s-content"><div class="s-label">导入聊天记录</div><div class="s-value">从导出的 JSON 合并/恢复消息</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="importCardsJSON()">
+        <div class="s-icon"><i class="fas fa-id-card"></i></div>
+        <div class="s-content"><div class="s-label">导入字卡数据</div><div class="s-value">从字卡 JSON 恢复字卡</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="exportFullBackup()">
+        <div class="s-icon"><i class="fas fa-archive"></i></div>
+        <div class="s-content"><div class="s-label">全量备份导出</div><div class="s-value">聊天记录 + 字卡 + 设置</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="importFullBackup()">
+        <div class="s-icon"><i class="fas fa-history"></i></div>
+        <div class="s-content"><div class="s-label">全量备份导入</div><div class="s-value">从备份 JSON 恢复全部数据</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+    </div>
+
+    <!-- 危险操作 -->
+    <div class="section-title" style="color:#E88888">危险操作</div>
+    <div class="settings-list">
+      <div class="settings-item" onclick="clearChats()">
+        <div class="s-icon" style="color:#E88888"><i class="fas fa-trash-alt"></i></div>
+        <div class="s-content"><div class="s-label" style="color:#E88888">清空聊天记录</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="clearCards()">
+        <div class="s-icon" style="color:#E88888"><i class="fas fa-trash-alt"></i></div>
+        <div class="s-content"><div class="s-label" style="color:#E88888">清空字卡数据</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+      <div class="list-divider"></div>
+      <div class="settings-item" onclick="resetAllData()">
+        <div class="s-icon" style="color:#E88888"><i class="fas fa-skull-crossbones"></i></div>
+        <div class="s-content"><div class="s-label" style="color:#E88888">重置全部数据</div><div class="s-value" style="color:#E88888">清空 localStorage 与 IndexedDB，不可恢复</div></div>
+        <i class="fas fa-chevron-right s-arrow"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 关于页 ===== -->
+  <div id="page-about" class="page">
+    <div class="top-nav">
+      <div class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-title">关于</div>
+    </div>
+    <div style="text-align:center;padding:40px 20px">
+      <div style="font-family:'Noto Serif SC','Songti SC',serif;font-size:2rem;color:var(--primary);letter-spacing:0.15em;margin-bottom:8px">拾心界</div>
+      <div style="font-size:0.85rem;color:var(--text-light);margin-bottom:4px">版本 v1.0.0</div>
+      <div style="font-size:0.75rem;color:var(--text-lighter);margin-bottom:20px">让心流发生 · 让心与心相连</div>
+      <div style="font-size:0.78rem;color:var(--text-medium);line-height:1.8">
+        <p>仿手机仿微信字卡网站</p>
+        <p>技术栈：Tailwind CSS + Font Awesome 6.4.0</p>
+        <p>纯原生 JavaScript 模块化</p>
+        <p>数据存储：IndexedDB 设备持久化（自动迁移旧数据）</p>
+        <p>由抖音/小红书@月落滕气竺（以猫）制作</p>
+        <p>帮我抉择和涂鸦功能</p>
+        <p>由小红书@FelixFelicis老师</p>
+        <p>最先加入进字卡网站</p>
+        <p>二传二改请标注原创作者</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== 月经记录 ===== -->
+  <div id="page-period" class="page">
+    <div class="page-header period-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">生理周期</span>
+    </div>
+    <div class="period-calendar" id="period-calendar"></div>
+    <div class="period-record-card" id="period-record-card" style="display:none"></div>
+    <div class="period-legend" id="period-legend"></div>
+    <div class="period-overview" id="period-overview"></div>
+  </div>
+
+  <!-- ===== 商城购物 ===== -->
+  <div id="page-shop" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">拾心商城</span>
+      <div class="shop-header-actions">
+        <button class="header-action" onclick="ShopApp.openAddProductModal()" title="添加商品"><i class="fas fa-plus"></i></button>
+        <button class="header-action" onclick="ShopApp.showRecords()" title="购买记录"><i class="fas fa-history"></i></button>
+        <button class="header-action" onclick="Navigation.navigateTo('shop-cart')" style="position:relative" title="购物车">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="shop-cart-badge" id="shop-cart-badge" style="display:none">0</span>
+        </button>
+      </div>
+    </div>
+    <div class="recipe-shell" id="shop-shell"></div>
+  </div>
+
+  <!-- ===== 购物车 ===== -->
+  <div id="page-shop-cart" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">购物车</span>
+      <span></span>
+    </div>
+    <div class="shop-cart-list" id="shop-cart-list"></div>
+    <div class="shop-cart-footer" id="shop-cart-footer">
+      <span class="cart-total-label">合计：<strong id="shop-cart-total">¥0</strong></span>
+      <button class="glass-btn primary" onclick="ShopApp.checkout()">结算</button>
+    </div>
+  </div>
+
+  <!-- ===== 恋爱日记 ===== -->
+  <div id="page-love-diary" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">三维科普</span>
+      <span class="science-header-actions">
+        <button class="recipe-header-add" id="science-search-btn" onclick="ScienceApp.toggleSearch()" title="搜索科普"><i class="fas fa-search"></i></button>
+        <button class="recipe-header-add" onclick="ScienceApp.openAdd()" title="添加科普"><i class="fas fa-plus"></i></button>
+      </span>
+    </div>
+    <div class="recipe-shell" id="science-container"></div>
+  </div>
+
+  <!-- ===== 心流状态（情绪标签系统，对齐商城/菜谱/三维科普分栏布局） ===== -->
+  <div id="page-love-test" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">心流状态</span>
+      <span class="science-header-actions">
+        <button class="recipe-header-add" onclick="MoodFlowApp.openAddModal()" title="自定义添加"><i class="fas fa-plus"></i></button>
+      </span>
+    </div>
+    <div class="recipe-shell" id="love-test-container"></div>
+  </div>
+
+  <!-- ===== 互动游戏大厅 ===== -->
+  <div id="page-mini-games" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">互动游戏</span>
+      <span></span>
+    </div>
+    <div class="love-page-container" id="mini-games-container"></div>
+  </div>
+
+  <!-- ===== 互动游戏：羊了个羊 ===== -->
+  <div id="page-game-sheep" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">羊了个羊</span>
+      <span></span>
+    </div>
+    <div class="love-page-container" id="game-sheep-container"></div>
+  </div>
+
+  <!-- ===== 互动游戏：消消乐（原抓大鹅） ===== -->
+  <div id="page-game-goose" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">消消乐</span>
+      <span></span>
+    </div>
+    <div class="love-page-container" id="game-goose-container"></div>
+  </div>
+
+  <!-- ===== 互动游戏：连连看 ===== -->
+  <div id="page-game-llk" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">连连看</span>
+      <span></span>
+    </div>
+    <div class="love-page-container" id="game-llk-container"></div>
+  </div>
+
+  <!-- ===== 互动游戏：2048 ===== -->
+  <div id="page-game-2048" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">2048</span>
+      <span></span>
+    </div>
+    <div class="love-page-container" id="game-2048-container"></div>
+  </div>
+
+  <!-- ===== 互动游戏：记忆翻牌 ===== -->
+  <div id="page-game-memory" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">记忆翻牌</span>
+      <span></span>
+    </div>
+    <div class="love-page-container" id="game-memory-container"></div>
+  </div>
+
+  <!-- ===== 小说书架 ===== -->
+  <div id="page-bookshelf" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">小说书架</span>
+      <button class="bookshelf-header-import" onclick="BookshelfApp.openImport()" title="导入小说"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="love-page-container" id="bookshelf-container"></div>
+  </div>
+
+  <!-- ===== 家庭菜谱 ===== -->
+  <div id="page-recipe" class="page">
+    <div class="page-header">
+      <button class="back-btn" onclick="Navigation.goBack()"><i class="fas fa-chevron-left"></i></button>
+      <span class="page-title">家庭菜谱</span>
+      <span class="recipe-header-actions">
+        <button class="recipe-header-add" id="recipe-search-btn" onclick="RecipeApp.toggleSearch()" title="搜索菜谱"><i class="fas fa-search"></i></button>
+        <button class="recipe-header-add" onclick="RecipeApp.openAddModal()" title="添加菜谱"><i class="fas fa-plus"></i></button>
+      </span>
+    </div>
+    <div class="love-page-container" id="recipe-container"></div>
+  </div>
+
+  <!-- ===== 底部导航 ===== -->
+  <div class="bottom-nav">
+    <div class="nav-item active" data-page="chat" onclick="Navigation.switchTab('home')">
+      <div class="nav-icon-circle"><i class="fas fa-house"></i></div>
+      <span class="nav-label">首页</span>
+    </div>
+    <div class="nav-item" data-page="wordcard" onclick="Navigation.switchTab('wordcard')">
+      <div class="nav-icon-circle"><i class="fas fa-clone"></i></div>
+      <span class="nav-label">字卡</span>
+    </div>
+    <div class="nav-item" data-page="discover" onclick="Navigation.switchTab('discover')">
+      <div class="nav-icon-circle"><i class="fas fa-compass"></i></div>
+      <span class="nav-label">发现</span>
+    </div>
+    <div class="nav-item" data-page="settings" onclick="Navigation.switchTab('settings')">
+      <div class="nav-icon-circle"><i class="fas fa-cog"></i></div>
+      <span class="nav-label">设置</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 编辑账号信息模态框 ===== -->
+<div class="modal-overlay" id="edit-account-overlay">
+  <div class="modal-panel">
+    <h3 style="font-size:1.1rem;font-weight:600;color:var(--text-dark);margin-bottom:16px;text-align:center" id="edit-account-title">编辑账号</h3>
+    <div style="text-align:center;margin-bottom:16px">
+      <div id="edit-account-avatar-preview" style="width:64px;height:64px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;font-weight:700;background:#A090B0">?</div>
+    </div>
+    <div style="margin-bottom:12px">
+      <label style="font-size:0.8rem;color:var(--text-medium);display:block;margin-bottom:4px">头像</label>
+      <div class="avatar-upload-area" id="edit-account-avatar-upload" onclick="document.getElementById('edit-account-avatar-file').click()">
+        <i class="fas fa-camera"></i> 点击上传图片
+      </div>
+      <input type="file" id="edit-account-avatar-file" accept="image/*" style="display:none">
+    </div>
+    <div style="margin-bottom:12px">
+      <label style="font-size:0.8rem;color:var(--text-medium);display:block;margin-bottom:4px">头像形状</label>
+      <div style="display:flex;gap:8px">
+        <button class="avatar-shape-toggle active" id="edit-account-shape-circle" onclick="_toggleAvatarShape('circle')">圆形</button>
+        <button class="avatar-shape-toggle" id="edit-account-shape-square" onclick="_toggleAvatarShape('square')">方形</button>
+      </div>
+    </div>
+    <div style="margin-bottom:12px">
+      <label style="font-size:0.8rem;color:var(--text-medium);display:block;margin-bottom:4px">昵称</label>
+      <input type="text" id="edit-account-nickname-input" class="glass-input" placeholder="输入昵称">
+    </div>
+    <div style="margin-bottom:12px">
+      <label style="font-size:0.8rem;color:var(--text-medium);display:block;margin-bottom:4px">在线状态</label>
+      <div class="status-select-wrap" id="edit-account-online-status" data-kind="online" onclick="openStatusPicker('online')">
+        <span class="status-select-value" id="edit-account-online-status-text">随机</span>
+        <i class="fas fa-chevron-down status-select-arrow"></i>
+        <input type="hidden" id="edit-account-online-status-value" value="">
+      </div>
+    </div>
+    <div style="margin-bottom:20px">
+      <label style="font-size:0.8rem;color:var(--text-medium);display:block;margin-bottom:4px">情绪状态</label>
+      <div class="status-select-wrap" id="edit-account-mood-status" data-kind="mood" onclick="openStatusPicker('mood')">
+        <span class="status-select-value" id="edit-account-mood-status-text">随机</span>
+        <i class="fas fa-chevron-down status-select-arrow"></i>
+        <input type="hidden" id="edit-account-mood-status-value" value="">
+      </div>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button class="glass-btn" style="flex:1" onclick="closeAccountModal()">取消</button>
+      <button class="glass-btn primary" style="flex:1" onclick="saveAccount()">保存</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 在线状态 / 情绪状态 选择弹窗（自适应网站玻璃拟态风格，支持自定义） ===== -->
+<div class="status-picker-overlay" id="status-picker-overlay" onclick="closeStatusPicker()">
+  <div class="status-picker-panel" onclick="event.stopPropagation()">
+    <div class="status-picker-title" id="status-picker-title">选择状态</div>
+    <div class="status-picker-list" id="status-picker-list"></div>
+  </div>
+</div>
+
+<!-- 项目脚本（已内联） -->
+<!-- JSZip：全量备份 ZIP 打包（媒体二进制化 + DEFLATE 压缩），加载失败时自动走 CompressionStream 兜底 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script src="js/core.js?v=20260822g"></script>
+<script src="js/theme.js?v=20260903b"></script>
+<script src="js/data.js?v=20260822g"></script>
+<script src="js/storage.js?v=20260902a"></script>
+<script src="js/navigation.js?v=20260904b"></script>
+<script src="js/app.js?v=20260904a"></script>
+<script src="js/chat.js?v=20260903b"></script>
+<script src="js/bubble-maker.js?v=20260829c"></script>
+<script src="js/chat-auto.js?v=20260901a"></script>
+<script src="js/chat-panels.js?v=20260904c"></script>
+<script src="js/chat-extra.js?v=20260901b"></script>
+<script src="js/chat-stats.js?v=20260904a"></script>
+<script src="js/wordcard.js?v=20260904c"></script>
+<script src="js/wordcard-import.js?v=20260829j"></script>
+<script src="js/moments.js?v=20260902a"></script>
+<script src="js/daily-record.js?v=20260822g"></script>
+<script src="js/whereabouts.js?v=20260822g"></script>
+<script src="js/settings.js?v=20260902a"></script>
+<script src="js/journal-card.js?v=20260822g"></script>
+<script src="js/stickers.js?v=20260904c"></script>
+<script src="js/init.js?v=20260822g"></script>
+<script src="js/modules.js?v=20260901a"></script>
+<script src="js/exports.js?v=20260822g"></script>
+<script src="js/mailbox.js?v=20260822g"></script>
+<!-- ===== 首页双时区 + 心跳时间线 + 应用滑动 ===== -->
+<script src="js/homepage.js?v=20260831a"></script>
+<!-- ===== 首页功能小组件（纪念日管理 / 音乐播放器联动） ===== -->
+<script src="js/home-widgets.js?v=20260824h"></script>
+
+<link rel="stylesheet" href="css/decision.css?v=20260904a">
+
+<script src="js/decision.js?v=20260831f"></script>
+<script src="js/love-apps.js?v=20260901e"></script>
+<script src="js/bookshelf.js?v=20260901p"></script>
+<script src="js/mini-games.js?v=20260902a"></script>
+<script src="js/listen-together.js?v=20260902e"></script>
+<script src="js/partner-freewill.js?v=20260902f"></script>
+<script src="js/account.js?v=20260902a"></script>
+
+</body>
+</html>
