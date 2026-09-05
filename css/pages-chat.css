@@ -1,0 +1,382 @@
+/* ===== 聊天列表页样式 ===== */
+.chat-list {
+  padding: 0;
+}
+
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-item:hover {
+  background: rgba(0,0,0,0.02);
+}
+
+.chat-item:active {
+  background: rgba(0,0,0,0.05);
+}
+
+.chat-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 600;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.chat-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.chat-preview {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.chat-meta {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.chat-time {
+  font-size: 0.68rem;
+  color: var(--text-lighter);
+}
+
+.chat-badge {
+  display: inline-block;
+  min-width: 18px;
+  height: 18px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 9px;
+  font-size: 0.6rem;
+  text-align: center;
+  line-height: 18px;
+  padding: 0 5px;
+  margin-top: 4px;
+}
+
+/* ===== 聊天室/对话框区域 ===== */
+.chat-room {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ============================================================
+   【最终版调整】
+   ============================================================ */
+.message-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;               
+  padding: 0 0.2rem;         
+  box-sizing: border-box;
+  flex-shrink: 0;
+  min-width: 50px;
+  width: 100%;
+}
+
+.message-row.self {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message-row.other {
+  align-self: flex-start;
+}
+
+/* 消息头像 */
+.message-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
+  overflow: hidden;
+  margin-top: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.10);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  user-select: none;
+}
+
+/* 消息主体容器 */
+.message-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  min-width: 0;
+  /* 超长文本最大宽度：头像38px + gap10px = 48px，额外预留 28px 边距 */
+  max-width: calc(100% - 76px);
+}
+
+.message-row.self .message-body {
+  align-items: flex-end;
+}
+
+/* ============================================================
+   【终极完美版】聊天气泡样式 - 绝对紧贴文字 + 保留回车
+   （内置规则完全未改）
+   ============================================================ */
+.message-bubble {
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  text-align: left;
+  box-sizing: border-box;
+
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 100%;
+
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin: 2px 0 4px;
+
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+.message-bubble .bubble-text,
+.message-bubble .msg-quote-ref {
+  display: block;
+  width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.message-bubble .msg-quote-ref {
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+
+/* ===== 默认气泡配色与小尾巴 ===== */
+.message-row.self .message-bubble:not(.voice-bubble):not(.gift-bubble):not(.redpacket-bubble):not(.bub-applied) {
+  background: var(--chat-bubble-self-bg, var(--primary, #4C9AFF));
+  color: var(--chat-bubble-self-text, var(--text-on-primary, #ffffff));
+  border: none;
+}
+.message-row.self .message-bubble:not(.voice-bubble):not(.gift-bubble):not(.redpacket-bubble):not(.bub-applied)::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 14px;
+  width: 6px;
+  height: 12px;
+  background: var(--chat-bubble-self-bg, var(--primary, #4C9AFF));
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  pointer-events: none;
+}
+
+.message-row.other .message-bubble:not(.voice-bubble):not(.gift-bubble):not(.redpacket-bubble):not(.bub-applied) {
+  background: var(--chat-bubble-other-bg, var(--bg-card, #ffffff));
+  color: var(--chat-bubble-other-text, var(--text-dark, #333333));
+  border: none;
+}
+.message-row.other .message-bubble:not(.voice-bubble):not(.gift-bubble):not(.redpacket-bubble):not(.bub-applied)::after {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 14px;
+  width: 6px;
+  height: 12px;
+  background: var(--chat-bubble-other-bg, var(--bg-card, #ffffff));
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  pointer-events: none;
+}
+
+/* 消息时间与状态 */
+.message-time {
+  display: block;
+  font-size: 10px;
+  color: rgba(var(--primary-rgb), .7);
+  margin-top: 2px;
+  text-align: right;
+  letter-spacing: .4px;
+}
+
+.message-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  max-width: 100%;
+}
+
+.msg-read-status {
+  font-size: 0.6rem;
+  line-height: 1;
+  padding: 0 4px;
+  user-select: none;
+}
+.msg-read-status.msg-read-icon {
+  font-weight: 700;
+  color: var(--text-lighter);
+}
+.msg-read-status.msg-read-icon.read {
+  color: var(--primary, #4C9AFF);
+}
+.msg-read-status.msg-read-icon.read .tick {
+  letter-spacing: -0.12em;
+}
+.msg-read-status.msg-read-text.read {
+  color: var(--primary, #4C9AFF);
+}
+.msg-read-status.msg-read-text.unread {
+  color: var(--text-lighter);
+}
+
+/* 正在输入提示气泡 */
+.chat-typing-bubble {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  animation: typingFadeIn 0.25s ease;
+}
+.chat-typing-bubble .typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.chat-typing-bubble .typing-dots i {
+  width: auto;
+  height: auto;
+  background: transparent;
+  font-style: normal;
+  display: inline-block;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--primary, #E898B8);
+  animation: typingDot 1.2s infinite ease-in-out;
+}
+.chat-typing-bubble .typing-dots i:nth-child(2) { animation-delay: 0.15s; }
+.chat-typing-bubble .typing-dots i:nth-child(3) { animation-delay: 0.3s; }
+.chat-typing-bubble .typing-text {
+  font-size: 0.72rem;
+  color: var(--text-light, #888);
+}
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.55; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+@keyframes typingFadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 设置页输入框 */
+.chat-settings-input-row {
+  padding: 0 16px 14px;
+}
+.chat-settings-input-row input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 5px;
+  border: 1.5px solid var(--border-medium, rgba(0,0,0,0.1));
+  background: var(--glass-bg, rgba(255,255,255,0.35));
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  outline: none;
+}
+.chat-settings-input-row input:focus {
+  border-color: var(--primary, #4C9AFF);
+}
+
+/* 输入栏按钮 */
+.chat-input-bar .input-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: var(--text-medium);
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.chat-input-bar .input-btn:hover {
+  color: var(--primary);
+}
+
+.chat-input-bar .send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--text-on-primary);
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.chat-input-bar .send-btn:hover {
+  background: var(--primary-dark);
+}
+
+.chat-input-bar .send-btn:active {
+  transform: scale(0.9);
+}
+
+/* ============================================================
+   多端自适应增强：宽屏会话列表限宽居中
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .chat-list { max-width: 760px; margin-inline: auto; }
+}
+@media (min-width: 1200px) {
+  .chat-list { max-width: 900px; margin-inline: auto; }
+}
