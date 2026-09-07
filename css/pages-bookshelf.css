@@ -1,0 +1,693 @@
+/* ============================================================
+   pages-bookshelf.css — 小说书架
+   设计语言：毛玻璃卡片 + 主题变量（--primary / --glass-*），与全站一致
+   ============================================================ */
+
+/* ---------- 书架：空状态 ---------- */
+.bookshelf-empty {
+  padding: 36px 24px;
+  text-align: center;
+  margin-top: 8px;
+}
+.bookshelf-empty-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 14px;
+  border-radius: 18px;
+  background: rgba(var(--primary-rgb, 184, 220, 240), 0.2);
+  color: var(--primary-dark, #98C0D8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+.bookshelf-empty-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark, #3A4050);
+  margin-bottom: 8px;
+}
+.bookshelf-empty-tip {
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--text-light, #9aa3b0);
+  margin-bottom: 20px;
+}
+
+/* ---------- 页面顶栏：右侧导入按钮 ---------- */
+.bookshelf-header-import {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(var(--primary-rgb, 184, 220, 240), 0.2);
+  color: var(--primary-dark, #98C0D8);
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.bookshelf-header-import:active {
+  transform: scale(0.92);
+  background: rgba(var(--primary-rgb, 184, 220, 240), 0.35);
+}
+
+/* ---------- 书架：书籍网格 ---------- */
+.bookshelf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.book-card {
+  position: relative;
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--glass-bg, rgba(255,255,255,0.72));
+  border: var(--glass-border, 1px solid rgba(255,255,255,0.6));
+  backdrop-filter: var(--glass-blur, blur(16px));
+  -webkit-backdrop-filter: var(--glass-blur, blur(16px));
+  box-shadow: var(--shadow-sm, 0 2px 10px rgba(60,80,120,0.08));
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.book-card:active {
+  transform: scale(0.97);
+}
+.book-cover {
+  height: 128px;
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.book-cover-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  max-height: 2.8em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.18);
+  word-break: break-all;
+}
+.book-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-dark, #3A4050);
+  padding: 8px 10px 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.book-progress-track {
+  height: 4px;
+  margin: 6px 10px 4px;
+  border-radius: 2px;
+  background: rgba(var(--primary-rgb, 184, 220, 240), 0.25);
+  overflow: hidden;
+}
+.book-progress-bar {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary, #B8DCF0), var(--primary-dark, #98C0D8));
+  transition: width 0.4s ease;
+}
+.book-latest {
+  font-size: 0.7rem;
+  color: var(--text-light, #9aa3b0);
+  padding: 0 10px 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.book-actions {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+.book-del {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.28);
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.book-card:hover .book-del,
+.book-card:active .book-del {
+  opacity: 1;
+}
+
+/* ---------- 书架：加载中 ---------- */
+.bookshelf-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 60px 0;
+  color: var(--text-light, #9aa3b0);
+  font-size: 0.9rem;
+}
+
+/* ---------- 页面布局：头部固定 + 内容区内部滚动 ---------- */
+#page-bookshelf.page.active {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#page-bookshelf.page.active > .page-header {
+  flex-shrink: 0;
+}
+#bookshelf-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ============================================================
+   阅读器：全屏沉浸式（无底栏 / 左右翻页 / 点中心弹菜单）
+   ============================================================ */
+
+/* 阅读时隐藏页面顶栏与全局底栏，正文占满整屏 */
+#page-bookshelf.page.active > .page-header.reader-hide {
+  display: none;
+}
+body.reading-mode .bottom-nav {
+  display: none !important;
+}
+#page-bookshelf.page.active.reader-active {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+#bookshelf-container.reader-mode {
+  overflow: hidden;
+  padding: 0; /* 覆盖 .love-page-container 的 16px/120px 内边距，保证真正全屏 */
+  display: flex;
+  flex-direction: column;
+}
+.reader-shell {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--glass-bg, rgba(255,255,255,0.72));
+  border-radius: 0;
+}
+
+/* ---------- 分页视口（手动逐页排版，每页一屏） ---------- */
+.reader-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* 分页滑轨：多页横排，翻页平移 */
+.reader-slider {
+  height: 100%;
+  display: flex;
+  will-change: transform;
+  transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.reader-page {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+  padding: 26px 28px 40px;
+  font-family: 'Noto Serif SC', 'Songti SC', serif;
+  white-space: normal;
+}
+/* 测量容器：隐藏，仅用于分页测量排版 */
+.reader-page-measure {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  visibility: hidden;
+  height: auto;
+  overflow: visible;
+  z-index: -1;
+}
+.reader-page p {
+  margin: 0 0 0.9em;
+  word-break: break-word;
+}
+/* 图片背景模式：正文深色字 + 轻微文字阴影保证可读，背景保持干净全屏无遮罩 */
+.reader-slider.has-bg-image .reader-page {
+  text-shadow: 0 1px 3px rgba(255,255,255,0.65);
+}
+.reader-slider.has-bg-image .reader-chapter-title {
+  text-shadow: 0 1px 4px rgba(255,255,255,0.8);
+}
+.reader-shell:has(.reader-slider.has-bg-image) .reader-page-indicator {
+  color: #4A5260;
+  background: rgba(255,255,255,0.78);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.14);
+}
+.reader-chapter-title {
+  font-size: 1.25em;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+.reader-page p {
+  margin: 0 0 0.9em;
+  word-break: break-word;
+}
+
+/* ---------- 页码指示 ---------- */
+.reader-page-indicator {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  z-index: 6;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  color: var(--text-light, #9aa3b0);
+  background: rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+}
+
+/* ---------- 顶部栏：返回 + 书名 + 章节进度 + 目录（菜单弹出时显示） ---------- */
+.reader-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+  background: var(--glass-bg, rgba(255,255,255,0.8));
+  backdrop-filter: var(--glass-blur, blur(16px));
+  -webkit-backdrop-filter: var(--glass-blur, blur(16px));
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+.reader-shell.menu-shown .reader-topbar {
+  transform: translateY(0);
+  opacity: 1;
+}
+.reader-topbar-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(var(--primary-rgb, 184, 220, 240), 0.2);
+  color: var(--primary-dark, #98C0D8);
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.reader-topbar-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark, #3A4050);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.reader-topbar-chapter {
+  font-size: 0.75rem;
+  color: var(--text-light, #9aa3b0);
+  flex-shrink: 0;
+}
+
+/* ---------- 设置菜单：从底部向上滑出 ---------- */
+.reader-settings-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 22;
+  padding: 12px 16px 20px;
+  border-radius: 18px 18px 0 0;
+  transform: translateY(105%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.32s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.28s ease;
+  background: var(--glass-bg, rgba(255,255,255,0.95));
+  backdrop-filter: var(--glass-blur, blur(20px));
+  -webkit-backdrop-filter: var(--glass-blur, blur(20px));
+  border-top: 1px solid rgba(255,255,255,0.6);
+  box-shadow: 0 -8px 28px rgba(0,0,0,0.12);
+}
+.reader-settings-panel.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.reader-settings-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.reader-settings-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark, #3A4050);
+}
+.reader-settings-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(150, 160, 175, 0.18);
+  color: var(--text-medium, #606878);
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reader-set-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.reader-set-row:last-child {
+  margin-bottom: 0;
+}
+.reader-set-row.reader-set-actions {
+  margin-top: 2px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.45);
+  justify-content: center;
+  gap: 10px;
+}
+.reader-set-label {
+  width: 60px;
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: var(--text-medium, #606878);
+}
+.reader-set-opts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.reader-theme-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.8);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.reader-theme-dot.active {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px var(--primary-dark, #98C0D8);
+}
+.reader-opt-btn {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.55);
+  color: var(--text-medium, #606878);
+  font-size: 0.7rem;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.reader-opt-btn.active {
+  background: rgba(var(--primary-rgb, 184, 220, 240), 0.35);
+  color: var(--primary-dark, #98C0D8);
+  font-weight: 600;
+}
+.reader-tb-label {
+  min-width: 28px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-medium, #606878);
+  flex-shrink: 0;
+}
+.reader-switch {
+  width: 40px;
+  height: 22px;
+  border-radius: 11px;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(150, 160, 175, 0.35);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+.reader-switch span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: left 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.reader-switch.on {
+  background: var(--primary-dark, #98C0D8);
+}
+.reader-switch.on span {
+  left: 20px;
+}
+
+/* ---------- 章节目录：侧滑抽屉 ---------- */
+.reader-drawer-mask {
+  position: absolute;
+  inset: 0;
+  z-index: 29;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.reader-drawer-mask.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.reader-drawer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 80%;
+  max-width: 300px;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  background: var(--glass-bg, rgba(255,255,255,0.96));
+  backdrop-filter: var(--glass-blur, blur(20px));
+  -webkit-backdrop-filter: var(--glass-blur, blur(20px));
+}
+.reader-drawer.open {
+  transform: translateX(0);
+  box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+}
+.reader-drawer-head {
+  flex-shrink: 0;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark, #3A4050);
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.reader-drawer-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 6px 0;
+}
+.reader-toc-item {
+  padding: 11px 16px;
+  font-size: 0.8rem;
+  color: var(--text-medium, #606878);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.reader-toc-item.current {
+  color: var(--primary-dark, #98C0D8);
+  font-weight: 700;
+  background: rgba(var(--primary-rgb, 184, 220, 240), 0.18);
+}
+
+/* ============================================================
+   阅读器主题配色（背景/文字随 data-theme 切换）
+   ============================================================ */
+.reader-shell[data-theme="paper"] {
+  background: #F6F1E6;
+}
+.reader-shell[data-theme="paper"] .reader-topbar {
+  border-color: rgba(214, 199, 165, 0.45);
+  background: rgba(246, 241, 230, 0.92);
+}
+.reader-shell[data-theme="paper"] .reader-settings-panel,
+.reader-shell[data-theme="paper"] .reader-drawer {
+  background: rgba(246, 241, 230, 0.97);
+}
+.reader-shell[data-theme="paper"] .reader-topbar-title,
+.reader-shell[data-theme="paper"] .reader-slider .reader-page,
+.reader-shell[data-theme="paper"] .reader-chapter-title,
+.reader-shell[data-theme="paper"] .reader-settings-title,
+.reader-shell[data-theme="paper"] .reader-drawer-head { color: #4A4036; }
+.reader-shell[data-theme="paper"] .reader-topbar-chapter,
+.reader-shell[data-theme="paper"] .reader-tb-label,
+.reader-shell[data-theme="paper"] .reader-set-label { color: #8A7F6F; }
+.reader-shell[data-theme="paper"] .reader-page-indicator { color: #8A7F6F; background: rgba(214, 199, 165, 0.4); }
+.reader-shell[data-theme="paper"] .reader-opt-btn { background: rgba(255,255,255,0.55); color: #6A5F4F; }
+.reader-shell[data-theme="paper"] .reader-toc-item { color: #6A5F4F; }
+.reader-shell[data-theme="paper"] .reader-settings-close { color: #6A5F4F; }
+
+.reader-shell[data-theme="white"] {
+  background: #FFFFFF;
+}
+.reader-shell[data-theme="white"] .reader-topbar {
+  border-color: rgba(220, 224, 230, 0.5);
+  background: rgba(255,255,255,0.94);
+}
+.reader-shell[data-theme="white"] .reader-settings-panel,
+.reader-shell[data-theme="white"] .reader-drawer {
+  background: rgba(255,255,255,0.97);
+}
+.reader-shell[data-theme="white"] .reader-topbar-title,
+.reader-shell[data-theme="white"] .reader-slider .reader-page,
+.reader-shell[data-theme="white"] .reader-chapter-title,
+.reader-shell[data-theme="white"] .reader-settings-title,
+.reader-shell[data-theme="white"] .reader-drawer-head { color: #3A4050; }
+.reader-shell[data-theme="white"] .reader-topbar-chapter,
+.reader-shell[data-theme="white"] .reader-tb-label,
+.reader-shell[data-theme="white"] .reader-set-label { color: #8890A0; }
+.reader-shell[data-theme="white"] .reader-page-indicator { color: #8890A0; background: rgba(255,255,255,0.85); box-shadow: 0 1px 6px rgba(0,0,0,0.10); }
+.reader-shell[data-theme="white"] .reader-opt-btn { background: rgba(240,242,246,0.8); color: #4A5260; }
+.reader-shell[data-theme="white"] .reader-toc-item { color: #4A5260; }
+.reader-shell[data-theme="white"] .reader-settings-close { color: #4A5260; }
+
+.reader-shell[data-theme="green"] {
+  background: #E7F0E3;
+}
+.reader-shell[data-theme="green"] .reader-topbar {
+  border-color: rgba(158, 186, 150, 0.45);
+  background: rgba(231, 240, 227, 0.92);
+}
+.reader-shell[data-theme="green"] .reader-settings-panel,
+.reader-shell[data-theme="green"] .reader-drawer {
+  background: rgba(231, 240, 227, 0.97);
+}
+.reader-shell[data-theme="green"] .reader-topbar-title,
+.reader-shell[data-theme="green"] .reader-slider .reader-page,
+.reader-shell[data-theme="green"] .reader-chapter-title,
+.reader-shell[data-theme="green"] .reader-settings-title,
+.reader-shell[data-theme="green"] .reader-drawer-head { color: #3E4A3C; }
+.reader-shell[data-theme="green"] .reader-topbar-chapter,
+.reader-shell[data-theme="green"] .reader-tb-label,
+.reader-shell[data-theme="green"] .reader-set-label { color: #77866F; }
+.reader-shell[data-theme="green"] .reader-page-indicator { color: #77866F; background: rgba(158, 186, 150, 0.4); }
+.reader-shell[data-theme="green"] .reader-opt-btn { background: rgba(255,255,255,0.55); color: #55644E; }
+.reader-shell[data-theme="green"] .reader-toc-item { color: #55644E; }
+.reader-shell[data-theme="green"] .reader-settings-close { color: #55644E; }
+
+.reader-shell[data-theme="night"] {
+  background: #242830;
+}
+.reader-shell[data-theme="night"] .reader-topbar {
+  border-color: rgba(90, 98, 115, 0.5);
+  background: rgba(36, 40, 48, 0.94);
+}
+.reader-shell[data-theme="night"] .reader-settings-panel,
+.reader-shell[data-theme="night"] .reader-drawer {
+  background: rgba(36, 40, 48, 0.97);
+}
+.reader-shell[data-theme="night"] .reader-topbar-title,
+.reader-shell[data-theme="night"] .reader-slider .reader-page,
+.reader-shell[data-theme="night"] .reader-chapter-title,
+.reader-shell[data-theme="night"] .reader-settings-title,
+.reader-shell[data-theme="night"] .reader-drawer-head,
+.reader-shell[data-theme="night"] .reader-toc-item { color: #B8BEC8; }
+.reader-shell[data-theme="night"] .reader-topbar-chapter,
+.reader-shell[data-theme="night"] .reader-tb-label,
+.reader-shell[data-theme="night"] .reader-set-label { color: #7A8090; }
+.reader-shell[data-theme="night"] .reader-page-indicator { color: #7A8090; background: rgba(90, 98, 115, 0.5); }
+.reader-shell[data-theme="night"] .reader-opt-btn { background: rgba(70, 76, 90, 0.6); color: #C2C8D2; border-color: rgba(110, 118, 135, 0.5); }
+.reader-shell[data-theme="night"] .reader-theme-dot { border-color: rgba(255,255,255,0.25); }
+.reader-shell[data-theme="night"] .reader-settings-close { color: #C2C8D2; background: rgba(70, 76, 90, 0.6); }
+.reader-shell[data-theme="night"] .reader-drawer-head,
+.reader-shell[data-theme="night"] .reader-toc-item { border-color: rgba(90, 98, 115, 0.4); }
+.reader-shell[data-theme="night"] .reader-toc-item.current { color: #98C0D8; }
+.reader-shell[data-theme="night"] .reader-set-row.reader-set-actions { border-top-color: rgba(90, 98, 115, 0.4); }
+
+.reader-shell[data-theme="site"] {
+  background: linear-gradient(160deg, #D8EEF8, #F0F6FA 55%, #E8F4FB);
+}
+.reader-shell[data-theme="site"] .reader-topbar {
+  border-color: rgba(152, 192, 216, 0.5);
+  background: rgba(216, 238, 248, 0.92);
+}
+.reader-shell[data-theme="site"] .reader-settings-panel,
+.reader-shell[data-theme="site"] .reader-drawer {
+  background: rgba(216, 238, 248, 0.97);
+}
+.reader-shell[data-theme="site"] .reader-topbar-title,
+.reader-shell[data-theme="site"] .reader-slider .reader-page,
+.reader-shell[data-theme="site"] .reader-chapter-title,
+.reader-shell[data-theme="site"] .reader-settings-title,
+.reader-shell[data-theme="site"] .reader-drawer-head { color: #3A4050; }
+.reader-shell[data-theme="site"] .reader-topbar-chapter,
+.reader-shell[data-theme="site"] .reader-tb-label,
+.reader-shell[data-theme="site"] .reader-set-label { color: #5A7088; }
+.reader-shell[data-theme="site"] .reader-page-indicator { color: #5A7088; background: rgba(152, 192, 216, 0.5); }
+.reader-shell[data-theme="site"] .reader-opt-btn { background: rgba(255,255,255,0.6); color: #4A5260; }
+.reader-shell[data-theme="site"] .reader-toc-item { color: #4A5260; }
+.reader-shell[data-theme="site"] .reader-settings-close { color: #4A5260; }
+
+/* ============================================================
+   背景入口：上传图片 / 自定义颜色（两个独立按钮）
+   ============================================================ */
+.reader-bg-image-btn,
+.reader-bg-color-btn {
+  padding: 0 10px;
+  font-size: 0.68rem;
+  flex-shrink: 0;
+}

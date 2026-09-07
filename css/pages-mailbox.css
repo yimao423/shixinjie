@@ -1,0 +1,846 @@
+/* ============================================================
+   pages-mailbox.css
+   时空信箱：便签风格信件卡片 + 写信/回信界面 + 回信设置
+   全部使用 css/theme.css 的 CSS 变量，颜色跟随外观主题
+   ============================================================ */
+
+/* ---------- 信箱布局 ---------- */
+.mailbox-body {
+  padding: 14px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mailbox-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mailbox-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 0 2px;
+}
+
+.mailbox-section-title .sec-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  background: rgba(var(--primary-rgb), 0.22);
+  color: var(--primary-dark);
+}
+
+.mailbox-section-title .sec-count {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--text-light);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.mailbox-empty {
+  padding: 26px 16px;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.82rem;
+  background: var(--bg-card);
+  border: 1px dashed var(--border-medium);
+  border-radius: 14px;
+}
+
+.mailbox-empty i {
+  display: block;
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+  color: var(--primary-dark);
+  opacity: 0.7;
+}
+
+/* ---------- 便签风格信件卡片 ---------- */
+.letter-note {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 14px 16px 12px;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.letter-note:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 便签顶部胶带装饰 */
+.letter-note::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 72px;
+  height: 16px;
+  background: linear-gradient(180deg, rgba(var(--primary-rgb), 0.45), rgba(var(--primary-rgb), 0.25));
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(160, 170, 190, 0.15);
+}
+
+.letter-note.is-incoming::before {
+  background: linear-gradient(180deg, rgba(var(--primary-rgb), 0.5), rgba(var(--primary-rgb), 0.28));
+}
+
+.letter-note.is-reply::before {
+  background: linear-gradient(180deg, rgba(var(--primary-rgb), 0.5), rgba(var(--primary-rgb), 0.28));
+}
+
+.letter-note-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.letter-role-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(var(--primary-rgb), 0.2);
+  color: var(--primary-dark);
+}
+
+.letter-note.is-incoming .letter-role-tag {
+  background: rgba(var(--primary-rgb), 0.22);
+  color: var(--primary-dark);
+}
+
+.letter-note.is-reply .letter-role-tag {
+  background: rgba(var(--primary-rgb), 0.25);
+  color: var(--primary-dark);
+}
+
+/* 「回信」标注 */
+.letter-reply-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(var(--primary-rgb), 0.3);
+  color: var(--primary-dark);
+  border: 1px solid rgba(var(--primary-rgb), 0.5);
+}
+
+.letter-time {
+  margin-left: auto;
+  font-size: 0.7rem;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.letter-note-content {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* 回信引用原信摘要 */
+.letter-quote-ref {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--bg-input);
+  border: 1px dashed var(--border-medium);
+  font-size: 0.74rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.letter-note-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.letter-status {
+  font-size: 0.7rem;
+  color: var(--text-light);
+}
+
+.letter-status.is-waiting {
+  color: var(--primary-dark);
+}
+
+.letter-status.is-done {
+  color: var(--primary-dark);
+}
+
+.letter-reply-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--primary-rgb), 0.55);
+  background: rgba(var(--primary-rgb), 0.18);
+  color: var(--primary-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.letter-reply-btn:hover {
+  background: rgba(var(--primary-rgb), 0.32);
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
+}
+
+/* ---------- 写信板块 ---------- */
+.mailbox-write-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px dashed rgba(var(--primary-rgb), 0.55);
+  background: rgba(var(--primary-rgb), 0.12);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mailbox-write-card:hover {
+  background: rgba(var(--primary-rgb), 0.2);
+  box-shadow: var(--shadow-md);
+}
+
+.mailbox-write-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: var(--text-on-primary);
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.35);
+}
+
+.mailbox-write-info {
+  flex: 1;
+}
+
+.mailbox-write-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.mailbox-write-desc {
+  font-size: 0.76rem;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.mailbox-write-arrow {
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+/* ---------- 写信页 ---------- */
+.letter-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+}
+
+.letter-editor-note {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 18px 16px 14px;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.letter-editor-note::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 84px;
+  height: 16px;
+  background: linear-gradient(180deg, rgba(var(--primary-rgb), 0.45), rgba(var(--primary-rgb), 0.25));
+  border-radius: 3px;
+}
+
+.letter-editor-note textarea {
+  width: 100%;
+  min-height: 150px;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  font-family: inherit;
+}
+
+.letter-editor-note textarea::placeholder {
+  color: var(--text-lighter);
+}
+
+.letter-editor-tip {
+  font-size: 0.76rem;
+  color: var(--text-light);
+  padding: 0 4px;
+  line-height: 1.6;
+}
+
+/* 写信时附带的字卡（对方回信时也会用到） */
+.letter-cards-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.letter-cards-preview-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-medium);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.letter-cards-preview-title i {
+  color: var(--primary-dark);
+}
+
+.letter-card-chip {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  background: rgba(var(--primary-rgb), 0.12);
+  border: 1px solid rgba(var(--primary-rgb), 0.25);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+}
+
+.letter-card-chip .card-quote-mark {
+  color: var(--primary-dark);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.letter-card-chip .card-source {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 0.68rem;
+  color: var(--text-light);
+  padding-top: 2px;
+}
+
+/* 公告勾选 */
+.letter-announce-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.letter-announce-option:hover {
+  border-color: rgba(var(--primary-rgb), 0.5);
+}
+
+.letter-announce-option .a-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--primary-rgb), 0.2);
+  color: var(--primary-dark);
+}
+
+.letter-announce-option .a-text {
+  flex: 1;
+}
+
+.letter-announce-option .a-title {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.letter-announce-option .a-desc {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin-top: 1px;
+}
+
+.letter-announce-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
+.letter-send-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--text-on-primary);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(var(--primary-rgb), 0.35);
+  transition: all 0.2s ease;
+}
+
+.letter-send-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(var(--primary-rgb), 0.45);
+}
+
+.letter-send-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------- 回信页 ---------- */
+.reply-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+}
+
+.reply-target-note {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.reply-target-note .reply-target-title {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reply-target-note .reply-target-text {
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--text-medium);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+/* ---------- 回信设置页 ---------- */
+.letter-settings-body {
+  padding: 14px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.letter-settings-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.letter-settings-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.letter-settings-row + .letter-settings-row {
+  border-top: 1px solid var(--border-light);
+}
+
+.letter-settings-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(var(--primary-rgb), 0.2);
+  color: var(--primary-dark);
+}
+
+.letter-settings-info {
+  flex: 1;
+}
+
+.letter-settings-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.letter-settings-desc {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
+.letter-settings-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: var(--bg-input);
+  border: 1px solid var(--border-medium);
+  border-radius: 10px;
+  padding: 7px 26px 7px 12px;
+  font-size: 0.82rem;
+  color: var(--text-dark);
+  outline: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238890A0' stroke-width='1.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.letter-settings-select:focus {
+  border-color: rgba(var(--primary-rgb), 0.7);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15);
+}
+
+.letter-settings-note {
+  font-size: 0.74rem;
+  color: var(--text-light);
+  padding: 10px 4px 0;
+  line-height: 1.7;
+}
+
+/* ---------- 聊天内时空信箱公告 ---------- */
+.mail-announce {
+  display: flex;
+  justify-content: center;
+  margin: 6px 0;
+}
+
+.mail-announce-bubble {
+  max-width: 78%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  background: rgba(var(--primary-rgb), 0.70);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(var(--primary-rgb), 0.60);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--text-dark);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.mail-announce-bubble .mail-announce-icon {
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+
+.mail-announce-bubble .mail-announce-text {
+  word-break: break-word;
+}
+
+/* 写信勾选框（聊天公告通知） */
+.letter-announce-option input[type="checkbox"].letter-announce-check,
+#letter-announce-check {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  accent-color: var(--primary, #8BB8A8);
+  cursor: pointer;
+}
+
+/* ============================================================
+   时空信箱：写信 / 时空来信 双 Tab + 信件详情页
+   ============================================================ */
+
+/* ---------- 信箱顶部 Tab 栏 ---------- */
+.mailbox-tabs {
+  display: flex;
+  gap: 6px;
+  margin: 12px 16px 2px;
+  padding: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.mailbox-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 0;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mailbox-tab i {
+  font-size: 0.78rem;
+}
+
+.mailbox-tab:hover {
+  color: var(--text-dark);
+}
+
+.mailbox-tab.is-active {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: var(--text-on-primary);
+  box-shadow: 0 3px 10px rgba(var(--primary-rgb), 0.3);
+}
+
+/* ---------- 信件列表项 ---------- */
+.letter-note.is-out::before {
+  background: linear-gradient(180deg, rgba(var(--primary-rgb), 0.5), rgba(var(--primary-rgb), 0.28));
+}
+
+.letter-note.is-out .letter-role-tag {
+  background: rgba(var(--primary-rgb), 0.25);
+  color: var(--primary-dark);
+}
+
+.letter-note.is-clickable {
+  cursor: pointer;
+}
+
+.letter-note.is-clickable:active {
+  transform: scale(0.985);
+}
+
+/* 列表内正文摘要截断 */
+.letter-note-content.letter-note-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 列表项右侧箭头（等待状态） */
+.letter-go-detail {
+  margin-left: auto;
+  color: var(--text-light);
+  font-size: 0.75rem;
+}
+
+/* ---------- 信件详情页 ---------- */
+.mailbox-detail-body {
+  padding: 14px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detail-letter {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 20px 18px 18px;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.detail-letter::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 84px;
+  height: 16px;
+  background: linear-gradient(180deg, rgba(var(--primary-rgb), 0.45), rgba(var(--primary-rgb), 0.25));
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(160, 170, 190, 0.15);
+}
+
+.detail-letter.is-incoming::before {
+  background: linear-gradient(180deg, rgba(var(--primary-rgb), 0.5), rgba(var(--primary-rgb), 0.28));
+}
+
+.detail-letter-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.detail-status {
+  margin-left: auto;
+}
+
+.detail-time {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  margin-top: 6px;
+}
+
+.detail-letter-content {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-top: 12px;
+}
+
+/* 详情页回信区块 */
+.detail-reply-block {
+  background: var(--bg-card);
+  border: 1px solid rgba(var(--primary-rgb), 0.4);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.detail-reply-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.detail-reply-title i {
+  font-size: 0.72rem;
+}
+
+.detail-reply-title .detail-time {
+  margin-left: auto;
+  margin-top: 0;
+}
+
+.detail-reply-content {
+  margin-top: 8px;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(var(--primary-rgb), 0.1);
+  border-left: 3px solid rgba(var(--primary-rgb), 0.6);
+}
+
+/* 详情页底部操作 */
+.detail-actions {
+  margin-top: 4px;
+}
+
+/* ---------- 寄出的信删除 ---------- */
+.letter-delete-btn {
+  margin-left: 8px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--text-light);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.letter-delete-btn:hover {
+  background: rgba(239, 83, 80, 0.12);
+  color: #e05252;
+}
+
+/* 回信设置：字卡句数输入后缀 */
+.letter-cardcount-suffix {
+  height: 34px;
+  line-height: 34px;
+  padding: 0 8px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 5px;
+  background: var(--card-bg, #fff);
+  color: var(--text-light, #999);
+  font-size: 0.8rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
