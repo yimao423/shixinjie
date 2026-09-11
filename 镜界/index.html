@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="镜界">
+    <meta name="theme-color" content="#7EC8E3">
+    <meta name="format-detection" content="telephone=no">
+    <title>镜界</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8ZGVmcz4KICAgIDxmaWx0ZXIgaWQ9ImZyb3N0IiB4PSItMzAlIiB5PSItMzAlIiB3aWR0aD0iMTYwJSIgaGVpZ2h0PSIxNjAlIj4KICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS44Ii8+CiAgICA8L2ZpbHRlcj4KICAgIDxmaWx0ZXIgaWQ9InNvZnQiIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIwLjgiLz4KICAgIDwvZmlsdGVyPgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNGRkZGRkYiLz4KICA8cmVjdCB4PSI2IiB5PSI2IiB3aWR0aD0iNTIiIGhlaWdodD0iNTIiIHJ4PSIxNCIgZmlsbD0iIzk4REFFRCIgb3BhY2l0eT0iMC4yMiIgZmlsdGVyPSJ1cmwoI2Zyb3N0KSIvPgogIDxyZWN0IHg9IjUiIHk9IjUiIHdpZHRoPSI1NCIgaGVpZ2h0PSI1NCIgcng9IjE0IiBmaWxsPSIjRkZGRkZGIiBmaWxsLW9wYWNpdHk9IjAuNzIiLz4KICA8cmVjdCB4PSI1LjUiIHk9IjUuNSIgd2lkdGg9IjUzIiBoZWlnaHQ9IjUzIiByeD0iMTMuNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjN0VDOEUzIiBzdHJva2Utd2lkdGg9IjEuMiIgc3Ryb2tlLW9wYWNpdHk9IjAuNCIvPgogIDxyZWN0IHg9IjYiIHk9IjYiIHdpZHRoPSI1MiIgaGVpZ2h0PSI1MiIgcng9IjEzIiBmaWxsPSJub25lIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLW9wYWNpdHk9IjAuNTUiLz4KICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSgtMTQgMjYgMzApIj4KICAgIDxyZWN0IHg9IjE5IiB5PSIyMCIgd2lkdGg9IjE0IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzdFQzhFMyIgZmlsbC1vcGFjaXR5PSIwLjQ1IiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMC43IiBzdHJva2Utb3BhY2l0eT0iMC41Ii8+CiAgICA8cGF0aCBkPSJNIDIyLDIyLjIgUSAyMiwyNCAyMy44LDI0IFEgMjIsMjQgMjIsMjUuOCBRIDIyLDI0IDIwLjIsMjQgUSAyMiwyNCAyMiwyMi4yIFoiIGZpbGw9IiNGRkZGRkYiLz4KICAgIDxwYXRoIGQ9Ik0gMjgsMjMuOCBRIDI4LDI2IDMwLjIsMjYgUSAyOCwyNiAyOCwyOC4yIFEgMjgsMjYgMjUuOCwyNiBRIDI4LDI2IDI4LDIzLjggWiIgZmlsbD0iI0ZGRkZGRiIvPgogICAgPHBhdGggZD0iTSAyNCwzMi41IFEgMjQsMzQgMjUuNSwzNCBRIDI0LDM0IDI0LDM1LjUgUSAyNCwzNCAyMi41LDM0IFEgMjQsMzQgMjQsMzIuNSBaIiBmaWxsPSIjRkZGRkZGIi8+CiAgICA8cGF0aCBkPSJNIDMwLDM0LjIgUSAzMCwzNiAzMS44LDM2IFEgMzAsMzYgMzAsMzcuOCBRIDMwLDM2IDI4LjIsMzYgUSAzMCwzNiAzMCwzNC4yIFoiIGZpbGw9IiNGRkZGRkYiLz4KICA8L2c+CiAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMTQgMzggMjkpIj4KICAgIDxyZWN0IHg9IjMxIiB5PSIxOSIgd2lkdGg9IjE0IiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iIzk4REFFRCIgZmlsbC1vcGFjaXR5PSIwLjUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIwLjciIHN0cm9rZS1vcGFjaXR5PSIwLjU1Ii8+CiAgICA8cGF0aCBkPSJNIDM0LDIwIFEgMzQsMjIgMzYsMjIgUSAzNCwyMiAzNCwyNCBRIDM0LDIyIDMyLDIyIFEgMzQsMjIgMzQsMjAgWiIgZmlsbD0iI0ZGRkZGRiIvPgogICAgPHBhdGggZD0iTSA0MCwyMi40IFEgNDAsMjQgNDEuNiwyNCBRIDQwLDI0IDQwLDI1LjYgUSA0MCwyNCAzOC40LDI0IFEgNDAsMjQgNDAsMjIuNCBaIiBmaWxsPSIjRkZGRkZGIi8+CiAgICA8cGF0aCBkPSJNIDMzLDMwLjggUSAzMywzMyAzNS4yLDMzIFEgMzMsMzMgMzMsMzUuMiBRIDMzLDMzIDMwLjgsMzMgUSAzMywzMyAzMywzMC44IFoiIGZpbGw9IiNGRkZGRkYiLz4KICAgIDxwYXRoIGQ9Ik0gNDIsMzMuNSBRIDQyLDM1IDQzLjUsMzUgUSA0MiwzNSA0MiwzNi41IFEgNDIsMzUgNDAuNSwzNSBRIDQyLDM1IDQyLDMzLjUgWiIgZmlsbD0iI0ZGRkZGRiIvPgogICAgPHBhdGggZD0iTSAzNywyMy43IFEgMzcsMjUgMzguMywyNSBRIDM3LDI1IDM3LDI2LjMgUSAzNywyNSAzNS43LDI1IFEgMzcsMjUgMzcsMjMuNyBaIiBmaWxsPSIjRkZGRkZGIi8+CiAgPC9nPgogIDxwYXRoIGQ9Ik0gMTMsMTYgQyAyMyw4IDQxLDggNTEsMTYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0gMjAsNTAgQyAyNiw1NCAzOCw1NCA0NCw1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjQjBEQ0VDIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1vcGFjaXR5PSIwLjM1IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+">
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#7EC8E3',
+                        'primary-light': '#E0F2F8',
+                        'bg-main': '#EAF4F8',
+                        'dark-text': '#1A3A4A',
+                        'light-text': '#6B8A9A'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ═══ Modular CSS ═══ -->
+    <link rel="stylesheet" href="css/theme.css?v=20260914">
+    <link rel="stylesheet" href="css/base.css?v=20260911opt">
+    <link rel="stylesheet" href="css/splash.css?v=20260914">
+    <link rel="stylesheet" href="css/layout.css?v=20260911wx">
+    <link rel="stylesheet" href="css/cards.css?v=20260911opt">
+    <link rel="stylesheet" href="css/decks-spreads.css?v=20260916a">
+    <link rel="stylesheet" href="css/divination.css?v=20260911wx">
+    <link rel="stylesheet" href="css/pages.css?v=20260914">
+
+</head>
+<body>
+
+    <!-- ========== 1. 欢迎/启动加载屏 (天体魔法阵主题) ========== -->
+    <div id="splash-screen" class="w-full h-screen fixed inset-0 z-[9999] splash-bg flex flex-col justify-center items-center transition-opacity duration-700">
+
+        <!-- 背景光晕 -->
+        <div class="magic-aura" style="top:15%; right:10%; width:220px; height:220px; animation-delay:0s;"></div>
+        <div class="magic-aura" style="bottom:18%; left:5%; width:150px; height:150px; animation-delay:1.5s;"></div>
+        <div class="magic-aura" style="top:45%; left:50%; width:300px; height:300px; transform:translate(-50%,-50%); animation-delay:0.8s;"></div>
+
+        <!-- 背景放射线 -->
+        <div class="radial-lines-wrap" id="radial-lines"></div>
+
+        <!-- 散落星点 -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none" id="star-field"></div>
+
+        <!-- 下落光粒子 -->
+        <div class="drift-particle w-1 h-1 rounded-full" style="background:rgba(var(--theme-magic-rgb), 0.4); left:8%; animation-duration:13s; animation-delay:0s;"></div>
+        <div class="drift-particle w-1.5 h-1.5 rounded-full" style="background:rgba(var(--theme-magic-rgb), 0.35); left:22%; animation-duration:16s; animation-delay:2s;"></div>
+        <div class="drift-particle w-0.5 h-0.5 rounded-full" style="background:rgba(var(--theme-magic-rgb), 0.5); left:38%; animation-duration:10s; animation-delay:1s;"></div>
+        <div class="drift-particle w-1 h-1 rounded-full" style="background:var(--theme-magic-orbit-solid); left:55%; animation-duration:14s; animation-delay:3s;"></div>
+        <div class="drift-particle w-1.5 h-1.5 rounded-full" style="background:rgba(var(--theme-magic-rgb), 0.35); left:68%; animation-duration:11s; animation-delay:0.5s;"></div>
+        <div class="drift-particle w-0.5 h-0.5 rounded-full" style="background:rgba(var(--theme-magic-rgb), 0.45); left:82%; animation-duration:15s; animation-delay:4s;"></div>
+        <div class="drift-particle w-1 h-1 rounded-full" style="background:var(--theme-magic-orbit-solid); left:92%; animation-duration:12s; animation-delay:2.5s;"></div>
+        <div class="drift-particle w-0.5 h-0.5 rounded-full" style="background:rgba(var(--theme-magic-rgb), 0.4); left:45%; animation-duration:17s; animation-delay:5s;"></div>
+
+        <!-- 右上角 - 大型魔法阵 -->
+        <div class="magic-large">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- 最外环 -->
+                <circle cx="100" cy="100" r="95" stroke="rgba(var(--theme-magic-rgb), 0.25)" stroke-width="1"/>
+                <circle cx="100" cy="100" r="90" stroke="var(--theme-magic-orbit)" stroke-width="0.6" stroke-dasharray="3 9"/>
+                <circle cx="100" cy="100" r="82" stroke="var(--theme-magic-orbit-solid)" stroke-width="1.2"/>
+
+                <!-- 放射状刻线 (12条，如钟表) -->
+                <g stroke="rgba(var(--theme-magic-rgb), 0.28)" stroke-width="0.8">
+                    <line x1="100" y1="10" x2="100" y2="22"/>
+                    <line x1="100" y1="178" x2="100" y2="190"/>
+                    <line x1="10" y1="100" x2="22" y2="100"/>
+                    <line x1="178" y1="100" x2="190" y2="100"/>
+                </g>
+                <g stroke="rgba(var(--theme-magic-rgb), 0.18)" stroke-width="0.5">
+                    <line x1="36" y1="36" x2="45" y2="45"/>
+                    <line x1="164" y1="36" x2="155" y2="45"/>
+                    <line x1="36" y1="164" x2="45" y2="155"/>
+                    <line x1="164" y1="164" x2="155" y2="155"/>
+                </g>
+                <g stroke="rgba(var(--theme-magic-rgb), 0.15)" stroke-width="0.4">
+                    <line x1="22" y1="57" x2="30" y2="63"/>
+                    <line x1="178" y1="57" x2="170" y2="63"/>
+                    <line x1="22" y1="143" x2="30" y2="137"/>
+                    <line x1="178" y1="143" x2="170" y2="137"/>
+                    <line x1="57" y1="22" x2="63" y2="30"/>
+                    <line x1="143" y1="22" x2="137" y2="30"/>
+                    <line x1="57" y1="178" x2="63" y2="170"/>
+                    <line x1="143" y1="178" x2="137" y2="170"/>
+                </g>
+
+                <!-- 内环 -->
+                <circle cx="100" cy="100" r="60" stroke="rgba(var(--theme-magic-rgb), 0.25)" stroke-width="0.7" stroke-dasharray="2 7"/>
+                <circle cx="100" cy="100" r="52" stroke="rgba(var(--theme-magic-rgb), 0.32)" stroke-width="1"/>
+
+                <!-- 六角星（两个正三角形） -->
+                <polygon points="100,48 132,83 100,118 68,83"
+                    fill="rgba(var(--theme-magic-rgb), 0.06)" stroke="rgba(var(--theme-magic-rgb), 0.38)" stroke-width="1.2"/>
+                <polygon points="100,152 132,83 100,48 68,83"
+                    fill="rgba(var(--theme-magic-rgb), 0.04)" stroke="rgba(var(--theme-magic-rgb), 0.32)" stroke-width="1"/>
+                <circle cx="100" cy="48" r="2.5" fill="rgba(var(--theme-magic-rgb), 0.5)"/>
+                <circle cx="132" cy="83" r="2.5" fill="rgba(var(--theme-magic-rgb), 0.5)"/>
+                <circle cx="100" cy="118" r="2.5" fill="rgba(var(--theme-magic-rgb), 0.5)"/>
+                <circle cx="68" cy="83" r="2.5" fill="rgba(var(--theme-magic-rgb), 0.5)"/>
+                <circle cx="100" cy="152" r="2" fill="rgba(var(--theme-magic-rgb), 0.4)"/>
+
+                <!-- 中心点 -->
+                <circle cx="100" cy="100" r="4" fill="rgba(var(--theme-magic-rgb), 0.45)"/>
+                <circle cx="100" cy="100" r="1.5" fill="rgba(255,255,255,0.6)"/>
+
+                <!-- 新月（右上区） -->
+                <path d="M150,48 A15,15 0 1,0 150,76 A11,11 0 1,1 150,48"
+                    fill="rgba(var(--theme-magic-rgb), 0.25)" stroke="rgba(var(--theme-magic-rgb), 0.35)" stroke-width="0.8"/>
+
+                <!-- 带环行星（左上区） -->
+                <circle cx="48" cy="50" r="9" stroke="rgba(var(--theme-magic-rgb), 0.35)" stroke-width="1"/>
+                <ellipse cx="48" cy="50" rx="17" ry="4.5" stroke="rgba(var(--theme-magic-rgb), 0.28)" stroke-width="0.8" transform="rotate(-22,48,50)"/>
+                <circle cx="48" cy="50" r="3" fill="var(--theme-magic-orbit-solid)"/>
+
+                <!-- 时钟符号（底部） -->
+                <circle cx="100" cy="158" r="13" stroke="rgba(var(--theme-magic-rgb), 0.32)" stroke-width="1"/>
+                <!-- 12个小时刻度 -->
+                <g stroke="var(--theme-magic-orbit)" stroke-width="0.3">
+                    <line x1="100" y1="145.5" x2="100" y2="147"/>
+                    <line x1="100" y1="169" x2="100" y2="170.5"/>
+                    <line x1="87.5" y1="158" x2="89" y2="158"/>
+                    <line x1="111" y1="158" x2="112.5" y2="158"/>
+                    <line x1="91.2" y1="149.2" x2="92.3" y2="150.3"/>
+                    <line x1="107.7" y1="165.7" x2="108.8" y2="166.8"/>
+                    <line x1="108.8" y1="149.2" x2="107.7" y2="150.3"/>
+                    <line x1="92.3" y1="165.7" x2="91.2" y2="166.8"/>
+                </g>
+                <g id="clock-hands-large">
+                    <line x1="100" y1="158" x2="100" y2="150" stroke="rgba(var(--theme-magic-rgb), 0.65)" stroke-width="2.2" stroke-linecap="round"/>
+                    <polygon points="98,151 102,151 100,148" fill="var(--theme-magic-dot)"/>
+                    <line x1="100" y1="158" x2="100" y2="146" stroke="rgba(var(--theme-magic-rgb), 0.5)" stroke-width="1.5" stroke-linecap="round"/>
+                    <polygon points="98,147 102,147 100,144.5" fill="rgba(var(--theme-magic-rgb), 0.42)"/>
+                </g>
+                <circle cx="100" cy="158" r="2.5" fill="rgba(var(--theme-magic-rgb), 0.5)"/>
+                <circle cx="100" cy="158" r="1" fill="rgba(255,255,255,0.8)"/>
+
+                <!-- 小星点缀 -->
+                <circle cx="155" cy="125" r="1.2" fill="rgba(var(--theme-magic-rgb), 0.45)"/>
+                <circle cx="42" cy="130" r="1.2" fill="rgba(var(--theme-magic-rgb), 0.45)"/>
+                <circle cx="165" cy="90" r="0.8" fill="rgba(var(--theme-magic-rgb), 0.35)"/>
+                <circle cx="35" cy="95" r="0.8" fill="rgba(var(--theme-magic-rgb), 0.35)"/>
+            </svg>
+        </div>
+
+        <!-- 左下角 - 小型魔法阵 -->
+        <div class="magic-small">
+            <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="55" cy="55" r="50" stroke="rgba(var(--theme-magic-rgb), 0.25)" stroke-width="0.8"/>
+                <circle cx="55" cy="55" r="45" stroke="var(--theme-magic-orbit)" stroke-width="0.5" stroke-dasharray="2 6"/>
+                <circle cx="55" cy="55" r="38" stroke="rgba(var(--theme-magic-rgb), 0.28)" stroke-width="0.9"/>
+
+                <g stroke="var(--theme-magic-orbit)" stroke-width="0.6">
+                    <line x1="55" y1="8" x2="55" y2="18"/>
+                    <line x1="55" y1="92" x2="55" y2="102"/>
+                    <line x1="8" y1="55" x2="18" y2="55"/>
+                    <line x1="92" y1="55" x2="102" y2="55"/>
+                </g>
+
+                <circle cx="55" cy="55" r="28" stroke="var(--theme-magic-orbit-dash)" stroke-width="0.6" stroke-dasharray="1.5 5"/>
+
+                <polygon points="55,30 71,45 55,60 39,45"
+                    fill="rgba(var(--theme-magic-rgb), 0.05)" stroke="rgba(var(--theme-magic-rgb), 0.32)" stroke-width="0.9"/>
+                <polygon points="55,78 71,45 55,30 39,45"
+                    fill="rgba(var(--theme-magic-rgb), 0.03)" stroke="rgba(var(--theme-magic-rgb), 0.26)" stroke-width="0.7"/>
+
+                <circle cx="55" cy="55" r="2.5" fill="rgba(var(--theme-magic-rgb), 0.4)"/>
+
+                <path d="M80,32 A8,8 0 1,0 80,46 A6,6 0 1,1 80,32"
+                    fill="var(--theme-magic-orbit)" stroke="var(--theme-magic-orbit-solid)" stroke-width="0.6"/>
+
+                <circle cx="30" cy="40" r="1" fill="rgba(var(--theme-magic-rgb), 0.4)"/>
+                <circle cx="78" cy="60" r="1" fill="rgba(var(--theme-magic-rgb), 0.4)"/>
+                <circle cx="40" cy="78" r="0.7" fill="var(--theme-magic-orbit-solid)"/>
+
+                <!-- 时钟 -->
+                <circle cx="55" cy="55" r="26" stroke="rgba(var(--theme-magic-rgb), 0.25)" stroke-width="0.6"/>
+                <g stroke="rgba(var(--theme-magic-rgb), 0.15)" stroke-width="0.3">
+                    <line x1="55" y1="29.5" x2="55" y2="31"/>
+                    <line x1="55" y1="79" x2="55" y2="80.5"/>
+                    <line x1="29.5" y1="55" x2="31" y2="55"/>
+                    <line x1="79" y1="55" x2="80.5" y2="55"/>
+                </g>
+                <g id="clock-hands-small">
+                    <line x1="55" y1="55" x2="55" y2="42" stroke="rgba(var(--theme-magic-rgb), 0.6)" stroke-width="2.0" stroke-linecap="round"/>
+                    <polygon points="53.5,43 56.5,43 55,40.5" fill="rgba(var(--theme-magic-rgb), 0.5)"/>
+                    <line x1="55" y1="55" x2="55" y2="36" stroke="rgba(var(--theme-magic-rgb), 0.45)" stroke-width="1.3" stroke-linecap="round"/>
+                    <polygon points="53.5,37 56.5,37 55,34.5" fill="rgba(var(--theme-magic-rgb), 0.38)"/>
+                </g>
+                <circle cx="55" cy="55" r="2" fill="rgba(var(--theme-magic-rgb), 0.4)"/>
+                <circle cx="55" cy="55" r="0.8" fill="rgba(255,255,255,0.7)"/>
+            </svg>
+        </div>
+
+        <!-- 中心内容区域 -->
+        <div class="flex flex-col items-center relative z-10">
+
+            <!-- 中心魔法环 -->
+            <div class="center-magic-ring">
+                <div class="center-orbit-1"></div>
+                <div class="center-orbit-2"></div>
+                <div class="center-orbit-3"></div>
+                <div class="center-symbol-wrap">
+                    <svg viewBox="0 0 80 80" width="80" height="80" fill="none">
+                        <ellipse cx="40" cy="40" rx="35" ry="35" stroke="rgba(var(--theme-magic-rgb), 0.15)" stroke-width="0.5" stroke-dasharray="4 6"/>
+                        <circle cx="40" cy="40" r="14" stroke="rgba(var(--theme-magic-rgb), 0.45)" stroke-width="1.5"/>
+                        <circle cx="40" cy="40" r="10" fill="var(--theme-magic-aura)" stroke="rgba(var(--theme-magic-rgb), 0.35)" stroke-width="0.8"/>
+                        <ellipse cx="40" cy="40" rx="24" ry="6" stroke="rgba(var(--theme-magic-rgb), 0.4)" stroke-width="1" transform="rotate(-25,40,40)"/>
+                        <line x1="40" y1="22" x2="40" y2="28" stroke="rgba(var(--theme-magic-rgb), 0.5)" stroke-width="1"/>
+                        <line x1="40" y1="52" x2="40" y2="58" stroke="rgba(var(--theme-magic-rgb), 0.5)" stroke-width="1"/>
+                        <line x1="22" y1="40" x2="28" y2="40" stroke="rgba(var(--theme-magic-rgb), 0.5)" stroke-width="1"/>
+                        <line x1="52" y1="40" x2="58" y2="40" stroke="rgba(var(--theme-magic-rgb), 0.5)" stroke-width="1"/>
+                        <circle cx="40" cy="40" r="4" fill="rgba(var(--theme-magic-rgb), 0.6)"/>
+                        <circle cx="40" cy="40" r="1.5" fill="rgba(255,255,255,0.7)"/>
+                        <g id="clock-hands-center">
+                            <line x1="40" y1="40" x2="40" y2="32" stroke="rgba(var(--theme-magic-rgb), 0.6)" stroke-width="1.6" stroke-linecap="round"/>
+                            <polygon points="38.2,33 41.8,33 40,30.5" fill="rgba(var(--theme-magic-rgb), 0.5)"/>
+                            <line x1="40" y1="40" x2="40" y2="26" stroke="rgba(var(--theme-magic-rgb), 0.45)" stroke-width="1.1" stroke-linecap="round"/>
+                            <polygon points="38.2,27 41.8,27 40,24.5" fill="rgba(var(--theme-magic-rgb), 0.38)"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- 文字内容 -->
+            <div class="flex items-center gap-3 mb-6 fade-in-up fade-delay-1">
+                <div style="width:5px; height:5px; background:rgba(var(--theme-magic-rgb), 0.5); transform:rotate(45deg);"></div>
+                <span class="text-light-text/50 tracking-[0.4em] text-[11px] font-medium">LOADING</span>
+                <div style="width:5px; height:5px; background:rgba(var(--theme-magic-rgb), 0.5); transform:rotate(45deg);"></div>
+            </div>
+
+            <h1 class="text-[2.2rem] font-light text-dark-text mb-2 tracking-[0.15em] fade-in-up fade-delay-2" style="font-family: 'Noto Serif SC', 'Songti SC', serif;">镜 界</h1>
+            <p class="text-light-text/70 text-sm tracking-[0.2em] mb-10 fade-in-up fade-delay-3">镜像之中 · 洞见真我</p>
+
+            <!-- 进度条（样式与拾心界主页一致） -->
+            <div class="splash-progress-wrap">
+                <div class="splash-progress-bar">
+                    <div class="splash-progress-fill" id="progress-bar"></div>
+                    <div class="splash-progress-dot" id="progress-dot"></div>
+                </div>
+            </div>
+
+            <span class="text-light-text/40 text-[10px] mt-8 tracking-[0.15em] fade-in-up fade-delay-4">DIVINING FATE · 镜界寻踪</span>
+        </div>
+    </div>
+<!-- ========== 2. 主应用容器 ========== -->
+    <div id="app" class="w-full max-w-md mx-auto bg-bg-main min-h-screen relative" style="min-height: 100dvh; opacity: 0; transition: opacity 700ms ease;">
+
+        <!-- ===== 首页 ===== -->
+        <div id="page-home" class="page active bg-bg-main bg-pattern pb-6">
+            <div class="px-5 pt-12 pb-2">
+                <!-- 被拾心界嵌入时显示（默认隐藏），由 js/jingjie-embed.js 控制 -->
+                <button id="btn-back-shxj" type="button" onclick="backToShixinjie()" title="返回拾心界" style="display:none; position:absolute; top:8px; left:12px; z-index:50; width:36px; height:36px; align-items:center; justify-content:center; border-radius:9999px; background:rgba(255,255,255,0.55); border:1px solid rgba(120,190,180,0.35); box-shadow:0 1px 8px rgba(120,190,180,0.12); color:#0f766e; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); cursor:pointer;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none; display:block;"><path d="M19 12H5"/><path d="M11 18l-6-6 6-6"/></svg>
+                </button>
+                <p class="text-center text-light-text text-sm tracking-[0.1em] mb-1">镜像之中 ∞ 洞见真我</p>
+                <p class="text-center text-[11px] font-medium text-dark-text">晚上好，占卜师 · 今日运势已为你准备好</p>
+            </div>
+
+            <div class="px-5 mt-4">
+                <div id="daily-fortune-card" class="glass-card overflow-hidden cursor-pointer hover:shadow-md transition-shadow" onclick="openDailyFortune()">
+                    <!-- 由 initDailyFortune() 动态渲染 -->
+                </div>
+            </div>
+
+            <!-- ===== 快捷功能区域：我的牌阵 + 创建牌阵 ===== -->
+            <div class="px-5 mt-6">
+                <h3 class="text-dark-text text-sm font-medium mb-3">快捷功能</h3>
+                <div class="flex gap-3">
+                    <div onclick="switchPage('page-spreads')" class="flex-1 glass-card rounded-xl p-3 text-center hover:shadow-md transition-shadow cursor-pointer">
+                        <i class="fa-solid fa-table-cells text-primary/70 text-lg mb-1 block"></i>
+                        <p class="text-sm font-medium text-dark-text">我的牌阵</p>
+                        <p class="text-[10px] text-light-text mt-1">所有牌阵一览</p>
+                    </div>
+                    <div onclick="switchPage('page-create-spread')" class="flex-1 glass-card rounded-xl p-3 text-center hover:shadow-md transition-shadow cursor-pointer">
+                        <i class="fa-solid fa-circle-plus theme-accent-icon-light text-lg mb-1 block"></i>
+                        <p class="text-sm font-medium text-dark-text">创建牌阵</p>
+                        <p class="text-[10px] text-light-text mt-1">设计专属牌阵</p>
+                    </div>
+                    <div class="flex-1 glass-card rounded-xl p-3 text-center hover:shadow-md transition-shadow cursor-pointer" onclick="randomDivination()">
+                        <i class="fa-solid fa-shuffle theme-accent-icon-light text-lg mb-1 block"></i>
+                        <p class="text-sm font-medium text-dark-text">随机占卜</p>
+                        <p class="text-[10px] text-light-text mt-1">一键灵感指引</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="px-5 mt-4 flex gap-3">
+                <div onclick="switchPage('page-decks')" class="flex-1 glass-card rounded-xl p-4 theme-accent-border flex justify-between items-center cursor-pointer hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-primary-light rounded-lg flex items-center justify-center text-primary">
+                            <i class="fa-solid fa-list"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-dark-text">我的牌组</p>
+                            <p class="text-[10px] text-light-text">查看已收藏牌组</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-light-text/50"></i>
+                </div>
+                <div onclick="switchPage('page-create')" class="flex-1 glass-card rounded-xl p-4 theme-accent-border flex justify-between items-center cursor-pointer hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 theme-accent-icon rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-dark-text">创建牌组</p>
+                            <p class="text-[10px] text-light-text">设计专属占卜牌组</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-light-text/50"></i>
+                </div>
+            </div>
+
+            <div class="px-5 mt-6">
+                <div class="flex items-center justify-between mb-3">
+                    <h3 class="text-dark-text text-sm font-medium">最近占卜记录</h3>
+                    <button onclick="openDivineHistory()" id="recent-records-more" class="text-xs text-primary hover:underline" style="display:none;">查看全部 <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
+                </div>
+                <div id="recent-records-list" class="space-y-2">
+                    <div class="text-center py-6 text-light-text text-xs">暂无占卜记录</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== 占卜记录详情页 ===== -->
+        <div id="page-divine-history" class="page bg-bg-main bg-pattern">
+            <div class="px-5 pt-8 pb-2 flex items-center sticky top-0 z-10 page-header-solid">
+                <button onclick="closeDivineHistory()" class="w-8 h-8 flex items-center justify-center text-dark-text/70 hover:bg-white/50 rounded-full">
+                    <i class="fa-solid fa-arrow-left text-lg"></i>
+                </button>
+                <div class="ml-2">
+                    <h2 class="text-xl font-medium text-dark-text">占卜记录</h2>
+                    <p class="text-light-text text-xs" id="history-count-label">0 条记录</p>
+                </div>
+            </div>
+            <div id="divine-history-list" class="px-5 mt-3 pb-6 space-y-3">
+                <div class="text-center py-12 text-light-text text-sm">暂无占卜记录</div>
+            </div>
+        </div>
+
+        <!-- ===== 我的牌组页 ===== -->
+        <div id="page-decks" class="page bg-bg-main bg-pattern">
+            <div class="px-5 pt-8 pb-2 flex items-center sticky top-0 z-10 page-header-solid">
+                <button onclick="switchPage('page-home')" class="w-8 h-8 flex items-center justify-center text-dark-text/70 hover:bg-white/50 rounded-full">
+                    <i class="fa-solid fa-arrow-left text-lg"></i>
+                </button>
+                <div class="ml-2">
+                    <h2 class="text-xl font-medium text-dark-text">我的牌组</h2>
+                    <p class="text-light-text text-xs">点击牌组查看完整牌面</p>
+                </div>
+            </div>
+            <div class="px-5 mt-3 flex items-center justify-between">
+                <div class="flex gap-1.5 flex-wrap">
+                    <button class="sort-btn active-sort" data-sort="default" onclick="sortDecks('default')">默认</button>
+                    <button class="sort-btn" data-sort="name-asc" onclick="sortDecks('name-asc')">名称 A→Z</button>
+                    <button class="sort-btn" data-sort="name-desc" onclick="sortDecks('name-desc')">名称 Z→A</button>
+                </div>
+                <span id="deck-count-label" class="text-[10px] text-light-text/60">5 个牌组</span>
+            </div>
+            <div id="deck-list" class="px-5 mt-3 space-y-3 pb-6"></div>
+        </div>
+
+        <!-- ===== 牌组详情页 ===== -->
+        <div id="page-deck-detail" class="page bg-bg-main bg-pattern">
+            <div class="deck-detail-header flex items-center">
+                <button onclick="switchPage('page-decks')" class="w-8 h-8 flex items-center justify-center text-dark-text/70 hover:bg-white/50 rounded-full flex-shrink-0">
+                    <i class="fa-solid fa-arrow-left text-lg"></i>
+                </button>
+                <div class="ml-2 flex-1 min-w-0">
+                    <h2 id="deck-detail-title" class="text-lg font-medium text-dark-text truncate">牌组名称</h2>
+                    <p id="deck-detail-sub" class="text-light-text text-xs truncate">查看所有牌面</p>
+                </div>
+                <div class="text-light-text/40 text-xs px-2">
+                    <span id="deck-detail-count">0</span>张
+                </div>
+            </div>
+            <div id="deck-detail-content" class="px-4 py-4 pb-24">
+                <div class="deck-detail-grid" id="deck-grid"></div>
+            </div>
+            <div id="back-to-top" class="back-to-top" onclick="document.getElementById('page-deck-detail').scrollTo({top:0,behavior:'smooth'})">
+                <i class="fa-solid fa-arrow-up text-sm"></i>
+            </div>
+        </div>
+
+        <!-- ===== 创建牌组页 (全新设计，不固定尺寸) ===== -->
+        <div id="page-create" class="page bg-bg-main bg-pattern">
+            <div class="px-5 pt-8 pb-2 flex items-center sticky top-0 z-10 page-header-solid">
+                <button onclick="switchPage('page-home')" class="w-8 h-8 flex items-center justify-center text-dark-text/70 hover:bg-white/50 rounded-full">
+                    <i class="fa-solid fa-arrow-left text-lg"></i>
+                </button>
+                <h2 class="ml-4 text-xl font-medium text-dark-text">创建牌组</h2>
+            </div>
+            <div class="px-5 mt-2 pb-20">
+                <!-- 牌组名称 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">牌组名称</label>
+                    <input id="create-deck-name" type="text" placeholder="请输入牌组名称..." class="w-full mt-1 px-3 py-2.5 glass-input rounded-lg text-sm focus:outline-none transition-colors">
+                </div>
+
+                <!-- 牌背上传 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">牌背图片</label>
+                    <div class="flex items-center gap-4 mt-1 flex-wrap">
+                        <div class="upload-area" id="back-upload-area" onclick="document.getElementById('back-image-input').click()">
+                            <i class="fa-solid fa-image text-lg mb-1"></i>
+                            <span class="text-[10px]">点击上传</span>
+                            <input type="file" id="back-image-input" accept="image/*" class="sr-file-input" onchange="handleBackImageUpload(event)">
+                        </div>
+                        <div class="back-preview-container" id="back-preview-container">
+                            <img id="back-preview-img" src="" alt="牌背预览">
+                        </div>
+                        <div class="text-[10px] text-light-text leading-relaxed flex-1 mt-1">
+                            上传一张图片作为牌背<br>所有牌面共用此牌背
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 牌面上传 -->
+                <div class="mb-4">
+                    <div class="flex items-center justify-between">
+                        <label class="text-sm font-medium text-dark-text">牌面图（数量不限）</label>
+                        <span id="card-upload-count" class="text-[10px] text-light-text">已上传 0 张</span>
+                    </div>
+                    <button onclick="document.getElementById('card-files-input').click()" class="mt-1 w-full py-2.5 glass-btn rounded-xl text-sm text-dark-text flex items-center justify-center gap-2 hover:shadow-md transition-shadow">
+                        <i class="fa-solid fa-plus text-xs"></i> 上传
+                    </button>
+                    <input type="file" id="card-files-input" accept="image/*" multiple class="sr-file-input" onchange="handleCardFilesUpload(event)">
+                    
+                    <!-- 已上传牌面列表 -->
+                    <div id="card-upload-list" class="card-upload-grid mt-2">
+                        <!-- 动态渲染 -->
+                    </div>
+                </div>
+
+            </div>
+            <div class="fixed bottom-20 max-w-md w-full px-5 left-1/2 -translate-x-1/2 safe-bottom z-20 pointer-events-none">
+                <button onclick="confirmCreateDeck()" class="w-full py-3.5 rounded-full transition-all text-base font-medium pointer-events-auto hover:shadow-lg active:scale-95" style="background: var(--theme-btn-gradient); color: #fff; box-shadow: 0 4px 16px rgba(var(--theme-primary-rgb), 0.3); border: none;">确认创建</button>
+            </div>
+        </div>
+
+        <!-- ===== 占卜页 ===== -->
+        <div id="page-divine" class="page bg-bg-main">
+            <!-- 洗牌动画遮罩 -->
+            <div id="shuffling-overlay" class="shuffling-overlay" style="display:none;">
+                <div class="shuffle-anim">
+                    <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
+                </div>
+                <div class="shuffling-text">洗牌中...</div>
+            </div>
+            <!-- 配置面板 -->
+            <div id="divine-config-overlay" class="divine-config-overlay" style="display:none;">
+                <div class="divine-config-panel">
+                    <h3>占卜设置</h3>
+                    <div class="config-group">
+                        <label>占卜问题</label>
+                        <textarea id="divine-question-input" class="config-input" rows="2" style="resize:none;" placeholder="写下这一轮想问的问题（可留空）"></textarea>
+                    </div>
+                    <div class="config-group">
+                        <label>选择牌组</label>
+                        <select id="divine-deck-select" class="config-select"></select>
+                    </div>
+                    <div class="config-group">
+                        <label>抽牌方式</label>
+                        <select id="divine-draw-mode" class="config-select" onchange="onDrawModeChange()">
+                            <option value="deck">按牌组抽取</option>
+                            <option value="spread">按牌阵抽取</option>
+                        </select>
+                    </div>
+                    <div id="spread-draw-config" style="display:none;">
+                        <div class="config-group">
+                            <label>选择牌阵</label>
+                            <select id="divine-spread-select" class="config-select" onchange="onSpreadChange()"></select>
+                        </div>
+                        <div class="config-group" id="spread-card-count-hint" style="display:none;">
+                            <label>所需牌数</label>
+                            <div class="text-sm font-medium text-dark-text" id="spread-card-count-display">-</div>
+                        </div>
+                    </div>
+                    <div class="toggle-row">
+                        <span>牌面正逆位</span>
+                        <div class="toggle-switch" id="reversed-toggle" onclick="toggleReversed()"></div>
+                    </div>
+                    <button class="config-btn primary" onclick="startDivine()">开始抽牌</button>
+                    <button class="config-btn secondary" onclick="closeDivineConfig()">取消</button>
+                </div>
+            </div>
+
+            <!-- 顶部栏 -->
+            <div class="divine-top-bar">
+                <button class="back-btn" onclick="onDivineBack()"><i class="fa-solid fa-chevron-left"></i></button>
+                <span class="divine-title">抽牌占卜</span>
+                <div class="divine-actions">
+                    <button class="divine-action-btn" onclick="openDivineConfig()" title="设置"><i class="fa-solid fa-sliders"></i></button>
+                    <button class="divine-action-btn" onclick="reshuffleDeck()" title="重新洗牌"><i class="fa-solid fa-shuffle"></i></button>
+                </div>
+            </div>
+            <!-- 解读区 -->
+            <div id="reading-area" class="reading-area">
+                <div class="placeholder-text">请从下方牌堆中选择一张牌</div>
+            </div>
+            <!-- 扇形牌区 -->
+            <div class="fan-area-wrapper">
+                <div class="fan-area-hint">
+                    <i class="fa-solid fa-arrow-left text-[8px]"></i>
+                    左右滑动浏览所有牌
+                    <i class="fa-solid fa-arrow-right text-[8px]"></i>
+                </div>
+                <div id="fan-scroll-container" class="fan-scroll-container"></div>
+            </div>
+            <!-- 结果操作 -->
+            <div class="divine-result-footer" id="divine-result-footer" style="display:none;">
+                <button class="btn-redraw" onclick="resetDivine()">重新抽牌</button>
+                <button class="btn-reveal-all" onclick="revealAllCards()">全部翻开</button>
+            </div>
+        </div>
+
+        <!-- 快捷牌组选择弹窗 -->
+        <div id="quick-deck-picker-overlay" class="divine-config-overlay quick-picker-overlay" style="display:none;" onclick="if(event.target===this)closeQuickPicker()">
+            <div class="divine-config-panel quick-picker-panel">
+                <h3>选择快捷牌组</h3>
+                <div id="quick-deck-picker-list" class="quick-picker-list"></div>
+                <button class="config-btn secondary" onclick="closeQuickPicker()">取消</button>
+            </div>
+        </div>
+        <!-- 快捷牌阵选择弹窗 -->
+        <div id="quick-spread-picker-overlay" class="divine-config-overlay quick-picker-overlay" style="display:none;" onclick="if(event.target===this)closeQuickPicker()">
+            <div class="divine-config-panel quick-picker-panel">
+                <h3>选择快捷牌阵</h3>
+                <div id="quick-spread-picker-list" class="quick-picker-list"></div>
+                <button class="config-btn secondary" onclick="closeQuickPicker()">取消</button>
+            </div>
+        </div>
+        <!-- 随机占卜结果弹窗 -->
+        <div id="random-divine-overlay" class="divine-config-overlay" style="display:none;" onclick="if(event.target===this)closeRandomDivine()">
+            <div class="random-divine-panel">
+                <div class="rd-header">
+                    <div>
+                        <h3 id="rd-deck-name" class="text-base font-semibold" style="color:var(--theme-text-dark)"></h3>
+                        <p id="rd-spread-name" class="text-xs mt-0.5" style="color:var(--theme-text-light)"></p>
+                    </div>
+                    <button onclick="closeRandomDivine()" class="w-8 h-8 flex items-center justify-center rounded-full flex-shrink-0" style="color:var(--theme-text-light);background:var(--theme-glass-input-bg)" onmouseover="this.style.background='var(--theme-glass-bg)'" onmouseout="this.style.background='var(--theme-glass-input-bg)'">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div id="rd-cards-container" class="rd-cards-container"></div>
+                <div class="rd-actions">
+                    <button onclick="reshuffleRandomDivine()" class="rd-btn-secondary"><i class="fa-solid fa-shuffle mr-1.5"></i> 重新抽取</button>
+                    <button onclick="closeRandomDivine()" class="rd-btn-primary">关闭</button>
+                </div>
+            </div>
+        </div>
+
+                <!-- ===== 说明书页 ===== -->
+        <div id="page-tutorial" class="page bg-bg-main bg-pattern">
+            <!-- 顶栏 -->
+            <div class="px-5 pt-8 pb-2">
+                <h2 class="text-xl font-medium text-dark-text">牌意</h2>
+            </div>
+
+            <!-- 搜索栏 -->
+            <div class="px-5 mt-1 relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-8 top-1/2 -translate-y-1/2 text-light-text/50 text-xs" style="z-index:1;"></i>
+                <input type="text" id="manual-search-input" placeholder="搜索牌意内容..." class="w-full pl-8 pr-3 py-2 glass-input rounded-full text-sm focus:outline-none placeholder:text-light-text/50" onkeydown="if(event.key==='Enter')searchManuals()">
+            </div>
+
+            <!-- 上传区域 -->
+            <div class="px-5 mt-4">
+                <div class="glass-card rounded-2xl py-[6px] px-4 flex flex-row items-center gap-3 cursor-pointer hover:shadow-lg transition-shadow manual-upload-zone" style="border:2px dashed var(--theme-glass-border);" id="manual-upload-zone"
+                     onclick="document.getElementById('manual-file-input').click()"
+                     ondragover="event.preventDefault();this.classList.add('drag-over')"
+                     ondragleave="this.classList.remove('drag-over')"
+                     ondrop="event.preventDefault();this.classList.remove('drag-over');handleManualDrop(event)">
+                    <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 upload-icon" style="background:rgba(var(--theme-primary-rgb),0.12);">
+                        <i class="fa-solid fa-cloud-arrow-up text-base" style="color:var(--theme-primary);"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <p class="text-xs text-dark-text">点击或拖拽上传牌意文件</p>
+                        <p class="text-[11px] text-light-text">支持 .txt / .pdf / .docx 格式，单文件不超过 50MB</p>
+                    </div>
+                    <input type="file" id="manual-file-input" accept=".txt,.pdf,.docx" multiple class="sr-file-input" onchange="handleManualUpload(event)">
+                    <!-- 上传进度条 -->
+                    <div id="manual-upload-progress" class="w-full mt-1 hidden">
+                        <div class="flex justify-between text-xs text-light-text mb-1">
+                            <span id="manual-upload-status">解析中...</span>
+                            <span id="manual-upload-percent">0%</span>
+                        </div>
+                        <div class="w-full h-1.5 rounded-full overflow-hidden" style="background:rgba(var(--theme-primary-rgb),0.12);">
+                            <div id="manual-upload-bar" class="manual-progress-bar h-full rounded-full" style="width:0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 说明书列表 -->
+            <div class="px-5 mt-5">
+                <div class="flex justify-between items-end mb-3">
+                    <h3 class="text-sm font-medium text-dark-text">已上传牌意</h3>
+                    <span id="manual-count" class="text-xs text-light-text">0 份</span>
+                </div>
+                <div id="manual-list" class="space-y-2 pb-20">
+                    <!-- JS 动态渲染 -->
+                </div>
+                <div id="manual-empty" class="text-center py-10" style="display:none;">
+                    <i class="fa-solid fa-file-lines text-3xl opacity-15" style="color:var(--theme-text-light);"></i>
+                    <p class="text-sm text-light-text mt-2">暂无牌意，点击上方上传</p>
+                </div>
+            </div>
+
+            <!-- 搜索结果区 -->
+            <div id="manual-search-results" class="px-5 mt-3 pb-20" style="display:none;">
+                <div class="flex items-center gap-2 mb-3">
+                    <button onclick="clearManualSearch()" class="w-8 h-8 rounded-full flex items-center justify-center text-light-text hover:bg-white/30 transition-colors">
+                        <i class="fa-solid fa-arrow-left text-sm"></i>
+                    </button>
+                    <h3 class="text-sm font-medium text-dark-text">搜索结果</h3>
+                    <span id="search-result-count" class="text-xs text-light-text"></span>
+                </div>
+                <div id="search-result-list" class="space-y-3"></div>
+            </div>
+        </div>
+
+        <!-- ===== 牌意查看页 ===== -->
+        <div id="page-manual-viewer" class="page bg-bg-main bg-pattern" style="flex-direction:column;height:100vh;">
+            <!-- 头部 -->
+            <div class="manual-viewer-header">
+                <button class="manual-viewer-back" onclick="closeManualPage()" title="返回">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="manual-viewer-title">
+                    <h2 id="mv-title">牌意详情</h2>
+                    <p id="mv-meta"></p>
+                </div>
+                <div class="manual-viewer-actions">
+                    <button onclick="deleteManualFromViewer()" title="删除">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- 文档内搜索 -->
+            <div class="manual-viewer-search">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="mv-search-input" placeholder="在本文档内搜索..." onkeydown="if(event.key==='Enter')searchWithinManualPage()">
+                <button class="search-clear" id="mv-search-clear" onclick="clearManualPageSearch()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <!-- 内容区 -->
+            <div id="mv-content" class="manual-viewer-content">
+                <!-- 动态渲染 -->
+            </div>
+        </div>
+<!-- ===== 设置页 ===== -->
+        <div id="page-settings" class="page bg-bg-main bg-pattern" style="padding-bottom: 100px;">
+            <div class="px-5 pt-8 pb-2">
+                <h2 class="text-xl font-medium text-dark-text">设置</h2>
+            </div>
+            <div class="px-5 mt-2 space-y-4">
+                <div class="glass-section rounded-xl overflow-hidden">
+                    <div class="p-4 border-b border-gray-50">
+                        <h3 class="text-sm font-medium text-dark-text">全局外观</h3>
+                    </div>
+                    <div class="px-4 py-3">
+                        <span class="text-sm text-dark-text block mb-3">主题颜色</span>
+                        <div class="flex gap-3" id="theme-options">
+                            <button class="theme-btn active" data-theme="default" style="background: linear-gradient(135deg, #7EC8E3, #C8B8E0);" title="浅蓝色"><span class="theme-btn-inner"></span></button>
+                            <button class="theme-btn" data-theme="blue-pink" style="background: linear-gradient(135deg, #F0A0B8, #F8D0E0);" title="浅粉色"><span class="theme-btn-inner"></span></button>
+                            <button class="theme-btn" data-theme="blue-purple" style="background: linear-gradient(135deg, #B8A0E8, #D0C0F8);" title="浅紫色"><span class="theme-btn-inner"></span></button>
+                            <button class="theme-btn" data-theme="red-orange" style="background: linear-gradient(135deg, #F5A0A0, #F5C89A);" title="浅红橙色"><span class="theme-btn-inner"></span></button>
+                            <button class="theme-btn" data-theme="orange-yellow" style="background: linear-gradient(135deg, #F5C89A, #F5E89A);" title="浅橙黄色"><span class="theme-btn-inner"></span></button>
+                            <button class="theme-btn" data-theme="blue-green" style="background: linear-gradient(135deg, #78C8A0, #A0E0C8);" title="浅绿色"><span class="theme-btn-inner"></span></button>
+                            <button class="theme-btn" data-theme="global-white" style="background: linear-gradient(135deg, #fafafa, #eaeaea);" title="全局白色"><span class="theme-btn-inner"></span></button>
+                            <button class="theme-btn" data-theme="global-black" style="background: linear-gradient(135deg, #3a3a3e, #0f0f0f);" title="全局黑色"><span class="theme-btn-inner"></span></button>
+                        </div>
+                    </div>
+                    <!-- 界面大小 -->
+                    <div class="px-4 py-3 border-t border-white/30">
+                        <span class="text-sm text-dark-text block mb-3">界面大小</span>
+                        <div class="flex items-center gap-3">
+                            <span class="text-dark-text/60 text-sm w-6 text-center cursor-pointer select-none" id="ui-scale-minus" role="button" title="缩小">−</span>
+                            <input type="range" id="ui-scale-slider" min="70" max="130" step="10" value="100" class="flex-1 ui-scale-slider">
+                            <span class="text-dark-text/60 text-sm w-6 text-center cursor-pointer select-none" id="ui-scale-plus" role="button" title="放大">＋</span>
+                            <span id="ui-scale-current" class="text-sm font-medium text-dark-text w-12 text-right">100%</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-[10px] text-light-text">按数值等比缩放整个界面</span>
+                            <button type="button" id="ui-scale-reset" class="text-[10px] border border-primary/40 text-primary px-2.5 py-0.5 rounded-full hover:bg-primary/10 transition-colors cursor-pointer">恢复默认</button>
+                        </div>
+                    </div>
+
+                </div>
+                <style>
+                    #theme-options { flex-wrap: wrap; gap: 8px; }
+                    .theme-btn { width: 36px; height: 36px; border-radius: 50%; border: 2px solid transparent; box-sizing: border-box; cursor: pointer; transition: all 0.25s; position: relative; outline: none; box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-shrink: 0; }
+                    .theme-btn:hover { transform: scale(1.12); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+                    .theme-btn.active { border-color: var(--theme-primary, #7EC8E3); box-shadow: inset 0 0 0 2px rgba(255,255,255,0.9), 0 4px 16px rgba(0,0,0,0.15); }
+                    .theme-btn .theme-btn-inner { position: absolute; inset: 0; border-radius: 50%; display: none; }
+                    .theme-btn.active .theme-btn-inner { display: flex; align-items: center; justify-content: center; font-size: 12px; color: transparent; }
+                    .theme-btn.active .theme-btn-inner::after { content: ''; }
+                    .toggle-switch { width: 44px; height: 24px; border-radius: 12px; border: none; background: var(--theme-glass-input-border, #cbd5e1); cursor: pointer; position: relative; transition: background 0.3s; padding: 0; outline: none; }
+                    .toggle-switch.active { background: var(--theme-primary, #7EC8E3); }
+                    .toggle-knob { width: 20px; height: 20px; background: #fff; border-radius: 50%; position: absolute; top: 50%; left: 0; transform: translateY(-50%); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
+                    .toggle-switch.active .toggle-knob { transform: translateX(24px) translateY(-50%); }
+                    #qs-reversal-toggle::after { display: none; }
+                    .ui-scale-slider { -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; background: rgba(var(--theme-primary-rgb, 126,200,227), 0.25); outline: none; }
+                    .ui-scale-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 2px solid var(--theme-primary, #7EC8E3); box-shadow: 0 1px 4px rgba(0,0,0,0.12); cursor: pointer; }
+                    .ui-scale-slider::-moz-range-thumb { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 2px solid var(--theme-primary, #7EC8E3); box-shadow: 0 1px 4px rgba(0,0,0,0.12); cursor: pointer; }
+                </style>
+                <div class="glass-section rounded-xl overflow-hidden">
+                    <div class="p-4 border-b border-gray-50"><h3 class="text-sm font-medium text-dark-text">占卜设置</h3></div>
+                    <div class="px-4 py-3 flex justify-between items-center cursor-pointer hover:bg-gray-50/50 transition-colors" onclick="openQuickDeckPicker()">
+                        <div>
+                            <p class="text-sm text-dark-text">快捷牌组</p>
+                            <p class="text-[10px] text-light-text mt-0.5">首页随机占卜使用的牌组</p>
+                        </div>
+                        <div class="flex items-center gap-2 text-light-text text-xs">
+                            <span id="qs-deck-label" class="bg-primary-light text-primary px-2 py-0.5 rounded-full text-[10px]">加载中...</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 flex justify-between items-center border-t border-white/30 cursor-pointer hover:bg-gray-50/50 transition-colors" onclick="openQuickSpreadPicker()">
+                        <div>
+                            <p class="text-sm text-dark-text">快捷牌阵</p>
+                            <p class="text-[10px] text-light-text mt-0.5">首页随机占卜使用的牌阵</p>
+                        </div>
+                        <div class="flex items-center gap-2 text-light-text text-xs">
+                            <span id="qs-spread-label" class="text-light-text text-xs">加载中...</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 flex justify-between items-center border-t border-white/30">
+                        <div>
+                            <p class="text-sm text-dark-text">显示正逆位</p>
+                            <p class="text-[10px] text-light-text mt-0.5">关闭后所有牌结果均显示为正位</p>
+                        </div>
+                        <div class="toggle-switch active" id="qs-reversal-toggle" onclick="toggleQuickReversal()">
+                            <div class="toggle-knob"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-section rounded-xl overflow-hidden">
+                    <div class="p-4 border-b border-gray-50"><h3 class="text-sm font-medium text-dark-text">数据管理</h3></div>
+                    <!-- 存储空间 -->
+                    <div class="px-4 py-3 border-b border-gray-50">
+                        <div class="flex justify-between items-center mb-1"><span class="text-sm text-dark-text">存储空间</span><span id="storage-usage-text" class="text-[10px] text-light-text">计算中...</span></div>
+                        <div class="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden"><div id="storage-usage-bar" class="h-full w-0 bg-primary rounded-full transition-all duration-500"></div></div>
+                    </div>
+                    <!-- 导出备份 -->
+                    <div class="px-4 py-3 flex justify-between items-center border-b border-gray-50">
+                        <div><p class="text-sm text-dark-text">导出备份</p><p class="text-[10px] text-light-text">将自定义牌组、占卜记录、牌意文件导出为 JSON</p></div>
+                        <button onclick="window.exportMirrorData()" class="px-4 py-1.5 border border-primary text-primary text-xs rounded-full bg-white hover:bg-primary/5 transition-colors cursor-pointer">导出</button>
+                    </div>
+                    <!-- 导入恢复 -->
+                    <div class="px-4 py-3 flex justify-between items-center">
+                        <div><p class="text-sm text-dark-text">导入恢复</p><p class="text-[10px] text-light-text">从 JSON 备份恢复数据，不会覆盖现有数据</p></div>
+                        <input type="file" id="import-file-input" accept=".json" class="sr-file-input" onchange="window.importMirrorData(event)">
+                        <button onclick="document.getElementById('import-file-input').click()" class="px-4 py-1.5 border border-primary text-primary text-xs rounded-full bg-white hover:bg-primary/5 transition-colors cursor-pointer">导入</button>
+                    </div>
+                </div>
+                <!-- 关于入口 -->
+                <div class="glass-section rounded-xl overflow-hidden">
+                    <div class="px-4 py-3 flex justify-between items-center cursor-pointer hover:bg-gray-50/50 transition-colors" onclick="window.openAboutModal()">
+                        <div>
+                            <p class="text-sm text-dark-text">关于</p>
+                            <p class="text-[10px] text-light-text mt-0.5">软件原创者及联系方式</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] text-light-text"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 关于弹窗 -->
+        <div id="about-overlay" class="divine-config-overlay" style="display:none;" onclick="if(event.target===this)window.closeAboutModal()">
+            <div class="divine-config-panel" style="text-align:center;">
+                <div class="config-group" style="margin-bottom:20px;">
+                    <p class="text-sm font-semibold text-dark-text mb-2">软件原创者：以猫</p>
+                    <p class="text-sm text-dark-text mb-1">小红书 @月落滕气竺/6342530264</p>
+                    <p class="text-sm text-dark-text mb-3">抖音 @月落滕气竺/CJLSHXQE</p>
+                    <p class="text-xs text-light-text mt-4">二传二改请尊重原创作者 感谢使用</p>
+                </div>
+                <button onclick="window.closeAboutModal()" class="px-6 py-2 border border-primary text-primary text-xs rounded-full bg-white hover:bg-primary/5 transition-colors cursor-pointer">关闭</button>
+            </div>
+        </div>
+
+<!-- ===== 新增：我的牌阵页 ===== -->
+        <div id="page-spreads" class="page bg-bg-main bg-pattern">
+            <div class="px-5 pt-8 pb-2 flex items-center sticky top-0 z-10 page-header-solid">
+                <button onclick="switchPage('page-home')" class="w-8 h-8 flex items-center justify-center text-dark-text/70 hover:bg-white/50 rounded-full">
+                    <i class="fa-solid fa-arrow-left text-lg"></i>
+                </button>
+                <div class="ml-2">
+                    <h2 class="text-xl font-medium text-dark-text">我的牌阵</h2>
+                    <p class="text-light-text text-xs">点击牌阵查看详解</p>
+                </div>
+                <div class="ml-auto">
+                    <button onclick="switchPage('page-create-spread')" class="flex items-center gap-1.5 bg-primary/20 text-primary px-3 py-1.5 rounded-full text-xs font-medium hover:bg-primary/30 transition-colors">
+                        <i class="fa-solid fa-plus text-[10px]"></i> 创建
+                    </button>
+                </div>
+            </div>
+            <div class="px-5 mt-3 flex items-center justify-between">
+                <div class="flex gap-1.5 flex-wrap">
+                    <button class="sort-btn active-sort" data-sort="default" onclick="sortSpreads('default')">默认</button>
+                    <button class="sort-btn" data-sort="name-asc" onclick="sortSpreads('name-asc')">名称 A→Z</button>
+                    <button class="sort-btn" data-sort="name-desc" onclick="sortSpreads('name-desc')">名称 Z→A</button>
+                    <button class="sort-btn" data-sort="count" onclick="sortSpreads('count')">牌数</button>
+                </div>
+                <span id="spread-count-label" class="text-[10px] text-light-text/60">3 个牌阵</span>
+            </div>
+            <div id="spread-list" class="px-5 mt-3 space-y-3 pb-6"></div>
+        </div>
+
+        <!-- ===== 新增：牌阵详情页 ===== -->
+        <div id="page-spread-detail" class="page bg-bg-main bg-pattern">
+            <div class="deck-detail-header flex items-center">
+                <button onclick="switchPage('page-spreads')" class="w-8 h-8 flex items-center justify-center text-dark-text/70 hover:bg-white/50 rounded-full flex-shrink-0">
+                    <i class="fa-solid fa-arrow-left text-lg"></i>
+                </button>
+                <div class="ml-2 flex-1 min-w-0">
+                    <h2 id="spread-detail-title" class="text-lg font-medium text-dark-text truncate">牌阵名称</h2>
+                    <p id="spread-detail-sub" class="text-light-text text-xs truncate">牌阵详解与使用指南</p>
+                </div>
+                <div class="text-light-text/40 text-xs px-2">
+                    <span id="spread-detail-count">0</span>张
+                </div>
+            </div>
+            <div id="spread-detail-content" class="px-4 py-4 pb-24">
+                <!-- 由 JS 动态渲染 -->
+            </div>
+            <div id="back-to-top-spread" class="back-to-top" onclick="document.getElementById('page-spread-detail').scrollTo({top:0,behavior:'smooth'})">
+                <i class="fa-solid fa-arrow-up text-sm"></i>
+            </div>
+        </div>
+
+        <!-- ===== 新增：创建牌阵页 ===== -->
+        <div id="page-create-spread" class="page bg-bg-main bg-pattern">
+            <div class="px-5 pt-8 pb-2 flex items-center sticky top-0 z-10 page-header-solid">
+                <button onclick="switchPage('page-home')" class="w-8 h-8 flex items-center justify-center text-dark-text/70 hover:bg-white/50 rounded-full">
+                    <i class="fa-solid fa-arrow-left text-lg"></i>
+                </button>
+                <h2 class="ml-4 text-xl font-medium text-dark-text">创建牌阵</h2>
+            </div>
+            <div class="px-5 mt-2 pb-20">
+                <!-- 牌阵名称 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">牌阵名称 <span class="text-red-400">*</span></label>
+                    <input id="spread-name-input" type="text" placeholder="例如：爱情十字、事业金字塔..." class="w-full mt-1 px-3 py-2.5 glass-input rounded-lg text-sm focus:outline-none transition-colors">
+                </div>
+                <!-- 牌阵英文名 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">英文名称（选填）</label>
+                    <input id="spread-name-en-input" type="text" placeholder="例如：Love Cross, Career Pyramid..." class="w-full mt-1 px-3 py-2.5 glass-input rounded-lg text-sm focus:outline-none transition-colors">
+                </div>
+                <!-- 牌阵描述 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">牌阵描述</label>
+                    <textarea id="spread-desc-input" rows="2" placeholder="简要说明这个牌阵的用途和特点..." class="w-full mt-1 px-3 py-2.5 glass-input rounded-lg text-sm focus:outline-none transition-colors resize-none"></textarea>
+                </div>
+                <!-- 牌阵详解 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">牌阵详解</label>
+                    <textarea id="spread-detail-input" rows="3" placeholder="详细描述这个牌阵的适用场景、解读思路、历史背景等..." class="w-full mt-1 px-3 py-2.5 glass-input rounded-lg text-sm focus:outline-none transition-colors resize-none"></textarea>
+                </div>
+                <!-- 牌位数量 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">牌位数量</label>
+                    <div class="flex items-center gap-3 mt-1">
+                        <input id="spread-count-input" type="number" min="1" max="12" value="3" class="w-20 px-3 py-2 glass-input rounded-lg text-sm focus:outline-none transition-colors">
+                        <span class="text-xs text-light-text">（1~12 张）</span>
+                        <button onclick="updatePositionFields()" class="px-3 py-1.5 bg-primary/20 text-primary text-xs rounded-full hover:bg-primary/30 transition-colors">更新牌位</button>
+                    </div>
+                </div>
+                <!-- 牌位列表 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">牌位名称与含义</label>
+                    <div id="position-fields" class="mt-1 p-3" style="background: var(--theme-glass-bg); border-radius: 16px; border: 1px solid var(--theme-glass-border);">
+                        <!-- 由 JS 动态生成 -->
+                    </div>
+                </div>
+                <!-- 标签 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">标签（用逗号分隔）</label>
+                    <input id="spread-tags-input" type="text" placeholder="例如：感情, 事业, 深度, 快速..." class="w-full mt-1 px-3 py-2.5 glass-input rounded-lg text-sm focus:outline-none transition-colors">
+                </div>
+                <!-- 适用场景 -->
+                <div class="mb-4">
+                    <label class="text-sm font-medium text-dark-text">适用场景</label>
+                    <input id="spread-scene-input" type="text" placeholder="例如：日常决策、深度探索、感情分析..." class="w-full mt-1 px-3 py-2.5 glass-input rounded-lg text-sm focus:outline-none transition-colors">
+                </div>
+            </div>
+            <div class="fixed bottom-20 max-w-md w-full px-5 left-1/2 -translate-x-1/2 safe-bottom z-20 pointer-events-none">
+                <button onclick="confirmCreateSpread()" class="w-full py-3.5 rounded-full transition-all text-base font-medium pointer-events-auto hover:shadow-lg active:scale-95" style="background: var(--theme-btn-gradient); color: #fff; box-shadow: 0 4px 16px rgba(var(--theme-primary-rgb), 0.3); border: none;">确认创建</button>
+            </div>
+        </div>
+
+        <!-- ================= 底部导航栏（全新圆形图标风格） ================= -->
+        <div class="fixed bottom-0 left-0 w-full max-w-md mx-auto right-0 nav-bottom safe-bottom z-50 flex justify-around items-center py-2 px-2">
+            <div onclick="switchPage('page-home')" class="nav-item-new active-nav" data-target="page-home">
+                <div class="nav-icon-circle">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <span class="nav-label">首页</span>
+            </div>
+            <div onclick="switchPage('page-divine')" class="nav-item-new" data-target="page-divine">
+                <div class="nav-icon-circle">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <span class="nav-label">占卜</span>
+            </div>
+            <div onclick="switchPage('page-tutorial')" class="nav-item-new" data-target="page-tutorial">
+                <div class="nav-icon-circle">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+                <span class="nav-label">牌意</span>
+            </div>
+            <div onclick="switchPage('page-settings')" class="nav-item-new" data-target="page-settings">
+                <div class="nav-icon-circle">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <span class="nav-label">设置</span>
+            </div>
+        </div>
+        <!-- ================= 底部导航栏结束 ================= -->
+
+    </div>
+
+    <!-- ================= 交互脚本 ================= -->
+
+    <!-- ═══ Modular JS ═══ -->
+    <script src="js/data.js?v=20260914"></script>
+    <script src="js/core.js?v=20260914"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/decks.js?v=20260914"></script>
+    <script src="js/spreads.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/divination.js?v=20260914"></script>
+    <script src="js/theme.js?v=20260913"></script>
+    <script src="js/app.js?v=20260914"></script>
+    <script src="js/jingjie-embed.js?v=20260911wx"></script>
+
+    <!-- 周易牌面缓存：随机占卜从此 clone 牌面 DOM -->
+    <div id="iching-card-cache" style="display:none;"></div>
+</body>
+</html>
