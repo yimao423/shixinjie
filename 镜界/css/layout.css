@@ -1,0 +1,90 @@
+
+        /* ===== 创建页顶栏（与页面背景同源的【不透明渐变实底】，对齐底栏 .nav-bottom 方案 =====
+           背景同源 --theme-bg-body + background-attachment:fixed，与 body 渐变相对视口像素级重合，
+           滚动时颜色无缝不产生分带；实底不透明 + 无 backdrop-filter / 无半透明，无描边无阴影，
+           滚动内容不会透出与顶栏融合，边界清晰、沉浸且有独立渐变带。
+           纯色主题（如纯白 --theme-bg-body:#ffffff）时 background-image 不生效，
+           由 background-color 承接同源实底，保证沉浸不透明。 */
+        .page-header-solid {
+            background-color: var(--theme-bg-body, var(--theme-bg-splash));
+            background-image: var(--theme-bg-body, var(--theme-bg-splash));
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+
+        /* ===== 新底部导航 (圆形图标风格) ===== */
+        /* ===================================================== */
+        /* 底栏：与页面背景同源的【不透明渐变实底】，对齐拾心界 .bottom-nav。
+           通过 background-attachment:fixed 让底栏渐变与 body 背景相对视口像素级重合，
+           滚动时颜色无缝不产生分带；实底不透明 + 无 backdrop-filter / 无半透明，
+           滚动内容不会透出与底栏融合，边界清晰、沉浸且有独立渐变带。 */
+        .nav-bottom {
+            background-color: var(--theme-bg-body, var(--theme-bg-splash));
+            background-image: var(--theme-bg-body, var(--theme-bg-splash));
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+
+            border-top: 1px solid var(--theme-glass-border);
+            box-shadow: 0 -4px 24px rgba(var(--theme-shadow-rgb), 0.1);
+        }
+        .nav-item-new {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            transition: transform 0.15s;
+            width: 20%;
+            padding: 6px 0;
+        }
+        .nav-item-new:active {
+            transform: scale(0.92);
+        }
+        .nav-item-new .nav-icon-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: var(--theme-nav-icon);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            border: 1px solid var(--theme-glass-border);
+            box-shadow: 0 2px 10px rgba(var(--theme-shadow-rgb), 0.1);
+        }
+        .nav-item-new.active-nav .nav-icon-circle {
+            background: var(--theme-nav-active-bg);
+            color: white;
+            transform: scale(1.08);
+            border-color: rgba(var(--theme-primary-rgb), 0.6);
+            box-shadow: 
+                0 4px 16px rgba(var(--theme-shadow-rgb), 0.25),
+                0 0 0 4px rgba(var(--theme-primary-rgb), 0.12);
+        }
+        .nav-item-new .nav-label {
+            font-size: 10px;
+            color: var(--theme-nav-label);
+            font-weight: 400;
+            transition: color 0.3s, font-weight 0.3s;
+            letter-spacing: 0.02em;
+            margin-top: 1px;
+        }
+        .nav-item-new.active-nav .nav-label {
+            color: var(--theme-nav-label-active);
+            font-weight: 600;
+        }
+        .nav-item-new.active-nav .nav-icon-circle::after {
+            display: none;
+        }
+

@@ -1,0 +1,311 @@
+        /* ===== 我的牌阵 - 专属样式 ===== */
+        /* 牌阵卡片半透明化：模板原用 bg-white 纯白不透明，与页面其它磨砂玻璃卡（glass-card）
+           不一致。参照 upload-area 的降级思路改为显式半透明白实底渐变，不依赖大半径
+           backdrop-filter（移动端 GPU 开销大易发热），深色主题反转深底保证对比。 */
+        .spread-item {
+            background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0.5) 100%);
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+            transition: all 0.2s ease;
+        }
+        [data-theme="global-black"] .spread-item {
+            background: linear-gradient(180deg, rgba(48,52,60,0.68) 0%, rgba(30,32,38,0.55) 100%);
+        }
+        .spread-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 8px 28px rgba(var(--theme-shadow-rgb), 0.18),
+                0 2px 8px rgba(var(--theme-shadow-rgb), 0.08);
+        }
+
+        .spread-position-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            background: rgba(var(--theme-primary-rgb), 0.15);
+            color: var(--theme-primary);
+            margin: 1px 2px;
+        }
+
+        /* ===== 创建牌阵 - 动态表单 ===== */
+        .position-input-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(var(--theme-primary-rgb), 0.1);
+        }
+        .position-input-group:last-child {
+            border-bottom: none;
+        }
+        .position-input-group input {
+            flex: 1;
+            padding: 8px 10px;
+            border: 1px solid var(--theme-glass-input-border);
+            border-radius: 16px;
+            font-size: 13px;
+            background: var(--theme-glass-input-bg);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .position-input-group input:focus {
+            border-color: var(--theme-primary);
+            box-shadow: 0 0 0 3px rgba(var(--theme-primary-rgb), 0.12);
+        }
+        .position-input-group .pos-num {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--theme-pos-badge);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* ===== 牌阵详情页 ===== */
+        .spread-detail-section {
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+
+            border-radius: 20px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border: 1px solid var(--theme-glass-border);
+            box-shadow: 
+                0 4px 20px rgba(var(--theme-shadow-rgb), 0.08);
+        }
+        .spread-detail-section h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1E293B;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .spread-detail-section p,
+        .spread-detail-section li {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.6;
+        }
+        .spread-detail-section ul {
+            padding-left: 18px;
+            list-style-type: disc;
+        }
+        .spread-detail-section .pos-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(var(--theme-accent-rgb), 0.1);
+        }
+        .spread-detail-section .pos-item:last-child {
+            border-bottom: none;
+        }
+        .spread-detail-section .pos-item .pos-badge {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--theme-pos-badge);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .spread-detail-section .pos-item .pos-desc {
+            font-size: 13px;
+            color: #475569;
+            line-height: 1.5;
+        }
+        .spread-detail-section .pos-item .pos-label {
+            font-weight: 500;
+            color: #1E293B;
+        }
+
+        /* ===== 创建牌组 - 牌背和牌面上传样式 ===== */
+        .upload-area {
+            border: 2px dashed rgba(var(--theme-primary-rgb), 0.35);
+            border-radius: 16px;
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--theme-text-light);
+            font-size: 12px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 120px;
+            overflow: hidden;
+            height: auto;
+            min-height: 120px;
+        }
+        .upload-area:hover {
+            background: rgba(255,255,255,0.6);
+            border-color: rgba(var(--theme-primary-rgb), 0.55);
+            box-shadow: 0 2px 12px rgba(var(--theme-shadow-rgb), 0.1);
+        }
+        .upload-area img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .back-preview-container {
+            border-radius: 16px;
+            background: var(--theme-glass-input-bg);
+            overflow: hidden;
+            width: 100%;
+            max-width: 120px;
+            display: none;
+            border: 1px solid rgba(var(--theme-accent-rgb), 0.3);
+            height: auto;
+        }
+        .back-preview-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* ===== 上传牌面列表 (自适应尺寸) ===== */
+        .card-upload-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            margin-top: 6px;
+        }
+        .card-upload-item {
+            background: rgba(255,255,255,0.45);
+            border-radius: 16px;
+            border: 1px solid rgba(var(--theme-accent-rgb), 0.3);
+            overflow: hidden;
+            padding: 4px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: grab;
+        }
+        .card-upload-item:active {
+            cursor: grabbing;
+        }
+        .card-upload-item .thumb {
+            width: 100%;
+            height: auto;
+            background: #e2e8f0;
+            border-radius: 12px;
+            object-fit: contain;
+            display: block;
+            pointer-events: none;
+        }
+        .card-upload-item .card-info {
+            padding: 4px 0;
+            text-align: center;
+            width: 100%;
+        }
+        .card-upload-item .card-info input {
+            width: 100%;
+            border: none;
+            font-size: 11px;
+            text-align: center;
+            background: transparent;
+            outline: none;
+            padding: 2px 0;
+        }
+        .card-upload-item .card-info input:focus {
+            border-bottom: 1px solid var(--theme-primary);
+        }
+        .card-upload-item .remove-btn {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            font-size: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-upload-item .remove-btn:hover {
+        }
+
+        /* ===== 牌面拖拽排序 ===== */
+        .card-upload-item.dragging {
+            opacity: 0.4;
+            transform: scale(0.95);
+            box-shadow: none;
+        }
+        .card-upload-item.drag-over {
+            border-color: var(--theme-primary);
+            box-shadow: 0 0 0 3px rgba(var(--theme-primary-rgb), 0.25);
+            transform: scale(1.03);
+            background: rgba(var(--theme-primary-rgb), 0.08);
+        }
+
+        /* ===== 创建牌组/创建牌阵「确认创建」按钮贴底 =====
+           页面 HTML 用了 fixed bottom-20 / px-5 / pb-20 等工具类，但项目未引入 Tailwind、
+           这些类无定义，导致按钮 bottom 失效、浮在表单末尾、内容区也无留白。
+           此处为创建页显式定义：按钮紧贴底部导航/屏幕底（含安全区），内容区补足下边距防遮挡。 */
+        #page-create > .fixed.bottom-20,
+        #page-create-spread > .fixed.bottom-20 {
+            bottom: calc(3rem + env(safe-area-inset-bottom));
+        }
+        #page-create > .px-5.mt-2.pb-20,
+        #page-create-spread > .px-5.mt-2.pb-20 {
+            padding-left: 1.25rem;
+            padding-right: 1.25rem;
+            padding-bottom: 8rem;
+        }
+
+        /* ===== 创建页上传类按钮：显式稳定背景色（移动端透明修复） =====
+           原 .upload-area / .glass-btn 依赖 var(--theme-glass-bg) + backdrop-filter 毛玻璃：
+           移动端 backdrop-filter 降级 / 玻璃变量被置透明时按钮背景丢失变成纯透明。 改为显式
+           半透明白实底渐变（不依赖玻璃变量），深色主题反转深底，保证浅色/深色/纯白主题下
+           图标与文字对比清晰可见。 */
+        .upload-area {
+            background: linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.64) 100%);
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+        [data-theme="global-black"] .upload-area {
+            background: linear-gradient(180deg, rgba(45,48,54,0.92) 0%, rgba(27,29,34,0.84) 100%);
+            color: #d8d8d8;
+        }
+        [data-theme="global-black"] .upload-area:hover {
+            background: linear-gradient(180deg, rgba(52,56,64,0.95) 0%, rgba(30,32,38,0.88) 100%);
+            border-color: rgba(var(--theme-primary-rgb), 0.55);
+        }
+        #page-create .glass-btn {
+            background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 100%);
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+        [data-theme="global-black"] #page-create .glass-btn {
+            background: linear-gradient(180deg, rgba(48,52,60,0.94) 0%, rgba(30,32,38,0.88) 100%);
+            color: #d8d8d8;
+        }
+

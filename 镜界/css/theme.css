@@ -1,0 +1,755 @@
+        :root {
+            --theme-bg-body: linear-gradient(135deg, #D6EEF5 0%, #DCE8F8 30%, #DCF0F5 60%, #CCE8F3 100%);
+            --theme-bg-splash: linear-gradient(180deg, #D5E9F4 0%, #CBE1F0 25%, #D8EDF6 50%, #CDE3F2 75%, #D2E8F4 100%);
+            --theme-card-back: linear-gradient(135deg, #CBE8F4 0%, #B3D9EC 30%, #C5E4F2 60%, #B8DEEE 100%);
+            --theme-card-back-2: linear-gradient(135deg, #D5EEF7 0%, #BCE0F0 30%, #CCE8F4 60%, #C0E2F0 100%);
+            --theme-card-back-3: linear-gradient(135deg, #C2E4F2 0%, #AAD4E8 30%, #BDE0F0 60%, #B0D8EC 100%);
+            --theme-card-back-4: linear-gradient(135deg, #D0EAF5 0%, #B8DEEE 30%, #C8E6F2 60%, #BCE0F0 100%);
+            --theme-card-back-5: linear-gradient(135deg, #CCE6F3 0%, #B0D6EA 30%, #C4E2F0 60%, #B6DCEE 100%);
+            --theme-primary: #7EC8E3;
+            --theme-primary-rgb: 126,200,227;
+            --theme-primary-dark: #5BA8C9;
+            --theme-primary-light: #E0F2F8;
+            --theme-accent: #C8B8E0;
+            --theme-accent-rgb: 200,184,224;
+            --theme-bg-main: #EAF4F8;
+            --theme-text-dark: #1A3A4A;
+            --theme-text-light: #6B8A9A;
+            --theme-text-muted: #7EA8B8;
+            --theme-shadow-rgb: 112,185,215;
+            --theme-magic-rgb: 110,185,220;
+            --theme-btn-gradient: linear-gradient(135deg, #78C6E1 0%, #8CD2EB 100%);
+            --theme-btn-gradient-hover: linear-gradient(135deg, #6BB5D4 0%, #7EC8E1 100%);
+            --theme-pos-badge: linear-gradient(135deg, #7EC8E3, #C8B8E0);
+            --theme-nav-active-bg: linear-gradient(135deg, rgba(120,198,225,0.65), rgba(var(--theme-primary-rgb), 0.5));
+            --theme-sort-active-bg: linear-gradient(135deg, rgba(var(--theme-primary-rgb), 0.55), rgba(140,210,235,0.4));
+            --theme-glass-bg: rgba(255,255,255,0.45);
+            --theme-glass-border: rgba(255,255,255,0.6);
+            --theme-glass-highlight: rgba(255,255,255,0.7);
+            --theme-glass-input-bg: rgba(255,255,255,0.5);
+            --theme-glass-input-border: rgba(255,255,255,0.55);
+            --theme-bg-pattern-1: rgba(122,195,222,0.18);
+            --theme-bg-pattern-2: rgba(140,200,235,0.15);
+            --theme-bg-pattern-3: rgba(180,215,238,0.1);
+            --theme-bg-pattern-4: rgba(140,210,235,0.12);
+            --theme-bg-pattern-5: rgba(150,210,240,0.14);
+            --theme-magic-ray: rgba(122,195,222,0.6);
+            --theme-magic-dot: rgba(122,195,222,0.55);
+            --theme-magic-dot-glow: rgba(122,195,222,0.12);
+            --theme-magic-aura: rgba(122,195,222,0.1);
+            --theme-magic-orbit: rgba(122,195,222,0.2);
+            --theme-magic-orbit-dash: rgba(122,195,222,0.22);
+            --theme-magic-orbit-solid: rgba(122,195,222,0.3);
+            --theme-nav-icon: #7EC8E3;
+            --theme-nav-label: #6B8A9A;
+            --theme-nav-label-active: #7EC8E3;
+            --theme-deck-header-bg: rgba(235,245,250,0.55);
+        }
+        [data-theme="blue-pink"] {
+            --theme-bg-body: linear-gradient(135deg, #F8E4E8 0%, #F8E6EA 30%, #FAE8EE 60%, #F6E0EA 100%);
+            --theme-bg-splash: linear-gradient(180deg, #F6E2E6 0%, #F2DCE4 25%, #F8E4EC 50%, #F0DAE4 75%, #F4E0E8 100%);
+            --theme-card-back: linear-gradient(135deg, #F4D8E0 0%, #E8C8D4 30%, #EED4DE 60%, #F2D8E4 100%);
+            --theme-card-back-2: linear-gradient(135deg, #F6DEE4 0%, #EACCD6 30%, #F0D8E2 60%, #F4DCE6 100%);
+            --theme-card-back-3: linear-gradient(135deg, #F0D4DC 0%, #E4C4D0 30%, #ECD0DA 60%, #F0D4E0 100%);
+            --theme-card-back-4: linear-gradient(135deg, #F4DAE2 0%, #E8CAD4 30%, #EED6DE 60%, #F2DAE4 100%);
+            --theme-card-back-5: linear-gradient(135deg, #F2D6DE 0%, #E6C6D2 30%, #ECD2DC 60%, #F0D6E2 100%);
+            --theme-primary: #F0A0B8; --theme-primary-rgb: 240,160,184; --theme-primary-dark: #DC8AA2; --theme-primary-light: #FCE8F0;
+            --theme-accent: #F5C0D2; --theme-accent-rgb: 245,192,210; --theme-bg-main: #F6ECEF;
+            --theme-text-dark: #3A2A30; --theme-text-light: #8A7A80; --theme-text-muted: #9A8A90;
+            --theme-shadow-rgb: 240,160,184; --theme-magic-rgb: 240,160,184;
+            --theme-btn-gradient: linear-gradient(135deg, #F0A0B8 0%, #F8D0E0 100%);
+            --theme-btn-gradient-hover: linear-gradient(135deg, #E890A8 0%, #F0C0D4 100%);
+            --theme-pos-badge: linear-gradient(135deg, #F0A0B8, #F5C0D2);
+            --theme-nav-active-bg: linear-gradient(135deg, rgba(240,160,184,0.65), rgba(245,192,210,0.5));
+            --theme-sort-active-bg: linear-gradient(135deg, rgba(240,160,184,0.55), rgba(245,192,210,0.4));
+            --theme-bg-pattern-1: rgba(240,160,184,0.18); --theme-bg-pattern-2: rgba(230,150,180,0.15);
+            --theme-bg-pattern-3: rgba(235,165,190,0.1); --theme-bg-pattern-4: rgba(240,170,195,0.12); --theme-bg-pattern-5: rgba(225,155,185,0.14);
+            --theme-magic-ray: rgba(240,160,184,0.6); --theme-magic-dot: rgba(240,160,184,0.55);
+            --theme-magic-dot-glow: rgba(240,160,184,0.12); --theme-magic-aura: rgba(240,160,184,0.1);
+            --theme-magic-orbit: rgba(240,160,184,0.2); --theme-magic-orbit-dash: rgba(240,160,184,0.22); --theme-magic-orbit-solid: rgba(240,160,184,0.3);
+            --theme-nav-icon: #F0A0B8; --theme-nav-label: #8A7A80; --theme-nav-label-active: #F0A0B8;
+            --theme-deck-header-bg: rgba(248,238,242,0.55);
+        }
+        [data-theme="blue-purple"] {
+            --theme-bg-body: linear-gradient(135deg, #EAE4F6 0%, #ECE6F8 30%, #F0E8FA 60%, #E8E0F4 100%);
+            --theme-bg-splash: linear-gradient(180deg, #E8E2F4 0%, #E4DCF0 25%, #ECE4F6 50%, #E0D8EC 75%, #E6DEF2 100%);
+            --theme-card-back: linear-gradient(135deg, #DCD0EE 0%, #C8B8E0 30%, #D4CCE8 60%, #DED4EC 100%);
+            --theme-card-back-2: linear-gradient(135deg, #E0D6F0 0%, #CCBEE4 30%, #D8D0EA 60%, #E2D8F0 100%);
+            --theme-card-back-3: linear-gradient(135deg, #D8CCEC 0%, #C4B4DC 30%, #D0C8E4 60%, #DAD0E8 100%);
+            --theme-card-back-4: linear-gradient(135deg, #DED4EE 0%, #CABCE2 30%, #D6CEE8 60%, #E0D6EE 100%);
+            --theme-card-back-5: linear-gradient(135deg, #DACEEA 0%, #C6B8DE 30%, #D2CAE6 60%, #DCD2EA 100%);
+            --theme-primary: #B8A0E8; --theme-primary-rgb: 184,160,232; --theme-primary-dark: #A088D4; --theme-primary-light: #F0E8FC;
+            --theme-accent: #C8B8F5; --theme-accent-rgb: 200,184,245; --theme-bg-main: #EEEBF6;
+            --theme-text-dark: #2A253A; --theme-text-light: #7A758A; --theme-text-muted: #8E8A9A;
+            --theme-shadow-rgb: 184,160,232; --theme-magic-rgb: 184,160,232;
+            --theme-btn-gradient: linear-gradient(135deg, #B8A0E8 0%, #D8C8F8 100%);
+            --theme-btn-gradient-hover: linear-gradient(135deg, #A890D8 0%, #C8B8E8 100%);
+            --theme-pos-badge: linear-gradient(135deg, #B8A0E8, #C8B8F5);
+            --theme-nav-active-bg: linear-gradient(135deg, rgba(184,160,232,0.65), rgba(200,184,245,0.5));
+            --theme-sort-active-bg: linear-gradient(135deg, rgba(184,160,232,0.55), rgba(200,184,245,0.4));
+            --theme-bg-pattern-1: rgba(184,160,232,0.18); --theme-bg-pattern-2: rgba(170,150,220,0.15);
+            --theme-bg-pattern-3: rgba(180,165,230,0.1); --theme-bg-pattern-4: rgba(190,170,235,0.12); --theme-bg-pattern-5: rgba(175,155,225,0.14);
+            --theme-magic-ray: rgba(184,160,232,0.6); --theme-magic-dot: rgba(184,160,232,0.55);
+            --theme-magic-dot-glow: rgba(184,160,232,0.12); --theme-magic-aura: rgba(184,160,232,0.1);
+            --theme-magic-orbit: rgba(184,160,232,0.2); --theme-magic-orbit-dash: rgba(184,160,232,0.22); --theme-magic-orbit-solid: rgba(184,160,232,0.3);
+            --theme-nav-icon: #B8A0E8; --theme-nav-label: #7A758A; --theme-nav-label-active: #B8A0E8;
+            --theme-deck-header-bg: rgba(242,238,252,0.55);
+        }
+        [data-theme="red-orange"] {
+            --theme-bg-body: linear-gradient(135deg, #F5E0E0 0%, #F5E2DC 30%, #F5E8DC 60%, #F5DCD4 100%);
+            --theme-bg-splash: linear-gradient(180deg, #F4DDDA 0%, #F0D8D4 25%, #F4E4DC 50%, #F0D8D0 75%, #F4E0D8 100%);
+            --theme-card-back: linear-gradient(135deg, #F4D8D4 0%, #E8C4C0 30%, #F0D4D0 60%, #EED4CE 100%);
+            --theme-card-back-2: linear-gradient(135deg, #F6E0DC 0%, #EACCC8 30%, #F2DCD8 60%, #F0D8D4 100%);
+            --theme-card-back-3: linear-gradient(135deg, #F0D4D0 0%, #E4C0BC 30%, #ECD0CC 60%, #EAD0CC 100%);
+            --theme-card-back-4: linear-gradient(135deg, #F4DCD8 0%, #E8C8C4 30%, #F0D8D4 60%, #F0D4D0 100%);
+            --theme-card-back-5: linear-gradient(135deg, #F2D8D4 0%, #E6C4C0 30%, #EED4D0 60%, #ECD2CE 100%);
+            --theme-primary: #F5A0A0; --theme-primary-rgb: 245,160,160; --theme-primary-dark: #E08888; --theme-primary-light: #FAEAEA;
+            --theme-accent: #F5C89A; --theme-accent-rgb: 245,200,154; --theme-bg-main: #F6ECEC;
+            --theme-text-dark: #4A2A2A; --theme-text-light: #9A7A7A; --theme-text-muted: #A88E8E;
+            --theme-shadow-rgb: 245,160,160; --theme-magic-rgb: 245,160,160;
+            --theme-btn-gradient: linear-gradient(135deg, #F5A0A0 0%, #F5C89A 100%);
+            --theme-btn-gradient-hover: linear-gradient(135deg, #E08888 0%, #E8B888 100%);
+            --theme-pos-badge: linear-gradient(135deg, #F5A0A0, #F5C89A);
+            --theme-nav-active-bg: linear-gradient(135deg, rgba(245,160,160,0.65), rgba(245,200,154,0.5));
+            --theme-sort-active-bg: linear-gradient(135deg, rgba(245,160,160,0.55), rgba(245,200,154,0.4));
+            --theme-bg-pattern-1: rgba(245,160,160,0.18); --theme-bg-pattern-2: rgba(245,180,160,0.15);
+            --theme-bg-pattern-3: rgba(235,190,175,0.1); --theme-bg-pattern-4: rgba(240,185,170,0.12); --theme-bg-pattern-5: rgba(235,175,170,0.14);
+            --theme-magic-ray: rgba(245,160,160,0.6); --theme-magic-dot: rgba(245,160,160,0.55);
+            --theme-magic-dot-glow: rgba(245,160,160,0.12); --theme-magic-aura: rgba(245,160,160,0.1);
+            --theme-magic-orbit: rgba(245,160,160,0.2); --theme-magic-orbit-dash: rgba(245,160,160,0.22); --theme-magic-orbit-solid: rgba(245,160,160,0.3);
+            --theme-nav-icon: #F5A0A0; --theme-nav-label: #9A7A7A; --theme-nav-label-active: #F5A0A0;
+            --theme-deck-header-bg: rgba(250,240,238,0.55);
+        }
+        [data-theme="orange-yellow"] {
+            --theme-bg-body: linear-gradient(135deg, #F5E8D8 0%, #F5EAD4 30%, #F5F0D8 60%, #F5E8CC 100%);
+            --theme-bg-splash: linear-gradient(180deg, #F4E8D5 0%, #F0E2D0 25%, #F4ECD8 50%, #F0E4D0 75%, #F4E8D4 100%);
+            --theme-card-back: linear-gradient(135deg, #F4E0C8 0%, #E8D0B8 30%, #F0DCC4 60%, #EEDCC4 100%);
+            --theme-card-back-2: linear-gradient(135deg, #F6E8D4 0%, #EAD8C0 30%, #F2E4D0 60%, #F0E0CC 100%);
+            --theme-card-back-3: linear-gradient(135deg, #F0DCC4 0%, #E4CCB4 30%, #ECD8C0 60%, #EAD8C0 100%);
+            --theme-card-back-4: linear-gradient(135deg, #F4E4D0 0%, #E8D4BC 30%, #F0E0CC 60%, #F0DCC8 100%);
+            --theme-card-back-5: linear-gradient(135deg, #F2E0CC 0%, #E6D0B8 30%, #EEDCC8 60%, #ECDAC4 100%);
+            --theme-primary: #F5C89A; --theme-primary-rgb: 245,200,154; --theme-primary-dark: #E0B080; --theme-primary-light: #FAF0E0;
+            --theme-accent: #F5E89A; --theme-accent-rgb: 245,232,154; --theme-bg-main: #F6F0E8;
+            --theme-text-dark: #4A3A2A; --theme-text-light: #9A8A6A; --theme-text-muted: #A89A7E;
+            --theme-shadow-rgb: 245,200,154; --theme-magic-rgb: 245,200,154;
+            --theme-btn-gradient: linear-gradient(135deg, #F5C89A 0%, #F5E89A 100%);
+            --theme-btn-gradient-hover: linear-gradient(135deg, #E0B080 0%, #E8D888 100%);
+            --theme-pos-badge: linear-gradient(135deg, #F5C89A, #F5E89A);
+            --theme-nav-active-bg: linear-gradient(135deg, rgba(245,200,154,0.65), rgba(245,232,154,0.5));
+            --theme-sort-active-bg: linear-gradient(135deg, rgba(245,200,154,0.55), rgba(245,232,154,0.4));
+            --theme-bg-pattern-1: rgba(245,200,154,0.18); --theme-bg-pattern-2: rgba(235,210,170,0.15);
+            --theme-bg-pattern-3: rgba(225,210,165,0.1); --theme-bg-pattern-4: rgba(230,210,165,0.12); --theme-bg-pattern-5: rgba(225,195,160,0.14);
+            --theme-magic-ray: rgba(245,200,154,0.6); --theme-magic-dot: rgba(245,200,154,0.55);
+            --theme-magic-dot-glow: rgba(245,200,154,0.12); --theme-magic-aura: rgba(245,200,154,0.1);
+            --theme-magic-orbit: rgba(245,200,154,0.2); --theme-magic-orbit-dash: rgba(245,200,154,0.22); --theme-magic-orbit-solid: rgba(245,200,154,0.3);
+            --theme-nav-icon: #F5C89A; --theme-nav-label: #9A8A6A; --theme-nav-label-active: #F5C89A;
+            --theme-deck-header-bg: rgba(250,242,235,0.55);
+        }
+        [data-theme="blue-green"] {
+            --theme-bg-body: linear-gradient(135deg, #E0F4E8 0%, #E2F2E8 30%, #E6F6EC 60%, #D8EEE2 100%);
+            --theme-bg-splash: linear-gradient(180deg, #DEF2E6 0%, #D8ECE0 25%, #E4F4EA 50%, #D4EADC 75%, #DAEEE2 100%);
+            --theme-card-back: linear-gradient(135deg, #CCE8D8 0%, #B4D4C4 30%, #C4E0D2 60%, #C0E0D0 100%);
+            --theme-card-back-2: linear-gradient(135deg, #D4EEDE 0%, #BCDEC8 30%, #CCE4D6 60%, #C6E4D4 100%);
+            --theme-card-back-3: linear-gradient(135deg, #C4E4D2 0%, #ACD0C0 30%, #BEDCCE 60%, #BCDCCC 100%);
+            --theme-card-back-4: linear-gradient(135deg, #D0EADA 0%, #B8D8C4 30%, #C8E2D2 60%, #C2E0D0 100%);
+            --theme-card-back-5: linear-gradient(135deg, #CCE6D4 0%, #B0D4C0 30%, #C2DECC 60%, #BEDCCE 100%);
+            --theme-primary: #78C8A0; --theme-primary-rgb: 120,200,160; --theme-primary-dark: #60B088; --theme-primary-light: #E8F8F0;
+            --theme-accent: #A0E0C8; --theme-accent-rgb: 160,224,200; --theme-bg-main: #EEF6F2;
+            --theme-text-dark: #1A3028; --theme-text-light: #688078; --theme-text-muted: #7AAA90;
+            --theme-shadow-rgb: 120,200,160; --theme-magic-rgb: 120,200,160;
+            --theme-btn-gradient: linear-gradient(135deg, #78C8A0 0%, #A0E0C8 100%);
+            --theme-btn-gradient-hover: linear-gradient(135deg, #68B890 0%, #90D0B8 100%);
+            --theme-pos-badge: linear-gradient(135deg, #78C8A0, #A0E0C8);
+            --theme-nav-active-bg: linear-gradient(135deg, rgba(120,200,160,0.65), rgba(160,224,200,0.5));
+            --theme-sort-active-bg: linear-gradient(135deg, rgba(120,200,160,0.55), rgba(160,224,200,0.4));
+            --theme-bg-pattern-1: rgba(120,200,160,0.18); --theme-bg-pattern-2: rgba(140,210,175,0.15);
+            --theme-bg-pattern-3: rgba(150,215,185,0.1); --theme-bg-pattern-4: rgba(155,218,190,0.12); --theme-bg-pattern-5: rgba(135,205,170,0.14);
+            --theme-magic-ray: rgba(120,200,160,0.6); --theme-magic-dot: rgba(120,200,160,0.55);
+            --theme-magic-dot-glow: rgba(120,200,160,0.12); --theme-magic-aura: rgba(120,200,160,0.1);
+            --theme-magic-orbit: rgba(120,200,160,0.2); --theme-magic-orbit-dash: rgba(120,200,160,0.22); --theme-magic-orbit-solid: rgba(120,200,160,0.3);
+            --theme-nav-icon: #78C8A0; --theme-nav-label: #688078; --theme-nav-label-active: #78C8A0;
+            --theme-deck-header-bg: rgba(238,248,243,0.55);
+        }
+        [data-theme="global-black"] {
+            --theme-bg-body: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 30%, #111111 60%, #0a0a0a 100%);
+            --theme-bg-splash: linear-gradient(180deg, #0d0d0d 0%, #141414 25%, #0d0d0d 50%, #1a1a1a 75%, #111111 100%);
+            --theme-card-back: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 30%, #151515 60%, #0f0f0f 100%);
+            --theme-card-back-2: linear-gradient(135deg, #1e1e1e 0%, #111111 30%, #191919 60%, #131313 100%);
+            --theme-card-back-3: linear-gradient(135deg, #171717 0%, #0a0a0a 30%, #131313 60%, #0c0c0c 100%);
+            --theme-card-back-4: linear-gradient(135deg, #1c1c1c 0%, #0f0f0f 30%, #161616 60%, #101010 100%);
+            --theme-card-back-5: linear-gradient(135deg, #191919 0%, #0c0c0c 30%, #141414 60%, #0e0e0e 100%);
+            --theme-primary: #b0b0b8; --theme-primary-rgb: 176,176,184; --theme-primary-dark: #8a8a92; --theme-primary-light: #2a2a2e;
+            --theme-accent: #6a6a72; --theme-accent-rgb: 106,106,114; --theme-bg-main: #111111;
+            --theme-text-dark: #e0e0e0; --theme-text-light: #999999; --theme-text-muted: #777777;
+            --theme-shadow-rgb: 0,0,0; --theme-magic-rgb: 160,160,170;
+            --theme-btn-gradient: linear-gradient(135deg, #4a4a52 0%, #6a6a72 100%);
+            --theme-btn-gradient-hover: linear-gradient(135deg, #5a5a64 0%, #7a7a84 100%);
+            --theme-pos-badge: linear-gradient(135deg, #4a4a52, #6a6a72);
+            --theme-nav-active-bg: linear-gradient(135deg, rgba(90,90,100,0.7), rgba(120,120,130,0.6));
+            --theme-sort-active-bg: linear-gradient(135deg, rgba(80,80,90,0.65), rgba(110,110,120,0.55));
+            --theme-glass-bg: rgba(28,28,28,0.75);
+            --theme-glass-border: rgba(255,255,255,0.05);
+            --theme-glass-highlight: rgba(255,255,255,0.02);
+            --theme-glass-input-bg: rgba(35,35,35,0.8);
+            --theme-glass-input-border: rgba(255,255,255,0.08);
+            --theme-bg-pattern-1: rgba(160,160,170,0.04); --theme-bg-pattern-2: rgba(150,150,160,0.03);
+            --theme-bg-pattern-3: rgba(140,140,150,0.02); --theme-bg-pattern-4: rgba(145,145,155,0.03); --theme-bg-pattern-5: rgba(155,155,165,0.04);
+            --theme-magic-ray: rgba(160,160,170,0.15); --theme-magic-dot: rgba(160,160,170,0.1);
+            --theme-magic-dot-glow: rgba(160,160,170,0.03); --theme-magic-aura: rgba(160,160,170,0.02);
+            --theme-magic-orbit: rgba(160,160,170,0.05); --theme-magic-orbit-dash: rgba(160,160,170,0.06); --theme-magic-orbit-solid: rgba(160,160,170,0.07);
+            --theme-nav-icon: #b0b0b8; --theme-nav-label: #888888; --theme-nav-label-active: #b0b0b8;
+            --theme-deck-header-bg: rgba(15,15,15,0.6);
+            /* Black-theme specific overrides */
+            --theme-config-bg: #1e1e24;
+            --theme-config-border: rgba(255,255,255,0.06);
+            --theme-config-text: #d0d0d0;
+            --theme-config-label: #999999;
+            --theme-config-select-bg: #252528;
+            --theme-config-select-border: rgba(255,255,255,0.08);
+            --theme-config-select-text: #d0d0d0;
+            --theme-toggle-inactive-bg: #3a3a40;
+            --theme-btn-secondary-bg: #3a3a40;
+            --theme-btn-secondary-text: #c0c0c8;
+            --theme-back-btn-bg: #222228;
+            --theme-back-btn-border: rgba(255,255,255,0.06);
+            --theme-back-btn-color: #999;
+            --theme-accent-border-alpha: 0.25;
+            --theme-accent-icon-bg-alpha: 0.12;
+        }
+        [data-theme="global-white"] {
+            --theme-bg-body: #ffffff;
+            --theme-bg-splash: #ffffff;
+            --theme-card-back: #ffffff;
+            --theme-card-back-2: #ffffff;
+            --theme-card-back-3: #ffffff;
+            --theme-card-back-4: #ffffff;
+            --theme-card-back-5: #ffffff;
+            --theme-primary: #444444; --theme-primary-rgb: 68,68,68; --theme-primary-dark: #333333; --theme-primary-light: #f0f0f0;
+            --theme-accent: #666666; --theme-accent-rgb: 102,102,102; --theme-bg-main: #ffffff;
+            --theme-text-dark: #111111; --theme-text-light: #333333; --theme-text-muted: #666666;
+            --theme-shadow-rgb: 200,200,200; --theme-magic-rgb: 180,180,180;
+            --theme-btn-gradient: linear-gradient(135deg, #555555 0%, #444444 100%);
+            --theme-btn-gradient-hover: linear-gradient(135deg, #666666 0%, #555555 100%);
+            --theme-pos-badge: linear-gradient(135deg, #555555, #444444);
+            --theme-nav-active-bg: linear-gradient(135deg, rgba(85,85,85,0.65), rgba(68,68,68,0.5));
+            --theme-sort-active-bg: linear-gradient(135deg, rgba(68,68,68,0.55), rgba(85,85,85,0.4));
+            --theme-glass-bg: rgba(255,255,255,0.96);
+            --theme-glass-border: rgba(200,200,200,0.5);
+            --theme-glass-highlight: rgba(255,255,255,0.98);
+            --theme-glass-input-bg: rgba(255,255,255,0.95);
+            --theme-glass-input-border: rgba(180,180,180,0.45);
+            --theme-bg-pattern-1: rgba(0,0,0,0.02);
+            --theme-bg-pattern-2: rgba(0,0,0,0.015);
+            --theme-bg-pattern-3: rgba(0,0,0,0.01);
+            --theme-bg-pattern-4: rgba(0,0,0,0.015);
+            --theme-bg-pattern-5: rgba(0,0,0,0.02);
+            --theme-magic-ray: rgba(180,180,180,0.3);
+            --theme-magic-dot: rgba(180,180,180,0.25);
+            --theme-magic-dot-glow: rgba(180,180,180,0.04);
+            --theme-magic-aura: rgba(180,180,180,0.03);
+            --theme-magic-orbit: rgba(180,180,180,0.08);
+            --theme-magic-orbit-dash: rgba(180,180,180,0.09);
+            --theme-magic-orbit-solid: rgba(180,180,180,0.12);
+            --theme-nav-icon: #444444;
+            --theme-nav-label: #555555;
+            --theme-nav-label-active: #444444;
+            --theme-deck-header-bg: rgba(255,255,255,0.9);
+            --theme-config-bg: #ffffff;
+            --theme-config-border: rgba(0,0,0,0.08);
+            --theme-config-text: #111111;
+            --theme-config-label: #333333;
+            --theme-config-select-bg: #f0f0f0;
+            --theme-config-select-border: rgba(0,0,0,0.1);
+            --theme-config-select-text: #111111;
+            --theme-toggle-inactive-bg: #c0c0c0;
+            --theme-btn-secondary-bg: #e0e0e0;
+            --theme-btn-secondary-text: #333333;
+            --theme-back-btn-bg: #e8e8e8;
+            --theme-back-btn-border: rgba(0,0,0,0.08);
+            --theme-back-btn-color: #444444;
+            --theme-accent-border-alpha: 0.25;
+            --theme-accent-icon-bg-alpha: 0.12;
+        }
+
+        /* ========== 全局黑色主题硬编码颜色覆盖 ========== */
+        [data-theme="global-black"] .config-select,
+        [data-theme="global-black"] .config-input {
+            background: var(--theme-config-select-bg);
+            border-color: var(--theme-config-select-border);
+            color: var(--theme-config-select-text);
+        }
+        [data-theme="global-black"] .config-select option,
+        [data-theme="global-black"] .config-input::placeholder {
+            background: #1e1e24; color: #aaa;
+        }
+        [data-theme="global-black"] .config-group label {
+            color: var(--theme-config-label);
+        }
+        [data-theme="global-black"] .divine-config-panel h3 {
+            color: var(--theme-config-text);
+        }
+        [data-theme="global-black"] .toggle-switch:not(.active) {
+            background: var(--theme-toggle-inactive-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        [data-theme="global-black"] .config-btn.secondary {
+            background: var(--theme-btn-secondary-bg);
+            color: var(--theme-btn-secondary-text);
+        }
+        [data-theme="global-black"] .config-btn.secondary:hover {
+            background: #4a4a54; color: #ddd;
+        }
+
+        [data-theme="global-black"] .reading-area .placeholder-text {
+            color: #6a6a76;
+        }
+        [data-theme="global-black"] .theme-accent-border {
+            border-color: rgba(var(--theme-primary-rgb), var(--theme-accent-border-alpha));
+        }
+        [data-theme="global-black"] .theme-accent-icon {
+            background: rgba(var(--theme-primary-rgb), var(--theme-accent-icon-bg-alpha));
+        }
+        [data-theme="global-black"] .divine-config-panel {
+            background: var(--theme-config-bg);
+            border: 1px solid var(--theme-config-border);
+        }
+        /* 设置页：主题选择器圆点 active 光环适配 */
+        [data-theme="global-black"] .theme-btn.active {
+            border-color: var(--theme-primary);
+            box-shadow: inset 0 0 0 2px rgba(255,255,255,0.85), 0 4px 16px rgba(0,0,0,0.4);
+        }
+        /* 设置页：toggle 开关 */
+        [data-theme="global-black"] .toggle-switch:not(.active) {
+            background: #3a3a40;
+        }
+        [data-theme="global-black"] #page-settings .glass-section {
+            background: rgba(24,24,30,0.85);
+        }
+        [data-theme="global-black"] #page-settings .border-gray-50,
+        [data-theme="global-black"] #page-settings [class*="border-gray-50"] {
+            border-color: rgba(255,255,255,0.05);
+        }
+        [data-theme="global-black"] #page-settings .border-white\/30 {
+            border-color: rgba(255,255,255,0.05);
+        }
+        [data-theme="global-black"] #page-settings .bg-gray-100 {
+            background: #2a2a34;
+        }
+
+        /* ========== 全局白色主题硬编码颜色覆盖 ========== */
+        [data-theme="global-white"] .config-select,
+        [data-theme="global-white"] .config-input {
+            background: #ffffff;
+            border-color: rgba(0,0,0,0.12);
+            color: #111111;
+        }
+        [data-theme="global-white"] .config-select option,
+        [data-theme="global-white"] .config-input::placeholder {
+            background: #ffffff; color: #888888;
+        }
+        [data-theme="global-white"] .config-group label {
+            color: #333333;
+        }
+        [data-theme="global-white"] .divine-config-panel h3 {
+            color: #111111;
+        }
+        [data-theme="global-white"] .toggle-switch:not(.active) {
+            background: #d0d0d0;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+        [data-theme="global-white"] .config-btn.secondary {
+            background: #e0e0e0;
+            color: #333333;
+        }
+        [data-theme="global-white"] .config-btn.secondary:hover {
+            background: #cccccc; color: #111111;
+        }
+
+        [data-theme="global-white"] .reading-area .placeholder-text {
+            color: #999999;
+        }
+        [data-theme="global-white"] .theme-accent-border {
+            border-color: rgba(68,68,68,0.2);
+        }
+        [data-theme="global-white"] .theme-accent-icon {
+            background: rgba(68,68,68,0.08);
+        }
+        [data-theme="global-white"] .divine-config-panel {
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        [data-theme="global-white"] .theme-btn.active {
+            border-color: var(--theme-primary);
+            box-shadow: inset 0 0 0 2px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.18);
+        }
+        [data-theme="global-white"] .toggle-switch:not(.active) {
+            background: #c0c0c0;
+        }
+        [data-theme="global-white"] #page-settings .glass-section {
+            background: #ffffff;
+        }
+        [data-theme="global-white"] #page-settings .border-gray-50,
+        [data-theme="global-white"] #page-settings [class*="border-gray-50"] {
+            border-color: rgba(0,0,0,0.06);
+        }
+        [data-theme="global-white"] #page-settings .border-white\/30 {
+            border-color: rgba(0,0,0,0.06);
+        }
+        [data-theme="global-white"] #page-settings .bg-gray-100 {
+            background: #dddddd;
+        }
+
+        /* ========== 今日运势卡片 ========== */
+        .daily-fortune-inner {
+            display: flex;
+            position: relative;
+            padding: 16px;
+            min-height: 120px;
+        }
+        .daily-fortune-accent {
+            width: 4px;
+            border-radius: 2px;
+            position: absolute;
+            left: 0; top: 16px; bottom: 16px;
+        }
+        .daily-fortune-content {
+            flex: 1;
+            padding-left: 14px;
+            display: flex;
+            flex-direction: column;
+        }
+        .daily-fortune-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        .daily-fortune-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--theme-text-dark);
+        }
+        .daily-fortune-date {
+            font-size: 10px;
+            color: var(--theme-text-muted);
+            opacity: 0.6;
+        }
+        .daily-fortune-name-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 6px;
+        }
+        .daily-fortune-name {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--theme-text-dark);
+            line-height: 1.15;
+            font-family: 'Noto Serif SC', 'Songti SC', serif;
+        }
+        .daily-fortune-judgment {
+            font-size: 12px;
+            color: var(--theme-text-light);
+        }
+        .daily-fortune-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .daily-fortune-tag {
+            font-size: 10px;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-weight: 400;
+        }
+        .daily-fortune-svg {
+            flex-shrink: 0;
+            width: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .daily-fortune-svg svg {
+            width: 100%;
+            height: auto;
+        }
+        .daily-fortune-chevron {
+            position: absolute;
+            right: 14px;
+            bottom: 14px;
+            font-size: 12px;
+            color: var(--theme-text-muted);
+            opacity: 0.35;
+        }
+        /* ===== 快捷选择器 - 复用 config-panel 样式 ===== */
+        .quick-picker-list {
+            display: flex; flex-direction: column; gap: 6px;
+            max-height: 300px; overflow-y: auto; margin-bottom: 12px;
+        }
+        .quick-picker-item {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 14px; border-radius: 12px;
+            border: 1.5px solid var(--theme-glass-border);
+            background: var(--theme-glass-input-bg);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            cursor: pointer; transition: all 0.18s;
+        }
+        .quick-picker-item:hover { border-color: var(--theme-primary); background: rgba(var(--theme-primary-rgb),0.06); }
+        .quick-picker-item.active {
+            border-color: var(--theme-primary);
+            background: rgba(var(--theme-primary-rgb),0.1);
+        }
+        .quick-picker-item .qpi-name { font-size:13px; font-weight:500; color:var(--theme-text-dark); }
+        .quick-picker-item .qpi-sub { font-size:10px; color:var(--theme-text-muted); margin-top:1px; }
+        .quick-picker-item .qpi-check {
+            width:20px; height:20px; border-radius:50%; border:1.5px solid var(--theme-glass-border);
+            display:flex; align-items:center; justify-content:center; font-size:10px;
+            color:transparent; flex-shrink:0;
+        }
+        .quick-picker-item.active .qpi-check {
+            border-color: var(--theme-primary);
+            background: var(--theme-primary); color:#fff;
+        }
+        /* ===== 随机占卜结果面板 ===== */
+        .random-divine-panel {
+            width: fit-content; min-width: 280px; max-width: 90vw;
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(20px) saturate(170%);
+            -webkit-backdrop-filter: blur(20px) saturate(170%);
+
+            border: 1px solid var(--theme-glass-border);
+            border-radius: 20px; padding: 24px 20px 28px;
+            box-shadow: 0 8px 32px rgba(var(--theme-shadow-rgb), 0.15),
+                        0 2px 8px rgba(var(--theme-shadow-rgb), 0.08),
+                        inset 0 1px 0 var(--theme-glass-highlight);
+            animation: slideUp 0.35s cubic-bezier(0.16,1,0.3,1);
+            max-height: 90vh; overflow-y: auto;
+            display: flex; flex-direction: column; gap: 20px;
+        }
+        .rd-header {
+            display: flex; align-items: flex-start; justify-content: space-between;
+            gap: 12px; flex-shrink: 0;
+        }
+        .rd-cards-container {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px;
+        }
+        /* 单张牌：居中 */
+        .rd-cards-container.layout-single { justify-content: center; }
+        .rd-cards-container.layout-single .rd-card-img { max-width: 65vw; max-height: 55vh; }
+        .rd-cards-container.layout-single .rd-card-info { font-size: 12px; }
+        /* 三张横排 */
+        .rd-cards-container.layout-three { display: flex; flex-wrap: nowrap; justify-content: center; gap: 12px; }
+        .rd-cards-container.layout-three .rd-card-img { max-width: 28vw; max-height: 42vh; }
+        /* 凯尔特十字：grid 自适应 */
+        .rd-cards-container.layout-celtic {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+        }
+        .rd-cards-container.layout-celtic .rd-card-img { max-width: 14vw; max-height: 22vh; }
+        /* 默认多张 */
+        .rd-cards-container.layout-multi { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 12px; }
+        .rd-cards-container.layout-multi .rd-card-img { max-width: 18vw; max-height: 30vh; }
+        /* 单张牌容器 — 由内容决定宽度 */
+        .rd-card {
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; gap: 0; min-width: 0;
+        }
+        .rd-card-img {
+            display: block; object-fit: contain; border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(var(--theme-shadow-rgb), 0.18);
+            background: var(--theme-glass-input-bg);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+        }
+        .rd-card-img svg {
+            width: 100%; height: 100%;
+            fill: none; stroke: rgba(255,255,255,0.95);
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        }
+        .rd-card-img.rd-iching { aspect-ratio: 1/1; min-width: 70px; min-height: 70px; }
+        /* 周易随机占卜牌面 — 与牌组详情页 card-thumb 完全一致，无固定尺寸约束 */
+        .rd-cards-container .card-thumb {
+            border-radius: 16px; overflow: hidden;
+            display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;
+            padding: 10px 6px 12px; min-width: 120px;
+            text-align: center; color: #fff;
+            box-shadow: 0 4px 16px rgba(var(--theme-shadow-rgb), 0.18);
+            position: relative;
+        }
+        .rd-cards-container .card-thumb .card-number {
+            position: absolute; top: 8px; left: 10px;
+            font-size: 11px; font-weight: 600; letter-spacing: 0.02em;
+            opacity: 0.5; color: rgba(255,255,255,0.9);
+            text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+            font-variant-numeric: tabular-nums;
+        }
+        .rd-cards-container .card-thumb .card-name {
+            font-size: 13px; font-weight: 500;
+            color: rgba(255,255,255,0.95); line-height: 1.3;
+            margin-top: 4px; text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .rd-cards-container .card-thumb .card-name-en {
+            font-size: 11px; color: rgba(255,255,255,0.7);
+            line-height: 1.2; margin-top: 1px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            letter-spacing: 0.02em;
+        }
+        .rd-cards-container .card-thumb .card-divider {
+            width: 24px; height: 2px; background: rgba(255,255,255,0.3);
+            border-radius: 2px; margin: 3px auto 4px;
+        }
+        .rd-card-info {
+            font-size: 11px; font-weight: 500; margin-top: 4px; color: var(--theme-text-dark);
+            line-height: 1.3; max-width: 120px; word-break: break-word;
+            display: flex; flex-direction: column; align-items: center; gap: 2px;
+        }
+        .rd-card-info .rd-card-reversed {
+            font-size: 9px; padding: 1px 7px;
+            border-radius: 8px; font-weight: 500;
+        }
+        .rd-card-info .rd-card-reversed.reversed-yes {
+            background: rgba(239,68,68,0.12); color: #ef4444;
+        }
+        .rd-card-info .rd-card-reversed.reversed-no {
+            background: rgba(34,197,94,0.12); color: #22c55e;
+        }
+        [data-theme="global-black"] .rd-card-info .rd-card-reversed.reversed-yes {
+            background: rgba(239,68,68,0.18); color: #f87171;
+        }
+        [data-theme="global-black"] .rd-card-info .rd-card-reversed.reversed-no {
+            background: rgba(34,197,94,0.18); color: #4ade80;
+        }
+        .rd-card-info .rd-card-pos-label {
+            font-size: 9px; color: #000; font-weight: 500; max-width: 100px;
+        }
+        .rd-actions { display: flex; gap: 10px; flex-shrink: 0; }
+        .rd-btn-primary {
+            flex: 1; padding: 12px 16px; border-radius: 14px;
+            border: none; font-size: 14px; font-weight: 500; cursor: pointer;
+            color: #fff; transition: opacity 0.2s;
+            background: var(--theme-btn-gradient);
+            box-shadow: 0 4px 14px rgba(var(--theme-primary-rgb),0.28);
+        }
+        .rd-btn-primary:hover { opacity: 0.9; }
+        .rd-btn-secondary {
+            flex: 1; padding: 12px 16px; border-radius: 14px;
+            border: 1.5px solid var(--theme-glass-border);
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            font-size: 14px; font-weight: 500; color: var(--theme-text-dark);
+            cursor: pointer; transition: background 0.2s;
+        }
+        .rd-btn-secondary:hover { background: var(--theme-glass-input-bg); }
+        /* 移动端适配 */
+        @media (max-width:480px) {
+            .random-divine-panel { min-width: auto; max-width: 94vw; padding: 20px 12px 22px; border-radius: 20px; width: fit-content; }
+            .rd-cards-container { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
+            .rd-cards-container.layout-single .rd-card-img { max-width: 80vw; max-height: 50vh; }
+            .rd-cards-container.layout-three { display: flex; flex-wrap: nowrap; justify-content: center; gap: 8px; }
+            .rd-cards-container.layout-three .rd-card-img { max-width: 30vw; max-height: 36vh; }
+            .rd-cards-container.layout-celtic { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+            .rd-cards-container.layout-celtic .rd-card-img { max-width: 18vw; max-height: 20vh; }
+            .rd-cards-container.layout-multi { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: 8px; }
+            .rd-cards-container.layout-multi .rd-card-img { max-width: 25vw; max-height: 28vh; }
+            .rd-card-img { border-radius: 8px; }
+            .rd-card-info { font-size: 10px; }
+        }
+
+        /* ===== 占卜记录样式 ===== */
+        .divine-record-item {
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            border: 1px solid var(--theme-glass-border);
+            border-radius: 12px;
+            padding: 14px;
+            box-shadow: 
+                0 8px 32px rgba(var(--theme-shadow-rgb), 0.12),
+                0 2px 8px rgba(var(--theme-shadow-rgb), 0.06);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .divine-record-item:hover {
+            box-shadow: 
+                0 12px 40px rgba(var(--theme-shadow-rgb), 0.18),
+                0 4px 12px rgba(var(--theme-shadow-rgb), 0.1),
+                inset 0 1px 0 var(--theme-glass-highlight);
+            transform: translateY(-2px);
+        }
+        .divine-record-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 8px;
+            flex-wrap: nowrap;
+            gap: 8px;
+        }
+        .divine-record-date {
+            font-size: 11px;
+            color: var(--theme-text-light, #888);
+            flex-shrink: 0;
+        }
+        .divine-record-meta {
+            font-size: 12px;
+            color: var(--theme-text-dark, #333);
+            font-weight: 500;
+            margin-left: auto;
+            text-align: right;
+            flex-shrink: 1;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .divine-record-source-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 1;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+        .divine-record-source-random {
+            background: rgba(var(--theme-primary-rgb), 0.12);
+            color: var(--theme-primary);
+        }
+        .divine-record-source-free {
+            background: rgba(var(--theme-magic-rgb), 0.12);
+            color: var(--theme-magic);
+        }
+        .divine-record-cards-preview {
+            display: flex;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+        .divine-record-card-mini {
+            width: 36px;
+            height: 50px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #fff;
+            font-weight: 600;
+            background: var(--theme-primary, #7EC8E3);
+        }
+        .divine-record-card-mini.reversed {
+            border: 2px solid rgba(239,68,68,0.6);
+            transform: rotate(180deg);
+        }
+        .divine-record-card-mini img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 3px;
+        }

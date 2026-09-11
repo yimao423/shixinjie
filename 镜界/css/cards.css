@@ -1,0 +1,294 @@
+        /* ===== 牌组列表 - 排序 & 删除 ===== */
+        .sort-btn {
+            transition: all 0.25s;
+            font-size: 11px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--theme-glass-border);
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            color: var(--theme-text-light);
+            cursor: pointer;
+            font-weight: 400;
+        }
+        .sort-btn.active-sort {
+            background: var(--theme-sort-active-bg);
+            color: #fff;
+            border-color: rgba(var(--theme-primary-rgb), 0.5);
+            box-shadow: 0 2px 10px rgba(var(--theme-shadow-rgb), 0.15);
+        }
+        .sort-btn:hover:not(.active-sort) {
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+        }
+
+        .delete-btn {
+            transition: all 0.25s;
+            opacity: 0.35;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--theme-text-light);
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(12px) saturate(150%);
+            -webkit-backdrop-filter: blur(12px) saturate(150%);
+            border: 1px solid var(--theme-glass-border);
+            flex-shrink: 0;
+            margin-left: 4px;
+        }
+        .delete-btn:hover {
+            opacity: 1;
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.12);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+        .deck-item:hover .delete-btn {
+            opacity: 0.7;
+        }
+
+        /* ===== 太极图标 ===== */
+        .taiji-icon {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            line-height: 1;
+        }
+
+        /* ===== 空状态 ===== */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7EA8B8;
+        }
+        .empty-state i {
+            font-size: 40px;
+            opacity: 0.3;
+            margin-bottom: 12px;
+        }
+        .empty-state p {
+            font-size: 14px;
+        }
+        .empty-state .sub {
+            font-size: 12px;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        /* ===== 自定义牌组 - 卡片展示 (完全自适应，无边框) ===== */
+        .deck-detail-grid .card-thumb-custom {
+            padding: 0 !important;
+            background: #f1f5f9;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border-radius: 16px;
+            box-shadow: 
+                0 4px 16px rgba(var(--theme-shadow-rgb), 0.12),
+                0 2px 4px rgba(var(--theme-shadow-rgb), 0.06);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            height: auto;
+        }
+        .deck-detail-grid .card-thumb-custom:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 
+                0 12px 36px rgba(var(--theme-shadow-rgb), 0.22),
+                0 4px 12px rgba(var(--theme-shadow-rgb), 0.12);
+        }
+        .card-thumb-custom img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+        .card-thumb-custom .card-number {
+            position: absolute;
+            top: 6px;
+            left: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            font-variant-numeric: tabular-nums;
+        }
+        .card-thumb-custom .card-name-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--theme-text-dark);
+            background: var(--theme-glass-bg);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            backdrop-filter: blur(10px) saturate(150%);
+            -webkit-backdrop-filter: blur(10px) saturate(150%);
+            padding: 4px 0;
+            line-height: 1.2;
+            border-bottom-left-radius: 14px;
+            border-bottom-right-radius: 14px;
+        }
+
+    
+        /* ===== 3D 翻转卡片 ===== */
+        .flip-card-scene {
+            perspective: 1000px;
+            -webkit-perspective: 1000px;
+            cursor: pointer;
+        }
+        .flip-card-scene .flip-card-inner {
+            display: grid;
+            grid-template: 1fr / 1fr;
+            width: 100%;
+            transition: transform 0.6s ease;
+            -webkit-transition: -webkit-transform 0.6s ease;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            will-change: transform;
+        }
+        .flip-card-scene.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+        }
+        .flip-card-front,
+        .flip-card-back {
+            grid-area: 1 / 1;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .flip-card-front {
+            z-index: 1;
+            transform: rotateY(0deg);
+            -webkit-transform: rotateY(0deg);
+        }
+        .flip-card-back {
+            z-index: 0;
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border: none;
+        }
+        .flip-card-back .back-pattern {
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+        }
+        .flip-card-back .back-center-icon {
+            position: relative;
+            z-index: 2;
+            width: 60%;
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flip-card-back .back-center-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #8B7355;
+            stroke-width: 1.5;
+        }
+        .flip-card-back .back-deck-name {
+            position: relative;
+            z-index: 2;
+            font-size: 10px;
+            color: #8B7355;
+            margin-top: 8px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .flip-card-back .back-border {
+            position: absolute;
+            inset: 6px;
+            border: 1px solid rgba(139,115,85,0.25);
+            border-radius: 10px;
+            pointer-events: none;
+        }
+
+        /* 周易牌背：隐藏边框和名称，让 SVG 铺满，清除继承的 stroke/fill */
+        .iching-back .back-border,
+        .iching-back .back-deck-name { display: none !important; }
+        .iching-back .back-center-icon { width: 100% !important; height: 100% !important; }
+        .iching-back .back-center-icon svg {
+            stroke: none !important;
+            height: 100% !important;
+        }
+        
+        
+        
+        
+        
+
+        /* 自定义牌组的翻转卡片 */
+        .flip-card-scene-custom {
+            perspective: 1000px;
+            -webkit-perspective: 1000px;
+            cursor: pointer;
+        }
+        .flip-card-scene-custom .flip-card-inner {
+            position: relative;
+            width: 100%;
+            transition: transform 0.6s ease;
+            -webkit-transition: -webkit-transform 0.6s ease;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            will-change: transform;
+        }
+        .flip-card-scene-custom.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+        }
+        .flip-card-scene-custom .flip-card-front {
+            position: relative;
+            width: 100%;
+            height: auto;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+            transform: rotateY(0deg);
+            -webkit-transform: rotateY(0deg);
+        }
+        .flip-card-scene-custom .flip-card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .flip-card-scene-custom .flip-card-back {
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
